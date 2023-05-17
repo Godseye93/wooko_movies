@@ -1,0 +1,194 @@
+[
+    {
+        "id": 878375,
+        "model": "movies.movie",
+        "fields": {
+            "title": "온 어 윙 앤드 어 프레이어",
+            "release_date": "2023-04-06",
+            "popularity": 36.248,
+            "vote_average": 6.4,
+            "overview": "조종사가 비행기를 조종하다 예기치 않게 사망한 후 가족을 구하기 위해 안전하게 비행기를 조종해야만 하는 한 남자의 이야기",
+            "poster_path": "/wXiLzb5QiibYSDupKKtAi2MSu06.jpg",
+            "genre_ids": [
+                18
+            ],
+            "backdrop_path": "/ndrZYPNv0jKMCO9Ne98vfNxTzkW.jpg"
+        }
+    },
+    {
+        "id": 1094319,
+        "model": "movies.movie",
+        "fields": {
+            "title": "베스트 맨",
+            "release_date": "2023-04-21",
+            "popularity": 46.591,
+            "vote_average": 5.1,
+            "overview": "용병들이 결혼식 도중 외딴 리조트 호텔을 장악하고 인질로 잡은 사람들을 구출하기 위해 신랑, 베스트맨, 그리고 그의 술 취한 친구들의 인질 구조 작전",
+            "poster_path": "/c9f6mFZqkyz4AD0sxGmynE1pe0v.jpg",
+            "genre_ids": [
+                28,
+                53
+            ],
+            "backdrop_path": "/wIb43RlPf5iYeoBAYIfxfhpE8NI.jpg"
+        }
+    },
+    {
+        "id": 798286,
+        "model": "movies.movie",
+        "fields": {
+            "title": "보 이즈 어프레이드",
+            "release_date": "2023-04-14",
+            "popularity": 45.179,
+            "vote_average": 7.3,
+            "overview": "엄마를 만나러 가야 하는 보의 기억과 환상, 현실이 뒤섞인 공포를 경험하게 되는 기이한 여정을 그린 영화.",
+            "poster_path": "/pU8F9qKSoiqcv1nnaYezBzp7MoZ.jpg",
+            "genre_ids": [
+                35,
+                12,
+                14
+            ],
+            "backdrop_path": "/pS4oSxn9g0PAzkWD5zrSOuRIgT6.jpg"
+        }
+    },
+    {
+        "id": 679,
+        "model": "movies.movie",
+        "fields": {
+            "title": "에이리언 2",
+            "release_date": "1986-07-18",
+            "popularity": 39.266,
+            "vote_average": 7.9,
+            "overview": "에일리언과의 싸움에서 간신히 살아남은 리플리는 잠든 채로 57년을 떠돌다 구조선에 의해 구출된다. 회사는 리플리를 비롯한 당시 승무원들이 노스트로모호를 잃어버린 것을 추궁하지만 에이리언 얘기는 믿지 않는다. 이때 지구와 한 혹성 거주민들의 통신이 두절되는 사건이 벌어지자 리플리는 고문 자격으로 해병대와 동행하게 된다. 혹성에 도착한 해병대원들은 곧 혹성 거주민들이 에일리언 유충의 산 먹이로 된 것을 목격하고, 곧이어 벌어진 교전에서 여러 대원들을 잃는다. 그들은 혹성 거주민들의 실험실로 대피하고, 리플리는 이곳에서 마지막 생존자인 뉴트를 발견하게 된다.",
+            "poster_path": "/8J1SwqmsHRzZ5k8QVRibkzyc9jc.jpg",
+            "genre_ids": [
+                28,
+                53,
+                878
+            ],
+            "backdrop_path": "/jMBpJFRtrtIXymer93XLavPwI3P.jpg"
+        }
+    },
+    {
+        "id": 630,
+        "model": "movies.movie",
+        "fields": {
+            "title": "오즈의 마법사",
+            "release_date": "1939-08-15",
+            "popularity": 43.375,
+            "vote_average": 7.6,
+            "overview": "회오리 바람에 휩쓸려 오즈의 나라로 내던져진 도로시는 집으로 되돌아갈 수 있는 유일한 길이 위대한 오즈의 마법사를 만나는 것임을 알고 그를 찾아 긴 여정이 시작된다. 도로시는 애견 토토와 함께 노란 길을 따라 오즈의 마법사가 사는 에메랄드 시티로 향한다. 도중에 만난 세 명의 친구들, 지능을 얻고자 하는 허수아비와 심장을 원하는 양철 나뭇꾼, 용기를 가지고 싶어하는 겁장이 사자와 함께 오즈의 마법사에게 자신의 소원이 이루어지도록 부탁하기 위해 도로시와 함께 경쾌한 발걸음을 옮긴다. 그러나 도로시 일행을 방해하기 위해 뒤쫓아오는 서쪽 나라 마녀의 검은 그림자.",
+            "poster_path": "/yyWpOqSAd8uewpzrnPI9IiBhzSs.jpg",
+            "genre_ids": [
+                12,
+                14,
+                10751
+            ],
+            "backdrop_path": "/zL4gtCeoPZkAFCKR0kNERpUiuPR.jpg"
+        }
+    },
+    {
+        "id": 850028,
+        "model": "movies.movie",
+        "fields": {
+            "title": "앨리스, 달링",
+            "release_date": "2022-12-30",
+            "popularity": 37.727,
+            "vote_average": 6,
+            "overview": "앨리스는 어릴 적 친구 테스, 소피와 와인 바에서 만나 저녁을 먹는다. 소피는 테스의 생일을 축하하기 위해 주말에 별장으로 여행을 가자고 제안한다. 남자친구 사이먼의 전화를 받은 앨리스는 불안한 눈빛으로 집으로 돌아간다. 앨리스는 테스와 소피를 좋아하지 않는 사이먼의 눈치를 보며 콜린의 판매 일 때문에 주말에 출장을 가야 한다고 거짓말한다. 사이먼은 테스의 별장에 있는 앨리스에게 빨리 돌아오라고 문자를 보낸다. 앨리스는 사이먼의 압력과 친구의 우정 사이에서 내적 갈등을 겪는다. 앨리스가 사이먼으로부터 심각한 정신적 학대를 받고 있었다는 사실이 드러난다. 마음대로 앨리스의 이메일을 열어본 사이먼은 집으로 오라고 압박한다. 테스는 앨리스가 집으로 가는 걸 막기 위해 그녀의 휴대폰과 지갑을 숨긴다. 테스와 소피는 앨리스가 사이먼에게 심리 지배(가스라이팅)되고 있음을 알게 되는데...",
+            "poster_path": "/ybqS7I4tuMs1TIssvuLMk2lYlLe.jpg",
+            "genre_ids": [
+                53,
+                9648,
+                18
+            ],
+            "backdrop_path": "/5CrqsVDEukfvTUxmPWe1I32PS9K.jpg"
+        }
+    },
+    {
+        "id": 62,
+        "model": "movies.movie",
+        "fields": {
+            "title": "2001 스페이스 오디세이",
+            "release_date": "1968-04-02",
+            "popularity": 34.186,
+            "vote_average": 8.1,
+            "overview": "인류에게 문명의 지혜를 가르쳐 준 검은 돌기둥의 정체를 밝히기 위해서 디스커버리호의 선장 보우만과 승무원 풀은 목성을 향해서 날아간다. 하지만 평온하던 디스커버리호에 갑자기 재난이 찾아온다. 우주선 내부에서 일어난 재난은 컴퓨터 HAL이 반란을 일으킨 것. HAL은 풀을 우주선 밖으로 던져버리고, 보우만까지도 모선 밖으로 끌어내지만 그는 필사의 노력으로 HAL을 제압한다. 보우만은 마침내 목성 궤도에서 문제의 검은 돌기둥을 발견하지만, 그 순간 우주의 급류에 휘말리게 된다. 보우만은 지구로의 귀환을 위해 노력하고, 신비한 시간의 흐름을 경험하는데...",
+            "poster_path": "/2qJjH5mYNlGPdVrPqfEq1J6Mgb4.jpg",
+            "genre_ids": [
+                878,
+                9648,
+                12
+            ],
+            "backdrop_path": "/kCEXA22ASuq7Y29jnngyaisyA0X.jpg"
+        }
+    },
+    {
+        "id": 1924,
+        "model": "movies.movie",
+        "fields": {
+            "title": "슈퍼맨",
+            "release_date": "1978-12-13",
+            "popularity": 38.524,
+            "vote_average": 7.1,
+            "overview": "크립톤 행성의 조엘(Jor-El: 마론 브란도 분)은 행성이 곧 폭발할 것이라는 사실을 알고, 수많은 은하계의 지식을 담은 푸른 수정과 함께 아들인 카렐(Baby Clark Kent: 아론 스모린스키 분)을 지구로 보낸다. 카렐이 타고 온 작은 우주선은 조나단 부부(Jonathan Kent: 글렌 포드 분 / Ma Kent: 필리스 색터 분) 앞에 떨어지고, 아이가 없던 그들이 카렐을 데려와 클락이라 부르며 키운다.  어느 덧 청년으로 성장한 클락(Clark Kent/Superman: 크리스토퍼 리브 분)은 알지못하는 힘에 끌려 북쪽으로 가게 되고, 그 곳에서 아버지 조엘로부터 그 동안의 궁금증을 풀고, 다시 지구로 돌아오게 된다. 지구로 돌아온 클락은 데일리 플리닛지의 기자로 살아가며, 위험한 순간마다 슈퍼맨으로 변신해 사람들을 구해낸다. 슈퍼맨의 활약이 커지면서 신문사마다 다투어 그의 기사를 실었고 클락은 같은 신문사의 여기자 로이스 레인(Lois Lane: 마곳 키더 분)을 짝사랑하게 되는데.",
+            "poster_path": "/qwqXgd7FS0UhjU7SY5aNz6vV3G5.jpg",
+            "genre_ids": [
+                878,
+                28,
+                12
+            ],
+            "backdrop_path": "/8vXf9T4Nh6XL5T9BhO5al61Ywyf.jpg"
+        }
+    },
+    {
+        "id": 965150,
+        "model": "movies.movie",
+        "fields": {
+            "title": "애프터썬",
+            "release_date": "2022-10-21",
+            "popularity": 42.644,
+            "vote_average": 7.7,
+            "overview": "평범한 10대 소녀인 소피는 그동안 자신에게 소홀했던 아버지와 단둘이 튀르키예로 여행을 떠난다. 아버지와 처음으로 둘만의 오붓한 시간을 즐기는 동안, 소피는 어떻게든 자신을 즐겁게 해주려는 아버지의 새로운 이면을 보게 되는데…",
+            "poster_path": "/zZh6x7aHtSxsIQCewZVKEykVNtO.jpg",
+            "genre_ids": [
+                18
+            ],
+            "backdrop_path": "/hhICjHximfBciqxX09d91GgghV8.jpg"
+        }
+    },
+    {
+        "id": 785398,
+        "model": "movies.movie",
+        "fields": {
+            "title": "당나귀 EO",
+            "release_date": "2022-09-30",
+            "popularity": 38.031,
+            "vote_average": 6.6,
+            "overview": "타이틀롤을 맡은 주인공 EO(당나귀 울음소리에서 착안한 이름)는 동물보호단체에 의해 서커스단으로부터 ‘구조’된다. 이어서 우리는 EO가 농장에서 일하고, 훌리건들에 의해 축구팀 마스코트로 끌려 다니고, 소시지 공장에서 탈출하고, 머나먼 이탈리아의 저택까지 이르는 여정을 따라가게 된다. 동물의 눈으로 바라본 세상은 참으로 낯설고 위협적이며, EO가 거치는 고난의 행군은 예수의 수난에 비견될 만하다.",
+            "poster_path": "/a9owp5MlydhRmz3vYixffNigRBH.jpg",
+            "genre_ids": [
+                18
+            ],
+            "backdrop_path": "/hz4eqbxTQAQ3ZSFQAVP5GTfOh1N.jpg"
+        }
+    },
+    {
+        "id": 893712,
+        "model": "movies.movie",
+        "fields": {
+            "title": "극장판 소드 아트 온라인 -프로그레시브- 짙은 어둠의 스케르초",
+            "release_date": "2022-10-22",
+            "popularity": 42.848,
+            "vote_average": 6.5,
+            "overview": "세계 최초의 VRMMORPG <소드 아트 온라인>이 데스 게임으로 변하면서, 1만 명의 플레이어들이 게임 세계에 갇혀 버린 이후, 이미 한 달 이상이 경과했다. 강철의 부유성 '아인크라드' 제1층을 공략한 아스나는 키리토와 콤비를 맺고 최상층을 목표로 여행을 이어가고 있었다. 정보상 아르고의 협력도 더해져서, 공략은 순조롭게 진행되는 것 같았지만...\r '아인크라드' 공략을 선도하는 2대 길드의 대립이 발생하고, 새로운 위협이 아스나와 키리토를 끌어들이기 시작한다.",
+            "poster_path": "/1L904CSzPCEEpPcUoBWH4cjuGJW.jpg",
+            "genre_ids": [
+                16,
+                28,
+                14,
+                878
+            ],
+            "backdrop_path": "/a5alro35e0XUa21Hb9Wlci67U73.jpg"
+        }
+    }
+]
