@@ -25,6 +25,7 @@
                 />
                 <span class="input-group-btn">
                   <button
+                    @click="search"
                     class="btn text-white rounded-0 bg-danger"
                     type="button"
                   >
@@ -63,10 +64,14 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mb-0">
               <li class="nav-item">
-                <router-link class="nav-link" to="/">HOME</router-link>
+                <router-link class="nav-link" :to="{ name: 'home' }"
+                  >HOME</router-link
+                >
               </li>
               <li class="nav-item">
-                <router-link class="nav-link" to="/">COMMUNITY</router-link>
+                <router-link class="nav-link" :to="{ name: 'community' }"
+                  >COMMUNITY</router-link
+                >
               </li>
               <li class="nav-item">
                 <router-link class="nav-link" to="/">MINI GAME</router-link>
@@ -85,6 +90,11 @@
 <script>
 export default {
   name: 'NavBar',
+  methods: {
+    search() {
+      this.$router.push({ name: 'movie-search' });
+    },
+  },
 };
 </script>
 

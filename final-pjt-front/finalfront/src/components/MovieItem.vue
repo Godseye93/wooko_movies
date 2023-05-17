@@ -4,9 +4,9 @@
       <div class="trend_2im1 clearfix">
         <div class="grid">
           <figure class="effect-jazz mb-0">
-            <a href="#"
+            <router-link :to="{ name: 'movie-detail' }"
               ><img src="../assets/logo.png" class="w-100" alt="img25"
-            /></a>
+            /></router-link>
           </figure>
         </div>
       </div>

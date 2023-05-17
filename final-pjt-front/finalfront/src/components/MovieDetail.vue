@@ -17,9 +17,6 @@
                 </figure>
               </div>
             </div>
-            <div
-              class="popular_2i1lm2 position-absolute top-0 w-100 text-center clearfix"
-            ></div>
           </div>
           <div class="blog_1l1i mt-3">
             <h5><i class="fa fa-folder-open col_red me-1"></i> Movie News</h5>
