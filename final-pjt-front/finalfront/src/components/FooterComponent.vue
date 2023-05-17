@@ -4,7 +4,9 @@
       <div class="row footer_1 align-items-center">
         <div class="col-md-8">
           <div class="footer_1l">
-            <p class="mb-0">© 2023 WOOKO MOVIES</p>
+            <p class="mb-0">
+              © 2023 WOOKO MOVIES MADE BY JeongSeulHo & JangJinWook
+            </p>
           </div>
         </div>
         <div class="col-md-4">

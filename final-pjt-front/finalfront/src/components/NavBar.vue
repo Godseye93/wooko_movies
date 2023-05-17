@@ -7,7 +7,7 @@
             <div class="top_1l pt-1">
               <h3 class="mb-0">
                 <router-link
-                  :to="{ name: HomeView }"
+                  :to="{ name: 'home' }"
                   style="text-decoration: none; color: var(--bs-red)"
                   ><i class="fa fa-video-camera col_red me-1"></i>WOOKO
                   MOVIES</router-link
@@ -34,6 +34,14 @@
               </div>
             </div>
           </div>
+          <div class="col-md-4 text-end">
+            <router-link
+              class="button text-decoration-none"
+              :to="{ name: 'login' }"
+              ><i class="fa fa-long-arrow-right align-middle me-1"></i>
+              Login</router-link
+            >
+          </div>
         </div>
       </div>
     </section>
@@ -55,15 +63,16 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mb-0">
               <li class="nav-item">
-                <router-link class="nav-link" to="/"
-                  >내 취향 영화 고르기</router-link
-                >
+                <router-link class="nav-link" to="/">HOME</router-link>
               </li>
               <li class="nav-item">
-                <router-link class="nav-link" to="/">이상형 월드컵</router-link>
+                <router-link class="nav-link" to="/">COMMUNITY</router-link>
               </li>
               <li class="nav-item">
-                <router-link class="nav-link" to="/">추천 기능</router-link>
+                <router-link class="nav-link" to="/">MINI GAME</router-link>
+              </li>
+              <li class="nav-item">
+                <router-link class="nav-link" to="/">MY PROFILE</router-link>
               </li>
             </ul>
           </div>
