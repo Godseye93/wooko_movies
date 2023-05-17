@@ -1,0 +1,71 @@
+[
+    {
+        "id": 812488,
+        "model": "movies.movie",
+        "fields": {
+            "title": "스마일 어게인",
+            "release_date": "2022-09-02",
+            "popularity": 25.871,
+            "vote_average": 5.8,
+            "overview": "특수경찰대원 카밀라는 슬럼가에 숨은 갱단의 아지트를 급습하는 과정에서  갱단의 습격으로 대부분의 대원들이 희생당하는 사고를 당한다.  카밀라는 때마침 벌어진 사이비 교주 알비노의 강령술 한가운데에 떨어져  온몸에 심한 화상을 입은 채로 혼수상태에 빠진다.  기억을 잃고 깨어난 그녀는 친구인 파티마의 도움을 받는다.  하지만 기억을 잃은 카밀라의 주변에는 사악한 기운이 맴돌고  주변 사람들이 웃음을 지으며 자살하는 기이한 사건들이 벌어진다.  저주를 받은 카밀라와 파티마와 얽힌 끔찍한 비밀이 밝혀지고  사이비 종교 알비노 일당들과 최후의 대결을 벌이게 된다.",
+            "poster_path": "/qJVhs4BaUOHk3wT8AlTK1zgwq6w.jpg",
+            "genre_ids": [
+                53,
+                14,
+                27
+            ],
+            "backdrop_path": "/6VtzCw8Wd9UWSA5FcXK6Kh2y5FE.jpg"
+        }
+    },
+    {
+        "id": 814757,
+        "model": "movies.movie",
+        "fields": {
+            "title": "빛의 시네마",
+            "release_date": "2022-12-09",
+            "popularity": 27.439,
+            "vote_average": 6.7,
+            "overview": "1980년대 초, 영국 해안 도시의 오래된 극장. 정신병을 앓는 힐러리는 이곳 매니저로 일하며 우울한 일상을 이어간다. 그러던 어느 날, 스티븐이라는 흑인 청년이 극장에 새로운 직원으로 들어오며 그녀의 삶에 조금씩 변화가 찾아온다. 힘든 세상 가운데 서로에게 빛이 되어주는 두 사람의 특별한 이야기를 담은 영화.",
+            "poster_path": "/mNNgpJZ170yJA2IS2dPbnN8i0Bl.jpg",
+            "genre_ids": [
+                18,
+                10749
+            ],
+            "backdrop_path": "/bFAozpBc5s0cJcolKABpa5THusM.jpg"
+        }
+    },
+    {
+        "id": 511424,
+        "model": "movies.movie",
+        "fields": {
+            "title": "마이 러브",
+            "release_date": "2022-09-30",
+            "popularity": 18.034,
+            "vote_average": 6.2,
+            "overview": "우연히 설레임으로 찾아온 황혼의 사랑과 아버지와 딸의 애증 및 용서를 그린 영화",
+            "poster_path": "/smv4aFX9DcJPog9klg7IoiFhnjI.jpg",
+            "genre_ids": [
+                18,
+                10749
+            ],
+            "backdrop_path": "/pcwvKDQWBxoKScRDoe6DHtecOcC.jpg"
+        }
+    },
+    {
+        "id": 617882,
+        "model": "movies.movie",
+        "fields": {
+            "title": "소울메이트",
+            "release_date": "2023-03-15",
+            "popularity": 36.04,
+            "vote_average": 6.9,
+            "overview": "유년 시절을 함께한 미소와 하은이 어른이 되어가는 과정에서 겪는 관계의 굴곡을 그린다. 둘만의 안온한 세계는 10대 후반 무렵, 하은이 동급생 진우와 첫사랑을 시작하면서 미세한 균열을 겪는다. 자유분방한 미소는 도시로 떠나 모험적인 삶을 좇고, 하은은 고향에 남아 안정된 생활을 꾸리면서 둘은 그렇게 점차 멀어진다. 첫 만남부터 서로를 알아본 두 친구 미소와 하은 그리고 진우가 기쁨, 슬픔, 설렘, 그리움까지 모든 것을 함께 한 이야기를 담은 영화.",
+            "poster_path": "/vzD1TzfW0AxwHwh8wiN4RDQ2be5.jpg",
+            "genre_ids": [
+                18,
+                10749
+            ],
+            "backdrop_path": "/eSSZgM4vMcA4XK2FPptLa9NFsAs.jpg"
+        }
+    }
+]
