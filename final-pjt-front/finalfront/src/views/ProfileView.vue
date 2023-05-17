@@ -46,7 +46,7 @@
               <h6 class="fw-normal">
                 Director: <span class="pull-right">Eget Nulla</span>
               </h6>
-              <hr class="hr_1" />
+              <button class="button border-0" @click="routeProfileUpdatePage">프로필 수정하기</button>
        
             </div>
           </div>
@@ -107,7 +107,12 @@
 
 <script>
 export default {
-  name:'ProfileView'
+  name:'ProfileView',
+  methods:{
+    routeProfileUpdatePage(){
+      this.$router.push({name:'profile-update'})
+    }
+  }
 };
 </script>
 
