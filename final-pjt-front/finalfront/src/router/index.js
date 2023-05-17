@@ -6,6 +6,9 @@ import LoginView from '../views/LoginView.vue';
 import SearchView from '../views/SearchView.vue';
 import CommunityView from '../views/CommunityView.vue';
 import ArticleDetailView from '../views/ArticleDetailView.vue';
+import ArticleCreateView from '../views/ArticleCreateView.vue';
+import profileView from '../views/ProfileView.vue';
+import ProfileUpdateView from '../views/ProfileUpdateView.vue';
 
 Vue.use(VueRouter);
 
@@ -39,6 +42,21 @@ const routes = [
     path: '/community/article',
     name: 'article-detail',
     component: ArticleDetailView,
+  },
+  {
+    path: '/community/article/create',
+    name: 'article-create',
+    component: ArticleCreateView,
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    component: profileView,
+  },
+  {
+    path: '/profile/update',
+    name: 'profile-update',
+    component: ProfileUpdateView,
   },
 ];
 

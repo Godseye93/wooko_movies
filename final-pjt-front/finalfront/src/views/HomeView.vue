@@ -16,12 +16,7 @@ export default {
   components: { MovieListVue },
   data() {
     return {
-      categories: [
-        '내 취향 고려 추천 영화',
-        '평점 순',
-        '최신 순',
-        '개봉 예정 순',
-      ],
+      categories: ['내 취향 고려 추천 영화', '평점 순', '최신 순'],
     };
   },
 };

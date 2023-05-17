@@ -77,7 +77,9 @@
                 <router-link class="nav-link" to="/">MINI GAME</router-link>
               </li>
               <li class="nav-item">
-                <router-link class="nav-link" to="/">MY PROFILE</router-link>
+                <router-link class="nav-link" :to="{ name: 'profile' }"
+                  >MY PROFILE</router-link
+                >
               </li>
             </ul>
           </div>

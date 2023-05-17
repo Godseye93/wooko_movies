@@ -1,5 +1,5 @@
 <template>
-  <div class="blog_1r1 p-4 mt-4">
+  <div class="blog_1r1 p-4 mt-4 w-50" style="margin: 0 auto">
     <h4>Login <span class="col_red">Form</span></h4>
     <hr class="mb-4" />
     <div class="input-group input-group-merge">
@@ -47,7 +47,7 @@
       </div>
       <input
         type="password"
-        id="username"
+        id="password"
         class="form-control bg-transparent"
         placeholder="password"
       />
