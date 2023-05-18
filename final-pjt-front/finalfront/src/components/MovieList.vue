@@ -12,22 +12,18 @@
         </div>
       </div>
       <div class="row trend_2 mt-4">
-        <div
-          id="carouselExampleCaptions1"
-          class="carousel slide"
-          data-bs-ride="carousel"
-        >
+        <div :id="slideId" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-indicators">
             <button
               type="button"
-              data-bs-target="#carouselExampleCaptions1"
+              :data-bs-target="`#${slideId}`"
               data-bs-slide-to="0"
               class="active"
               aria-label="Slide 1"
             ></button>
             <button
               type="button"
-              data-bs-target="#carouselExampleCaptions1"
+              :data-bs-target="`#${slideId}`"
               data-bs-slide-to="1"
               aria-label="Slide 2"
               class=""
@@ -38,19 +34,19 @@
             <div class="carousel-item active">
               <div class="trend_2i row">
                 <MovieItem
-                  v-for="(item, index) in movieInfoList"
+                  v-for="(item, index) in movieInfoList.slice(0, 4)"
                   :key="index"
-                  :movieInfo="item"
+                  :movie-info="item"
                 />
               </div>
             </div>
             <div class="carousel-item">
               <div class="trend_2i row">
-                <MovieItem />
-                <MovieItem />
-                <MovieItem />
-                <MovieItem />
-                <div></div>
+                <MovieItem
+                  v-for="(item, index) in movieInfoList.slice(4, 8)"
+                  :key="index"
+                  :movieInfo="item"
+                />
               </div>
             </div>
           </div>
@@ -75,6 +71,10 @@ export default {
     },
     movieInfoList: {
       type: Array,
+      required: true,
+    },
+    slideId: {
+      type: String,
       required: true,
     },
   },

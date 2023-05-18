@@ -19,7 +19,7 @@ const routes = [
     component: HomeView,
   },
   {
-    path: '/detail',
+    path: '/detail/:movieId',
     name: 'movie-detail',
     component: MovieDetailView,
   },
@@ -29,7 +29,7 @@ const routes = [
     component: LoginView,
   },
   {
-    path: '/movie/search',
+    path: '/movie/search/:keyword',
     name: 'movie-search',
     component: SearchView,
   },
