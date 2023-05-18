@@ -1,5 +1,4 @@
 {
-  "diffEditor.wordWrap": "off",
   "[python]": {
     "editor.defaultFormatter": "ms-python.autopep8"
   },
