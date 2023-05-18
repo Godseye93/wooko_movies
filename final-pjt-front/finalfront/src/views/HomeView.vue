@@ -1,23 +1,31 @@
 <template>
   <div class="home">
     <MovieListVue
-      v-for="(item, index) in categories"
-      :key="index"
-      :category="item"
+      category="내 취향 고려 추천 영화"
+      :movieInfoList="getHighRatingMovies"
     />
+    <MovieListVue category="평점 순" :movieInfoList="getHighRatingMovies" />
+    <MovieListVue category="최신 순" :movieInfoList="getLatestMovies" />
   </div>
 </template>
 <script>
 import MovieListVue from '../components/MovieList.vue';
+import { mapGetters, mapActions } from 'vuex';
 // @ is an alias to /src
 
 export default {
   name: 'HomeView',
   components: { MovieListVue },
-  data() {
-    return {
-      categories: ['내 취향 고려 추천 영화', '평점 순', '최신 순'],
-    };
+
+  computed: {
+    ...mapGetters(['getHighRatingMovies', 'getLatestMovies']),
+  },
+  methods: {
+    ...mapActions(['getSortedMovies']),
+  },
+  created() {
+    this.getSortedMovies('vote_average');
+    this.getSortedMovies('release_date');
   },
 };
 </script>

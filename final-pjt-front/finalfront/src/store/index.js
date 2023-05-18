@@ -1,14 +1,15 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import movie from './movie';
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {
-    baseUrl: 'https://image.tmdb.org/t/p/',
-  },
+  state: {},
   getters: {},
   mutations: {},
   actions: {},
-  modules: {},
+  modules: {
+    movie,
+  },
 });

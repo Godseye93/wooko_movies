@@ -37,10 +37,11 @@
           <div class="carousel-inner">
             <div class="carousel-item active">
               <div class="trend_2i row">
-                <MovieItem />
-                <MovieItem />
-                <MovieItem />
-                <MovieItem />
+                <MovieItem
+                  v-for="(item, index) in movieInfoList"
+                  :key="index"
+                  :movieInfo="item"
+                />
               </div>
             </div>
             <div class="carousel-item">
@@ -49,6 +50,7 @@
                 <MovieItem />
                 <MovieItem />
                 <MovieItem />
+                <div></div>
               </div>
             </div>
           </div>
@@ -60,6 +62,7 @@
 
 <script>
 import MovieItem from './MovieItem.vue';
+
 export default {
   name: 'MovieList',
   components: {
@@ -68,6 +71,10 @@ export default {
   props: {
     category: {
       type: String,
+      required: true,
+    },
+    movieInfoList: {
+      type: Array,
       required: true,
     },
   },
