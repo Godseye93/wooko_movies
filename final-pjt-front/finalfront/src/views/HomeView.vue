@@ -3,9 +3,18 @@
     <MovieListVue
       category="내 취향 고려 추천 영화"
       :movieInfoList="getHighRatingMovies"
+      slideId="carouselExampleCaptions1"
     />
-    <MovieListVue category="평점 순" :movieInfoList="getHighRatingMovies" />
-    <MovieListVue category="최신 순" :movieInfoList="getLatestMovies" />
+    <MovieListVue
+      category="평점 순"
+      :movieInfoList="getHighRatingMovies"
+      slideId="carouselExampleCaptions2"
+    />
+    <MovieListVue
+      category="최신 순"
+      :movieInfoList="getLatestMovies"
+      slideId="carouselExampleCaptions3"
+    />
   </div>
 </template>
 <script>
