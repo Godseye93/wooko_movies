@@ -31,7 +31,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: 'FooterComponent',
+};
 </script>
 
-<style></style>
+<style>
+.footer_b {
+  position: absolute;
+  bottom: 0%;
+}
+</style>

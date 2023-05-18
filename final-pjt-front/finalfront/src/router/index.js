@@ -19,7 +19,7 @@ const routes = [
     component: HomeView,
   },
   {
-    path: '/detail',
+    path: '/detail/:movieId',
     name: 'movie-detail',
     component: MovieDetailView,
   },

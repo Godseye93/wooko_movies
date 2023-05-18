@@ -18,6 +18,9 @@ const movie = {
     getLatestMovies(state) {
       return state.latestMovies;
     },
+    getMovieDetail(state) {
+      return state.movieDetail;
+    },
   },
   mutations: {
     SET_RECOMMENDED_MOVIES(state, recommendedMovies) {
@@ -28,6 +31,9 @@ const movie = {
     },
     SET_LATEST_MOVIES(state, latestMovies) {
       state.latestMovies = latestMovies;
+    },
+    SET_MOVIE_DETAIL(state, movieDetail) {
+      state.movieDetail = movieDetail;
     },
   },
   actions: {
@@ -44,6 +50,19 @@ const movie = {
           } else {
             commit('SET_RECOMMENDED_MOVIES', res.data);
           }
+        })
+        .catch((err) => {
+          alert(err);
+        });
+    },
+
+    fetchMovieDetail({ commit }, movieId) {
+      axios({
+        method: 'get',
+        url: movieUrl.detailMovies(movieId),
+      })
+        .then((res) => {
+          commit('SET_MOVIE_DETAIL', res.data);
         })
         .catch((err) => {
           alert(err);

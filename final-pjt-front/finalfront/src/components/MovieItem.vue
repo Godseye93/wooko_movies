@@ -3,7 +3,8 @@
     <div class="trend_2im clearfix position-relative">
       <div class="trend_2im1 clearfix">
         <figure class="effect-jazz mb-0">
-          <router-link :to="{ name: 'movie-detail' }"
+          <router-link
+            :to="{ name: 'movie-detail', params: { movieId: movieInfo.id } }"
             ><img
               style="object-fit: cover; height: 260px"
               :src="imgBaseUrlMain + movieInfo.poster_path"
@@ -22,9 +23,12 @@
     </div>
     <div class="trend_2ilast bg_grey p-3 clearfix">
       <h5>
-        <router-link :to="{ name: 'movie-detail' }" class="col_red">{{
-          movieInfo.title
-        }}</router-link>
+        <router-link
+          :to="{ name: 'movie-detail', params: { movieId: movieInfo.id } }"
+          ><p class="overview-title col_red">
+            {{ movieInfo.title }}
+          </p></router-link
+        >
       </h5>
       <p class="mb-2 overview-text">
         {{ movieInfo.overview }}
@@ -94,6 +98,7 @@ export default {
       startCnt: [],
     };
   },
+
   props: {
     movieInfo: {
       type: Object,
@@ -108,6 +113,14 @@ export default {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2; /* Number of lines to display */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.overview-title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1; /* Number of lines to display */
   overflow: hidden;
   text-overflow: ellipsis;
 }
