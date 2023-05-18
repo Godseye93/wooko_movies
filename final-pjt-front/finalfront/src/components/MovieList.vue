@@ -36,7 +36,7 @@
                 <MovieItem
                   v-for="(item, index) in movieInfoList.slice(0, 4)"
                   :key="index"
-                  :movieInfo="item"
+                  :movie-info="item"
                 />
               </div>
             </div>

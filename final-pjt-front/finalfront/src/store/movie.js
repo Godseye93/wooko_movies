@@ -6,6 +6,7 @@ const movie = {
     recommendedMovies: [],
     highRatingMovies: [],
     latestMovies: [],
+    searchMovies: [],
     movieDetail: {},
   },
   getters: {
@@ -21,6 +22,9 @@ const movie = {
     getMovieDetail(state) {
       return state.movieDetail;
     },
+    getSearchedMovies(state) {
+      return state.searchMovies;
+    },
   },
   mutations: {
     SET_RECOMMENDED_MOVIES(state, recommendedMovies) {
@@ -34,6 +38,9 @@ const movie = {
     },
     SET_MOVIE_DETAIL(state, movieDetail) {
       state.movieDetail = movieDetail;
+    },
+    SET_SEARCHED_MOVIES(state, searchMovies) {
+      state.searchMovies = searchMovies;
     },
   },
   actions: {
@@ -64,6 +71,19 @@ const movie = {
         .then((res) => {
           commit('SET_MOVIE_DETAIL', res.data);
         })
+        .catch((err) => {
+          alert(err);
+        });
+    },
+    fetchSearchMovies({ commit }, keyword) {
+      axios({
+        method: 'get',
+        url: movieUrl.searchMovies(keyword),
+      })
+        .then((res) => {
+          commit('SET_SEARCHED_MOVIES', res.data.movies);
+        })
+
         .catch((err) => {
           alert(err);
         });

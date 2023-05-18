@@ -22,6 +22,8 @@
                   type="text"
                   class="form-control bg-black"
                   placeholder="Search Site..."
+                  v-model="keyword"
+                  @keyup.enter="search"
                 />
                 <span class="input-group-btn">
                   <button
@@ -90,11 +92,28 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex';
 export default {
   name: 'NavBar',
+  data() {
+    return {
+      keyword: '',
+    };
+  },
+  computed: {
+    ...mapGetters(['getSearchedMovies']),
+  },
+
   methods: {
+    ...mapActions(['fetchSearchMovies']),
+
     search() {
-      this.$router.push({ name: 'movie-search' });
+      if (this.keyword === '') return alert('검색어를 입력해주세요.');
+
+      this.$router.push({
+        name: 'movie-search',
+        params: { keyword: this.keyword },
+      });
     },
   },
 };

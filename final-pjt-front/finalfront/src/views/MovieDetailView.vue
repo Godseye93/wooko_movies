@@ -123,8 +123,6 @@ export default {
   created() {
     if (this.$route.params.movieId) {
       this.fetchMovieDetail(this.$route.params.movieId);
-    } else {
-      console.log('No movie ID in the URL');
     }
   },
 };

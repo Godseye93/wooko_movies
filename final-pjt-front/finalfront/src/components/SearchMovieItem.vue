@@ -5,29 +5,24 @@
         <div class="popular_2i1lm1 clearfix">
           <div class="grid">
             <figure class="effect-jazz mb-0">
-              <a href="#"
-                ><img src="../assets/logo.png" class="w-100" alt="img25"
-              /></a>
+              <router-link
+                :to="{ name: 'movie-detail', params: { id: movieInfo.id } }"
+                ><img
+                  :src="imgBaseUrlMain + movieInfo.poster_path"
+                  class="w-100"
+                  alt="img25"
+              /></router-link>
             </figure>
           </div>
         </div>
         <div
           class="popular_2i1lm2 position-absolute top-0 w-100 text-center clearfix"
-        >
-          <ul>
-            <li class="d-inline-block">
-              <a href="#"><i class="fa fa-link col_red"></i></a>
-            </li>
-            <li class="d-inline-block">
-              <a href="#"><i class="fa fa-search col_red"></i></a>
-            </li>
-          </ul>
-        </div>
+        ></div>
       </div>
     </div>
-    <div class="col-md-8 col-8">
+    <div class="col-md-8 col-8 my-auto">
       <div class="popular_2i1r">
-        <h5><a class="col_red" href="#">Eget Diam</a></h5>
+        <h5 class="col_red">{{ movieInfo.title }}</h5>
         <h6>Action, Thriller</h6>
         <h6>
           Imdb 8.3
@@ -35,13 +30,23 @@
           : 2022 <span class="ms-2">Runtime: 2h 29m</span>
         </h6>
         <p>
-          Four waves of increasingly deadly alien attacks have left most of
-          ruin. Cassie is on the run, desperately trying to save her younger
-          brother.
+          {{ movieInfo.overview }}
         </p>
-        <h6 class="mb-0">
-          <a class="button" href="#"> More Info - Trailer</a>
-        </h6>
+      </div>
+      <div class="blog_1r1 p-4 mt-4 ps-0">
+        <h4>genres <span class="col_red">Tags</span></h4>
+        <hr class="line mb-4 border-0" />
+        <ul class="mb-0">
+          <li class="d-inline-block">
+            <a class="d-block">Analyze</a>
+          </li>
+          <li class="d-inline-block">
+            <a class="d-block">Audio</a>
+          </li>
+          <li class="d-inline-block">
+            <a class="d-block">Blog</a>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -50,6 +55,17 @@
 <script>
 export default {
   name: 'SearchMovieItem',
+  data() {
+    return {
+      imgBaseUrlMain: 'https://image.tmdb.org/t/p/w500/',
+    };
+  },
+  props: {
+    movieInfo: {
+      type: Object,
+      required: true,
+    },
+  },
 };
 </script>
 
