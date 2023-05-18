@@ -5,9 +5,9 @@ from . import views
 app_name = 'movies'
 
 urlpatterns = [
-    path('movies/', views.movie_list),  # 모든 영화 목록 조회
-    path('movies/recommend/', views.movie_sort),
-    path('movie/<int:movie_pk>/', views.movie_detail),  # 단일 영화 조회
+    path('', views.movie_search, name='search'),  # 영화 검색
+    path('recommended/', views.movie_sort),
+    path('<int:movie_pk>/', views.movie_detail),  # 단일 영화 조회
 ]
 
 # 메인 페이지 추천영화 목록 (평점순, 최신순, 개봉예정순)

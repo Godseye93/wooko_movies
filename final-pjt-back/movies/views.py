@@ -15,19 +15,19 @@ def movie_sort(request):
     sort_by = request.GET.get('sort_by')  # 정렬 기준 파라미터 받기
     movies = Movie.objects.all()
 
-    if sort_by == 'popularity':
-        movies = movies.order_by('-popularity')
-    elif sort_by == 'vote_average':
+    # if sort_by == 'popularity':
+    #     movies = movies.order_by('-popularity')
+    if sort_by == 'vote_average':
         movies = movies.order_by('-vote_average')
     elif sort_by == 'release_date':
         movies = movies.order_by('release_date')
 
-    serializer = MovieSerializer(movies[:8], many=True)  # 상위8개만뽑는데 내림차순인지 오름차순인지 모름 진짜 모름
+    serializer = MovieSerializer(movies[:8], many=True)  # 상위8개
     return Response(serializer.data)
     # url 사용법
-    # movies/recommend/?sort_by=popularity
-    # movies/recommend/?sort_by=vote_average
-    # movies/recommend/?sort_by=release_date
+    # movies/recommended/?sort_by=popularity
+    # movies/recommended/?sort_by=vote_average
+    # movies/recommended/?sort_by=release_date
 
 
 # 영화 상세 정보 조회
@@ -37,11 +37,20 @@ def movie_detail(request, movie_pk):
     serializer = MovieSerializer(movie)
     return Response(serializer.data)
 
-@api_view(['GET'])
-def movie_list(request):
-    movies = Movie.objects.all()
+
+@api_view(['GET'])  # 영화 검색 기능
+def movie_search(request):
+    search = request.GET.get('search', '')
+    movies = Movie.objects.filter(title__icontains=search)
     serializer = MovieSerializer(movies, many=True)
-    return Response(serializer.data)
+    data = {'movies': serializer.data, 'search': search}
+    return Response(data)
+
+# def movie_search(request):
+#     movies = Movie.objects.all()
+#     serializer = MovieSerializer(movies, many=True)
+#     return Response(serializer.data)
+
 
 # # 메인 영화 목록을 반환
 # @api_view(['GET'])
