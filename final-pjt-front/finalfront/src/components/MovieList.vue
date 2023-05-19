@@ -5,7 +5,6 @@
         <div class="col-md-6 col-6">
           <div class="trend_1l">
             <h4 class="mb-0">
-              <i class="fa fa-youtube-play align-middle col_red me-1"></i>
               {{ category }} <span class="col_red">Movies</span>
             </h4>
           </div>

@@ -39,11 +39,19 @@
           </div>
           <div class="col-md-4 text-end">
             <router-link
+              v-if="!isLogin"
               class="button text-decoration-none"
               :to="{ name: 'login' }"
-              ><i class="fa fa-long-arrow-right align-middle me-1"></i>
+            >
               Login</router-link
             >
+            <button
+              v-else
+              class="button text-decoration-none"
+              @click="fetchLogout"
+            >
+              Logout
+            </button>
           </div>
         </div>
       </div>
@@ -75,8 +83,31 @@
                   >COMMUNITY</router-link
                 >
               </li>
-              <li class="nav-item">
-                <router-link class="nav-link" to="/">MINI GAME</router-link>
+
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  MINI GAME
+                </a>
+                <ul
+                  class="dropdown-menu drop_1"
+                  aria-labelledby="navbarDropdown"
+                >
+                  <li>
+                    <a class="dropdown-item" href="blog.html">이상형 월드컵</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item border-0" href="blog_detail.html"
+                      >VS 게임</a
+                    >
+                  </li>
+                </ul>
               </li>
               <li class="nav-item">
                 <router-link class="nav-link" :to="{ name: 'profile' }"
@@ -101,11 +132,11 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(['getSearchedMovies']),
+    ...mapGetters(['getSearchedMovies', 'isLogin']),
   },
 
   methods: {
-    ...mapActions(['fetchSearchMovies']),
+    ...mapActions(['fetchSearchMovies', 'fetchLogout']),
 
     search() {
       if (this.keyword === '') return alert('검색어를 입력해주세요.');

@@ -6,7 +6,9 @@ Author: TemplatesOnWeb
 Author URI: https://www.templateonweb.com/
 Licence: <a href="https://www.templateonweb.com/license">Website Template Licence</a>
 */
-
+/* #app {
+  min-height: 100vh;
+} */
 body {
   font-family: 'Rajdhani', sans-serif;
   color: #ffffff;
@@ -46,6 +48,7 @@ a:hover {
   padding: 10px 20px;
   display: inline-block;
   transition: 0.3s;
+  border: none;
 }
 .button:hover {
   background: #fff;
