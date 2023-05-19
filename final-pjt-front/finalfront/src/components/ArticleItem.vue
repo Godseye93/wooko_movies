@@ -1,5 +1,5 @@
 <template>
-  <div class="blog_1l1i mt-5" @click="articleDetail">
+  <div class="blog_1l1i mt-3" @click="articleDetail">
     <h2 class="mt-3 ms-3">{{ articleInfo.title }}</h2>
     <h6 class="fw-normal mt-3 col_light">
       <span class="ms-3"> 작성 날짜 : {{ createdFormatDate }}</span>
@@ -33,7 +33,10 @@ export default {
   },
   methods: {
     articleDetail() {
-      this.$router.push({ name: 'article-detail' });
+      this.$router.push({
+        name: 'article-detail',
+        params: { articleId: this.articleInfo.id },
+      });
     },
   },
 };
