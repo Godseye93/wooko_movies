@@ -8,13 +8,17 @@
     >
       글 작성하기
     </button>
-    <ArticleItem />
+    <ArticleItem
+      v-for="(item, index) in getAllArticles"
+      :key="index"
+      :article-info="item"
+    />
   </div>
 </template>
 
 <script>
 import ArticleItem from '@/components/ArticleItem.vue';
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
   name: 'CommunityView',
@@ -22,12 +26,16 @@ export default {
     ArticleItem,
   },
   computed: {
-    ...mapGetters(['isLogin']),
+    ...mapGetters(['isLogin', 'getAllArticles']),
   },
   methods: {
+    ...mapActions(['fetchAllArticles']),
     routeCreateArticlePage() {
       this.$router.push({ name: 'article-create' });
     },
+  },
+  created() {
+    this.fetchAllArticles();
   },
 };
 </script>
