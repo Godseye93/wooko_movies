@@ -1,4 +1,5 @@
 from django.contrib.auth import authenticate, login
+from django.shortcuts import get_object_or_404
 from rest_framework import status
 from rest_framework.authtoken.models import Token
 from rest_framework.decorators import api_view, permission_classes
@@ -6,7 +7,7 @@ from rest_framework.permissions import *
 from rest_framework.response import Response
 
 from .models import User
-from .serializers import UserSerializer
+from .serializers import FollowSerializer, UserSerializer
 
 # # 회원가입
 # @api_view(['POST'])
@@ -46,7 +47,7 @@ def user_delete(request):
 #     return Response(status=status.HTTP_200_OK)
 
 
-# 상대방 프로필 조회
+# 프로필 조회 / 수정
 @api_view(['GET', 'PUT'])
 @permission_classes([IsAuthenticated])
 def user_profile(request, user_pk=None):
@@ -72,3 +73,50 @@ def edit_profile(request):
         serializer.save()
         return Response(serializer.data, status=status.HTTP_200_OK)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+# 팔로우 등록 및 해제
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])  # 인증된 사용자만 권한 허용
+def follow(request, user_pk):
+    # user_pk : 팔로우 하려는 사람의 pk
+    follow_user = get_object_or_404(User, pk=user_pk)
+    # 나
+    user = request.user
+    # 나 와 팔로우 하려는 사람이 다를때
+    if follow_user != user:
+        # 기존의 팔로우 목록에 추가하려는 사람이 있다면 지우고 / 아니면 추가
+        if follow_user.followings.filter(pk=user.pk).exists():
+            follow_user.followings.remove(user)
+        else:
+            follow_user.followings.add(user)
+
+        serializer = FollowSerializer(follow_user)
+
+        follow_status = {
+            # 그 사람을 팔로우 한 사람의 숫자
+            'follower_count': follow_user.followings.count(),
+            # 그 사람을 팔로우 한 사람의 목록
+            'follow_list': serializer.data.get('followings'),
+            # 내가(혹은 해당 pk가) 팔로우 한 사람의 수
+            'following_count': follow_user.followers.count(),
+        }
+    return Response(follow_status)
+
+
+# 팔로우 조회
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def follow_list(request, user_pk):
+    follow_user = get_object_or_404(User, pk=user_pk)
+    serializer = FollowSerializer(follow_user)
+
+    follow_status = {
+        # 그 사람을 팔로우 한 사람의 숫자
+        'follower_count': follow_user.followings.count(),
+        # 그 사람을 팔로우 한 사람의 목록
+        'follow_list': serializer.data.get('followings'),
+        # 내가(혹은 해당 pk가) 팔로우 한 사람의 수
+        'following_count': follow_user.followers.count(),
+    }
+    return Response(follow_status)
