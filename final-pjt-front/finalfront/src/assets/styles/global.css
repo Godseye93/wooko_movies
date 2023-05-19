@@ -6,7 +6,9 @@ Author: TemplatesOnWeb
 Author URI: https://www.templateonweb.com/
 Licence: <a href="https://www.templateonweb.com/license">Website Template Licence</a>
 */
-
+/* #app {
+  min-height: 100vh;
+} */
 body {
   font-family: 'Rajdhani', sans-serif;
   color: #ffffff;

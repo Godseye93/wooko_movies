@@ -1,5 +1,5 @@
 <template>
-  <div class="play2 row mt-4">
+  <div class="play2 row mt-4 profile-detail">
     <div class="col-md-4 p-0">
       <div class="play2l">
         <div class="grid clearfix">
@@ -15,7 +15,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-8 p-0">
+    <div class="col-md-8 p-0 me-0">
       <div class="play2r bg_grey p-4">
         <h3 class="mt-3">xx님의 프로필</h3>
         <hr class="line border-0" />
@@ -123,5 +123,9 @@ ul li a {
   background: #252525;
   margin: 0px 2px 6px 0px;
   cursor: pointer;
+}
+.profile-detail{
+  max-width: 100vw;
+  margin: 0px;
 }
 </style>

@@ -83,8 +83,31 @@
                   >COMMUNITY</router-link
                 >
               </li>
-              <li class="nav-item">
-                <router-link class="nav-link" to="/">MINI GAME</router-link>
+
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  MINI GAME
+                </a>
+                <ul
+                  class="dropdown-menu drop_1"
+                  aria-labelledby="navbarDropdown"
+                >
+                  <li>
+                    <a class="dropdown-item" href="blog.html">이상형 월드컵</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item border-0" href="blog_detail.html"
+                      >VS 게임</a
+                    >
+                  </li>
+                </ul>
               </li>
               <li class="nav-item">
                 <router-link class="nav-link" :to="{ name: 'profile' }"

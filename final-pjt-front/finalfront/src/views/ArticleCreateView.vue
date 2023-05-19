@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-3">
+  <div class="mt-3 ms-5 me-5">
     <div class="contact_2l row">
       <div class="col-md-12">
         <h4>글 작성하기</h4>
