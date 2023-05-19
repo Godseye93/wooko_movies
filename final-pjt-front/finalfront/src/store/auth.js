@@ -1,11 +1,8 @@
-import createPersistedState from 'vuex-persistedstate';
 import axios from 'axios';
 import accountsUrl from '@/api_url/accountsUrl';
 import router from '@/router';
 
 const auth = {
-  plugins: [createPersistedState()],
-
   state: {
     token: null,
   },
