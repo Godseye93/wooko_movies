@@ -27,7 +27,7 @@ const movie = {
         },
       })
         .then((res) => {
-          alert('게시글이 생성되었습니다.', res);
+          console.log(res);
         })
         .catch((err) => {
           alert(err);

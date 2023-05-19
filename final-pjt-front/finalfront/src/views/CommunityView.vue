@@ -1,11 +1,7 @@
 <template>
-  <div class="text-center">
+  <div class="ms-5">
     <h1 class="mt-3 mb-5" style="color: var(--bs-red)">Community Articles</h1>
-    <button
-      v-if="isLogin"
-      class="button border-0"
-      @click="routeCreateArticlePage"
-    >
+    <button v-if="isLogin" class="button" @click="routeCreateArticlePage">
       글 작성하기
     </button>
     <ArticleItem

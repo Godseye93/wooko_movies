@@ -11,7 +11,7 @@ from .serializers import ArticleSerializer, CommentSerializer
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def article_list(request):
-    articles = get_object_or_404(Article)
+    articles = Article.objects.all()
     serializer = ArticleSerializer(articles, many=True)
     return Response(serializer.data)
 
