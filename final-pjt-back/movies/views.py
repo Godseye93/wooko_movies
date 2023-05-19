@@ -20,7 +20,7 @@ def movie_sort(request):
     if sort_by == 'vote_average':
         movies = movies.order_by('-vote_average')
     elif sort_by == 'release_date':
-        movies = movies.order_by('release_date')
+        movies = movies.order_by('-release_date')
 
     serializer = MovieSerializer(movies[:8], many=True)  # 상위8개
     return Response(serializer.data)

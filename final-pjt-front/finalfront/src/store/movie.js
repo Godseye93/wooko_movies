@@ -45,9 +45,17 @@ const movie = {
   },
   actions: {
     getSortedMovies({ commit }, sortMethod) {
+      let url = '';
+      if (sortMethod === 'vote_average') {
+        url = movieUrl.highRatingMovies();
+      } else if (sortMethod === 'release_date') {
+        url = movieUrl.latestMovies();
+      } else {
+        url = movieUrl.recommendedMovies();
+      }
       axios({
         method: 'get',
-        url: movieUrl.sortedMovies(sortMethod),
+        url,
       })
         .then((res) => {
           if (sortMethod === 'vote_average') {
