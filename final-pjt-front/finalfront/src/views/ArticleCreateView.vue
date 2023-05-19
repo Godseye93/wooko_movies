@@ -9,7 +9,12 @@
     <div class="contact_2l1 mt-3 row">
       <div class="col-md-6">
         <div class="contact_2l1i">
-          <input class="form-control" placeholder="제목*" type="text" />
+          <input
+            class="form-control"
+            placeholder="제목*"
+            type="text"
+            v-model="title"
+          />
         </div>
       </div>
     </div>
@@ -20,9 +25,10 @@
           <textarea
             placeholder="내용을 입력하세요."
             class="form-control form_text"
+            v-model="content"
           ></textarea>
           <h6 class="mt-3 mb-3">
-            <a class="button" href="#" @click="submitArticle"> Submit</a>
+            <button class="button" @click="submitArticle">Submit</button>
           </h6>
         </div>
       </div>
@@ -31,10 +37,24 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 export default {
   name: 'ArticleCreateView',
+  data() {
+    return {
+      title: null,
+      content: null,
+    };
+  },
   methods: {
-    submitArticle() {},
+    ...mapActions(['createArticle']),
+    submitArticle() {
+      this.createArticle({
+        title: this.title,
+        content: this.content,
+      });
+      this.$router.push({ name: 'community' });
+    },
   },
 };
 </script>
