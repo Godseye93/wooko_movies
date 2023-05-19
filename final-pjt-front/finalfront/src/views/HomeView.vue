@@ -204,6 +204,7 @@
       category="최신 순"
       :movieInfoList="getLatestMovies"
       slideId="carouselExampleCaptions3"
+      class="mb-5"
     />
   </div>
 </template>
