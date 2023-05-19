@@ -51,10 +51,17 @@
         id="username"
         class="form-control bg-transparent d-inline-block w-75 me-3"
         placeholder="댓글을 입력하세요"
+        v-model="commentInfo.content"
+        @keyup.enter="createComment(commentInfo, getArticleDetail.id)"
       />
 
       <h6 class="font_14 mb-3 mt-3 d-inline-block">
-        <a class="button p-3 pt-2 pb-2" href="#"> Reply</a>
+        <button
+          class="button p-3 pt-2 pb-2"
+          @click="createComment(commentInfo, getArticleDetail.id)"
+        >
+          Reply
+        </button>
       </h6>
     </div>
     <CommentItem />
@@ -76,6 +83,9 @@ export default {
   data() {
     return {
       isLiked: false,
+      commentInfo: {
+        content: null,
+      },
     };
   },
   computed: {
@@ -87,8 +97,9 @@ export default {
       return formatDate(this.getArticleDetail.updated_at);
     },
   },
+
   methods: {
-    ...mapActions(['fetchArticleDetail']),
+    ...mapActions(['fetchArticleDetail', 'createComment']),
     toggleLike() {
       this.isLiked = !this.isLiked;
     },

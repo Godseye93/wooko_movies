@@ -4,4 +4,5 @@ export default {
   createArticle: () => COMMUNITY_HOST,
   getAllArticles: () => COMMUNITY_HOST + 'all/',
   getArticleDetail: (articleId) => COMMUNITY_HOST + `${articleId}/`,
+  createComment: (articleId) => COMMUNITY_HOST + `${articleId}/` + 'comment/',
 };

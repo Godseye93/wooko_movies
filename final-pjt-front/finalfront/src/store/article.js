@@ -70,6 +70,22 @@ const movie = {
           alert(err);
         });
     },
+    createComment(context, commentInfo, articleId) {
+      axios({
+        method: 'post',
+        url: communityUrl.createComment(articleId),
+        data: commentInfo,
+        headers: {
+          Authorization: `Token ${context.rootState.auth.token}`,
+        },
+      })
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          alert(err);
+        });
+    },
   },
 };
 
