@@ -11,7 +11,7 @@ class Article(models.Model):
     # 게시글을 작성한 사용자
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='articles')
     # 게시글을 좋아요한 사용자
-    like_users = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='like_articles')
+    # like_users = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='like_articles')
 
 
 class Comment(models.Model):

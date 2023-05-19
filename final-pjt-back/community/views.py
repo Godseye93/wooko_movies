@@ -18,6 +18,7 @@ def article_list(request):
 
 # 단일 게시글 조회(임시 나중에 고쳐야함)
 @api_view(['GET'])
+@permission_classes([IsAuthenticated])
 def article_detail(request, article_pk):
     article = get_object_or_404(Article, pk=article_pk)
     serializer = ArticleSerializer(article)
@@ -26,6 +27,7 @@ def article_detail(request, article_pk):
 
 # 게시글 작성하기
 @api_view(['POST'])
+@permission_classes([IsAuthenticated])
 def article_create(request):
     serializer = ArticleSerializer(data=request.data)
     if serializer.is_valid():
@@ -36,6 +38,7 @@ def article_create(request):
 
 # 게시글 수정하기
 @api_view(['PUT'])
+@permission_classes([IsAuthenticated])
 def article_update(request, article_pk):
     article = get_object_or_404(Article, pk=article_pk)
     serializer = ArticleSerializer(article, data=request.data)
@@ -47,6 +50,7 @@ def article_update(request, article_pk):
 
 # 게시글 삭제하기
 @api_view(['DELETE'])
+@permission_classes([IsAuthenticated])
 def article_delete(request, article_pk):
     article = get_object_or_404(Article, pk=article_pk)
     article.delete()
@@ -55,6 +59,7 @@ def article_delete(request, article_pk):
 
 # 댓글 작성하기
 @api_view(['POST'])
+@permission_classes([IsAuthenticated])
 def comment_create(request, article_pk):
     article = get_object_or_404(Article, pk=article_pk)
     serializer = CommentSerializer(data=request.data)
@@ -66,6 +71,7 @@ def comment_create(request, article_pk):
 
 # 댓글 수정하기
 @api_view(['PUT'])
+@permission_classes([IsAuthenticated])
 def comment_update(request, article_pk, comment_pk):
     comment = get_object_or_404(Comment, pk=comment_pk, article__pk=article_pk)
     serializer = CommentSerializer(comment, data=request.data)
@@ -77,6 +83,7 @@ def comment_update(request, article_pk, comment_pk):
 
 # 댓글 삭제하기
 @api_view(['DELETE'])
+@permission_classes([IsAuthenticated])
 def comment_delete(request, article_pk, comment_pk):
     comment = get_object_or_404(Comment, pk=comment_pk, article__pk=article_pk)
     comment.delete()
