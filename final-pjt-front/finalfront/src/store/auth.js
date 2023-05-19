@@ -51,7 +51,23 @@ const auth = {
           alert(err);
         });
     },
+    fetchLogout(context) {
+      axios({
+        method: 'post',
+        url: accountsUrl.logout(),
+        headers: {
+          Authorization: `Token ${context.state.token}`,
+        },
+      })
+        .then(() => {
+          context.commit('SAVE_TOKEN', null);
+          if (router.currentRoute.name === 'home') return;
+          router.push({ name: 'home' }); // 홈으로 이동
+        })
+        .catch((err) => {
+          alert(err);
+        });
+    },
   },
 };
-
 export default auth;

@@ -4,7 +4,7 @@ export default {
   //   // 로그인
   login: () => AUTH_HOST + 'login/',
   //   // 로그아웃
-  //   logout: () => HOST + 'account/' + 'logout/',
+  logout: () => AUTH_HOST + 'logout/',
   // 회원가입
   signup: () => AUTH_HOST + 'signup/',
   //   // 현재 user 정보(Token으로 판별) =>

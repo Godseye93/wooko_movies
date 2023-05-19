@@ -39,11 +39,19 @@
           </div>
           <div class="col-md-4 text-end">
             <router-link
+              v-if="!isLogin"
               class="button text-decoration-none"
               :to="{ name: 'login' }"
-              ><i class="fa fa-long-arrow-right align-middle me-1"></i>
+            >
               Login</router-link
             >
+            <button
+              v-else
+              class="button text-decoration-none"
+              @click="fetchLogout"
+            >
+              Logout
+            </button>
           </div>
         </div>
       </div>
@@ -101,11 +109,11 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(['getSearchedMovies']),
+    ...mapGetters(['getSearchedMovies', 'isLogin']),
   },
 
   methods: {
-    ...mapActions(['fetchSearchMovies']),
+    ...mapActions(['fetchSearchMovies', 'fetchLogout']),
 
     search() {
       if (this.keyword === '') return alert('검색어를 입력해주세요.');

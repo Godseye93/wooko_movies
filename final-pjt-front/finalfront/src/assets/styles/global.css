@@ -46,6 +46,7 @@ a:hover {
   padding: 10px 20px;
   display: inline-block;
   transition: 0.3s;
+  border: none;
 }
 .button:hover {
   background: #fff;
