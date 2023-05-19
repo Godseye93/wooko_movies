@@ -43,5 +43,6 @@ export default {
   width: 100%;
   height: 66px;
   /* Footer 스타일 설정 */
+  z-index: 5;
 }
 </style>

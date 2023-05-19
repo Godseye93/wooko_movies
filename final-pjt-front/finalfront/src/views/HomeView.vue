@@ -1,10 +1,200 @@
 <template>
   <div class="home">
-    <MovieListVue
-      category="내 취향 고려 추천 영화"
-      :movieInfoList="getHighRatingMovies"
-      slideId="carouselExampleCaptions1"
-    />
+    <section id="center" class="center_home">
+      <h4 class="mb-0 mt-5 ms-3">
+        내 맞춤 추천 <span class="col_red">Movies</span>
+      </h4>
+      <div
+        id="carouselExampleCaptions"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="0"
+            class="active"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+            class=""
+            aria-current="true"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              src="../assets/logo.png"
+              class="d-block w-100 center-img"
+              alt="..."
+            />
+            <div
+              class="carousel-caption d-md-block"
+              style="text-align: left; padding: 150px 150px; bottom: 0; left: 0"
+            >
+              <h1 class="font_60">Entertainment Planet</h1>
+              <h6 class="mt-3">
+                <span class="col_red me-3">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star-half-o"></i>
+                </span>
+                4.5 (Imdb) Year : 2022
+                <a
+                  class="bg_red p-2 pe-4 ps-4 ms-3 text-white d-inline-block"
+                  href="#"
+                  >go detail</a
+                >
+              </h6>
+              <p class="mt-3">
+                Four waves of increasingly deadly alien attacks have left most
+                of Earth in ruin. Cassie is on the run, desperately trying to
+                save her younger brother.
+              </p>
+              <p class="mb-2">
+                <span class="col_red me-1 fw-bold">Starring:</span> Eget Nulla
+                Semper Porta Dapibus Diam Ipsum
+              </p>
+              <p class="mb-2">
+                <span class="col_red me-1 fw-bold">Genres:</span> Music
+              </p>
+              <p><span class="col_red me-1 fw-bold">Runtime:</span> 1h 32m</p>
+              <h6 class="mt-4">
+                <a class="button" href="#"
+                  ><i class="fa fa-play-circle align-middle me-1"></i> Watch
+                  Trailer</a
+                >
+              </h6>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img
+              src="../assets/logo.png"
+              class="d-block w-100 center-img"
+              alt="..."
+            />
+            <div
+              class="carousel-caption d-md-block"
+              style="text-align: left; padding: 150px 150px; bottom: 0; left: 0"
+            >
+              <h1 class="font_60">Lorem Semper Nulla</h1>
+              <h6 class="mt-3">
+                <span class="col_red me-3">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star-half-o"></i>
+                </span>
+                4.5 (Imdb) Year : 2022
+                <a
+                  class="bg_red p-2 pe-4 ps-4 ms-3 text-white d-inline-block"
+                  href="#"
+                  >go detail</a
+                >
+              </h6>
+              <p class="mt-3">
+                Four waves of increasingly deadly alien attacks have left most
+                of Earth in ruin. Cassie is on the run, desperately trying to
+                save her younger brother.
+              </p>
+              <p class="mb-2">
+                <span class="col_red me-1 fw-bold">Starring:</span> Eget Nulla
+                Semper Porta Dapibus Diam Ipsum
+              </p>
+              <p class="mb-2">
+                <span class="col_red me-1 fw-bold">Genres:</span> Music
+              </p>
+              <p><span class="col_red me-1 fw-bold">Runtime:</span> 1h 32m</p>
+              <h6 class="mt-4">
+                <a class="button" href="#"
+                  ><i class="fa fa-play-circle align-middle me-1"></i> Watch
+                  Trailer</a
+                >
+              </h6>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img
+              src="../assets/logo.png"
+              class="d-block w-100 center-img"
+              alt="..."
+            />
+            <div
+              class="carousel-caption d-md-block position-"
+              style="text-align: left; padding: 150px 150px; bottom: 0; left: 0"
+            >
+              <h1 class="font_60">Eget Diam Ipsum</h1>
+              <h6 class="mt-3">
+                <span class="col_red me-3">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star-half-o"></i>
+                </span>
+                4.5 (Imdb) Year : 2022
+                <a
+                  class="bg_red p-2 pe-4 ps-4 ms-3 text-white d-inline-block"
+                  href="#"
+                  >go detail</a
+                >
+              </h6>
+              <p class="mt-3">
+                Four waves of increasingly deadly alien attacks have left most
+                of Earth in ruin. Cassie is on the run, desperately trying to
+                save her younger brother.
+              </p>
+              <p class="mb-2">
+                <span class="col_red me-1 fw-bold">Starring:</span> Eget Nulla
+                Semper Porta Dapibus Diam Ipsum
+              </p>
+              <p class="mb-2">
+                <span class="col_red me-1 fw-bold">Genres:</span> Music
+              </p>
+              <p><span class="col_red me-1 fw-bold">Runtime:</span> 1h 32m</p>
+              <h6 class="mt-4 mb-0">
+                <a class="button" href="#"
+                  ><i class="fa fa-play-circle align-middle me-1"></i> Watch
+                  Trailer</a
+                >
+              </h6>
+            </div>
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
     <MovieListVue
       category="평점 순"
       :movieInfoList="getHighRatingMovies"
@@ -49,7 +239,13 @@ Author URI: https://www.templateonweb.com/
 Licence: <a href="https://www.templateonweb.com/license">Website Template Licence</a>
 */
 /*********************center_home****************/
-
+.center-img {
+  max-width: 1600px;
+  max-height: 800px;
+}
+.carousel-item {
+  position: relative;
+}
 .carousel-caption {
   text-align: left;
   background-color: rgba(0, 0, 0, 0.7);
