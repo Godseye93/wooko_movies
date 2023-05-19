@@ -33,7 +33,10 @@ export default {
   },
   methods: {
     articleDetail() {
-      this.$router.push({ name: 'article-detail' });
+      this.$router.push({
+        name: 'article-detail',
+        params: { articleId: this.articleInfo.id },
+      });
     },
   },
 };

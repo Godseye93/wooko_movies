@@ -36,7 +36,7 @@ const routes = [
   },
 
   {
-    path: '/community/article',
+    path: '/community/article/:articleId',
     name: 'article-detail',
     component: ArticleDetailView,
   },
