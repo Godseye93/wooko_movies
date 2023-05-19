@@ -9,6 +9,7 @@ import ArticleDetailView from '../views/ArticleDetailView.vue';
 import ArticleCreateView from '../views/ArticleCreateView.vue';
 import profileView from '../views/ProfileView.vue';
 import ProfileUpdateView from '../views/ProfileUpdateView.vue';
+import SignupView from '../views/SignupView.vue';
 
 Vue.use(VueRouter);
 
@@ -24,11 +25,6 @@ const routes = [
     component: MovieDetailView,
   },
   {
-    path: '/login',
-    name: 'login',
-    component: LoginView,
-  },
-  {
     path: '/movie/search/:keyword',
     name: 'movie-search',
     component: SearchView,
@@ -38,6 +34,7 @@ const routes = [
     name: 'community',
     component: CommunityView,
   },
+
   {
     path: '/community/article',
     name: 'article-detail',
@@ -47,6 +44,16 @@ const routes = [
     path: '/community/article/create',
     name: 'article-create',
     component: ArticleCreateView,
+  },
+  {
+    path: '/signup',
+    name: 'signup',
+    component: SignupView,
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: LoginView,
   },
   {
     path: '/profile',
