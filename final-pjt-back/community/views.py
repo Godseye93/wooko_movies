@@ -16,13 +16,37 @@ def article_list(request):
     return Response(serializer.data)
 
 
-# 단일 게시글 조회(임시 나중에 고쳐야함)
-@api_view(['GET'])
+# 단일 게시글 조회, 수정, 삭제
+@api_view(['PUT', 'GET', 'DELETE'])
 @permission_classes([IsAuthenticated])
-def article_detail(request, article_pk):
-    article = get_object_or_404(Article, pk=article_pk)
-    serializer = ArticleSerializer(article)
-    return Response(serializer.data)
+def article_detail_or_update_or_delete(request, article_pk):
+    # 단일 게시글 조회(임시 나중에 고쳐야함)
+    def article_detail(request, article_pk):
+        article = get_object_or_404(Article, pk=article_pk)
+        serializer = ArticleSerializer(article)
+        return Response(serializer.data)
+
+    # 게시글 수정하기
+    def article_update(request, article_pk):
+        article = get_object_or_404(Article, pk=article_pk)
+        serializer = ArticleSerializer(article, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=400)
+
+    # 게시글 삭제하기
+    def article_delete(request, article_pk):
+        article = get_object_or_404(Article, pk=article_pk)
+        article.delete()
+        return Response(status=204)
+
+    if request.method == 'GET':
+        return article_detail(request, article_pk)
+    elif request.method == 'PUT':
+        return article_update(request, article_pk)
+    elif request.method == 'DELETE':
+        return article_delete(request, article_pk)
 
 
 # 게시글 작성하기
@@ -36,25 +60,34 @@ def article_create(request):
     return Response(serializer.errors, status=400)
 
 
-# 게시글 수정하기
-@api_view(['PUT'])
+# 댓글 수정, 삭제
+@api_view(['PUT', 'DELETE'])
 @permission_classes([IsAuthenticated])
-def article_update(request, article_pk):
-    article = get_object_or_404(Article, pk=article_pk)
-    serializer = ArticleSerializer(article, data=request.data)
-    if serializer.is_valid():
-        serializer.save()
-        return Response(serializer.data)
-    return Response(serializer.errors, status=400)
+def comment_update_or_delete(request, article_pk, comment_pk):
 
+    # 댓글 수정하기
+    @api_view(['PUT'])
+    @permission_classes([IsAuthenticated])
+    def comment_update(request, article_pk, comment_pk):
+        comment = get_object_or_404(Comment, pk=comment_pk, article_pk=article_pk)
+        serializer = CommentSerializer(comment, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=400)
 
-# 게시글 삭제하기
-@api_view(['DELETE'])
-@permission_classes([IsAuthenticated])
-def article_delete(request, article_pk):
-    article = get_object_or_404(Article, pk=article_pk)
-    article.delete()
-    return Response(status=204)
+    # 댓글 삭제하기
+    @api_view(['DELETE'])
+    @permission_classes([IsAuthenticated])
+    def comment_delete(request, article_pk, comment_pk):
+        comment = get_object_or_404(Comment, pk=comment_pk, article_pk=article_pk)
+        comment.delete()
+        return Response(status=204)
+
+    if request.method == 'PUT':
+        return comment_update(request, article_pk, comment_pk)
+    elif request.method == 'DELETE':
+        return comment_delete(request, article_pk, comment_pk)
 
 
 # 댓글 작성하기
@@ -62,32 +95,12 @@ def article_delete(request, article_pk):
 @permission_classes([IsAuthenticated])
 def comment_create(request, article_pk):
     article = get_object_or_404(Article, pk=article_pk)
+    request.data['article'] = article_pk
     serializer = CommentSerializer(data=request.data)
     if serializer.is_valid():
-        serializer.save(user=request.user, article=article)
+        serializer.save(user=request.user)
         return Response(serializer.data, status=201)
     return Response(serializer.errors, status=400)
-
-
-# 댓글 수정하기
-@api_view(['PUT'])
-@permission_classes([IsAuthenticated])
-def comment_update(request, article_pk, comment_pk):
-    comment = get_object_or_404(Comment, pk=comment_pk, article__pk=article_pk)
-    serializer = CommentSerializer(comment, data=request.data)
-    if serializer.is_valid():
-        serializer.save()
-        return Response(serializer.data)
-    return Response(serializer.errors, status=400)
-
-
-# 댓글 삭제하기
-@api_view(['DELETE'])
-@permission_classes([IsAuthenticated])
-def comment_delete(request, article_pk, comment_pk):
-    comment = get_object_or_404(Comment, pk=comment_pk, article__pk=article_pk)
-    comment.delete()
-    return Response(status=204)
 
 
 #  게시글 좋아요 등록 및 해제
