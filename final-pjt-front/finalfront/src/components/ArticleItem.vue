@@ -5,9 +5,7 @@
       <span class="ms-3"> 작성 날짜 : {{ createdFormatDate }}</span>
       <span class="ms-3"> 수정 날짜 : {{ updatedFormatDate }}</span>
       <span class="ms-3"> 댓글 {{ articleInfo.comments.length }}개</span>
-      <span class="ms-3">
-        좋아요 수 {{ /*TODO: 여기에 좋아요수 추가하기*/ }}</span
-      >
+      <span class="ms-3"> 좋아요 {{ articleInfo.like_users.length }} 개</span>
     </h6>
   </div>
 </template>

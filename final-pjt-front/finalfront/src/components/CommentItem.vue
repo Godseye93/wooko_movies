@@ -5,7 +5,7 @@
         <!-- TODO 댓글 작성자 프로필 링크 -->
         <a href="#">Mr Eget Nulla</a>
         <span class="font_14 col_light me-2 ms-2">{{ formatCreatedAt }}</span>
-        <span v-if="isAuth">
+        <span v-if="isCommentAuth">
           <button class="button p-1 pt-0 rounded me-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -76,8 +76,8 @@ export default {
   },
   computed: {
     ...mapGetters(['getCurUser']),
-    isAuth() {
-      return this.getCurUser.pk === this.commentInfo.user_id;
+    isCommentAuth() {
+      return this.getCurUser.pk === this.commentInfo.user;
     },
     formatCreatedAt() {
       return commentFormatDate(this.commentInfo.created_at);

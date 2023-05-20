@@ -155,6 +155,23 @@ const movie = {
           alert(err);
         });
     },
+    fetchToggleLike(context, articleId) {
+      axios({
+        method: 'post',
+        url: communityUrl.likeArticle(articleId),
+        data: { like_users: [context.rootState.auth.curUser.pk] },
+        headers: {
+          Authorization: `Token ${context.rootState.auth.token}`,
+        },
+      })
+        .then((res) => {
+          console.log(res);
+          context.dispatch('fetchArticleDetail', articleId);
+        })
+        .catch((err) => {
+          alert(err);
+        });
+    },
   },
 };
 
