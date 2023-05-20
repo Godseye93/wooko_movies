@@ -9,7 +9,7 @@
       <span class="me-4">글 작성 날짜 : {{ createdFormatDate }}</span>
       <span>글 수정 날짜 : {{ updatedFormatDate }}</span>
       <span class="ms-3">
-        Comment : {{ getArticleDetail.comments.length }}개</span
+        Comment : {{ getArticleDetail.comments?.length }}개</span
       >
     </h6>
     <span v-if="isLiked">
@@ -100,7 +100,9 @@
       <h6 class="font_14 mb-3 mt-3 d-inline-block">
         <button
           class="button p-3 pt-2 pb-2"
-          @click="createComment(commentInfo, getArticleDetail.id)"
+          @click="
+            createComment({ commentInfo, articleId: getArticleDetail.id })
+          "
         >
           Reply
         </button>
@@ -133,11 +135,14 @@ export default {
   computed: {
     ...mapGetters(['getArticleDetail', 'getCurUser']),
     createdFormatDate() {
+      if (!this.getArticleDetail.created_at) return null;
       return formatDate(this.getArticleDetail.created_at);
     },
     updatedFormatDate() {
+      if (!this.getArticleDetail.updated_at) return null;
       return formatDate(this.getArticleDetail.updated_at);
     },
+
     isAuthor() {
       return this.getCurUser.pk === this.getArticleDetail.user;
     },

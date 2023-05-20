@@ -10,7 +10,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   plugins: [
     createPersistedState({
-      paths: ['auth.token'], // 토큰 상태만 로컬 스토리지에 저장
+      paths: ['auth.token', 'auth.curUser'], // 토큰 상태만 로컬 스토리지에 저장
     }),
   ], // 플러그인 전역 설정
   state: {},

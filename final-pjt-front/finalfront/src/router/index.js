@@ -10,6 +10,7 @@ import ArticleCreateView from '../views/ArticleCreateView.vue';
 import profileView from '../views/ProfileView.vue';
 import ProfileUpdateView from '../views/ProfileUpdateView.vue';
 import SignupView from '../views/SignupView.vue';
+import ArticleUpdateView from '../views/ArticleUpdateView.vue';
 
 Vue.use(VueRouter);
 
@@ -44,6 +45,11 @@ const routes = [
     path: '/community/article/create',
     name: 'article-create',
     component: ArticleCreateView,
+  },
+  {
+    path: '/community/article/update/:articleId',
+    name: 'article-update',
+    component: ArticleUpdateView,
   },
   {
     path: '/signup',
