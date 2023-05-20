@@ -64,7 +64,7 @@ export default {
     
   },
   created(){
-    this.fetchProfileDetail(this.getCurUser.pk)
+    this.fetchProfileDetail(this.$route.params.userId)
   }
 };
 </script>

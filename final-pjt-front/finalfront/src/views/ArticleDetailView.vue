@@ -5,6 +5,31 @@
     <p class="mt-3">
       {{ getArticleDetail.content }}
     </p>
+
+    <div>
+      <span class="me-4">글 작성자 : {{ getProfileInfo.username }}</span>
+      <router-link
+        class="button rounded"
+        :to="{ name: 'profile', params: { userId: getProfileInfo.id } }"
+      >
+        <span
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-person-square me-2"
+            viewBox="0 0 16 16"
+          >
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+            <path
+              d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1v-1c0-1-1-4-6-4s-6 3-6 4v1a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12z"
+            />
+          </svg>
+        </span>
+        <span>작성자 프로필</span>
+      </router-link>
+    </div>
     <h6 class="fw-normal mt-3 col_light d-inline-block me-3">
       <span class="me-4">글 작성 날짜 : {{ createdFormatDate }}</span>
       <span>글 수정 날짜 : {{ updatedFormatDate }}</span>
@@ -46,7 +71,13 @@
       </svg>
     </span>
     <div v-if="isAuthor">
-      <button class="button p-3 pt-2 pb-2 me-3" @click="routeUpdateArticle">
+      <router-link
+        class="button p-3 pt-2 pb-2 me-3"
+        :to="{
+          name: 'article-update',
+          params: { articleId: getArticleDetail.id },
+        }"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -64,7 +95,7 @@
           />
         </svg>
         <span>글 수정하기</span>
-      </button>
+      </router-link>
       <button
         class="button p-3 pt-2 pb-2"
         @click="delArticle(getArticleDetail.id)"
@@ -135,7 +166,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(['getArticleDetail', 'getCurUser']),
+    ...mapGetters(['getArticleDetail', 'getCurUser', 'getProfileInfo']),
     createdFormatDate() {
       if (!this.getArticleDetail.created_at) return null;
       return formatDate(this.getArticleDetail.created_at);
@@ -151,19 +182,19 @@ export default {
   },
 
   methods: {
-    ...mapActions(['fetchArticleDetail', 'createComment', 'delArticle']),
+    ...mapActions([
+      'fetchArticleDetail',
+      'createComment',
+      'delArticle',
+      'fetchProfileDetail',
+    ]),
     toggleLike() {
       this.isLiked = !this.isLiked;
-    },
-    routeUpdateArticle() {
-      this.$router.push({
-        name: 'article-update',
-        params: { articleId: this.getArticleDetail.id },
-      });
     },
   },
   created() {
     this.fetchArticleDetail(this.$route.params.articleId);
+    this.fetchProfileDetail(this.getArticleDetail.user);
   },
 };
 </script>
