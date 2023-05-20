@@ -1,5 +1,5 @@
 const AUTH_HOST = 'http://127.0.0.1:8000/api/auth/';
-// const USER_HOST = 'http://127.0.0.1:8000/user/';
+const USER_HOST = 'http://127.0.0.1:8000/user/';
 
 export default {
   //   // 로그인
@@ -13,9 +13,11 @@ export default {
   //   // 비밀번호 변경
   //   changepassword: () => HOST + 'account/' + 'password/change/',
   //   // 회원탈퇴
-  //   deletemember: () => HOST + ACCOUNTS + 'delete/',
+  delUser: () => USER_HOST,
   //   // 프로필 조회
-  //   profile: (userId) => HOST + ACCOUNTS + `${userId}/profile/`,
+  profileDetail: (userId) => USER_HOST + `${userId}/profile/`,
+  //   // 프로필 수정
+  profileUpdate: () => USER_HOST + `profile/`,
   //   // 사용자의 영화 리스트 조회
   //   personalmovielist: (userId) => HOST + ACCOUNTS + `${userId}/list/`,
   //   // 사용자의 싫어요 장르 조회

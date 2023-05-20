@@ -6,6 +6,7 @@ const auth = {
   state: {
     token: null,
     curUser: {},
+    profileInfo: {},
   },
 
   getters: {
@@ -15,6 +16,9 @@ const auth = {
     getCurUser(state) {
       return state.curUser;
     },
+    getProfileInfo(state) {
+      return state.profileInfo;
+    },
   },
 
   mutations: {
@@ -23,6 +27,9 @@ const auth = {
     },
     SET_CUR_USER(state, curUser) {
       state.curUser = curUser;
+    },
+    SET_PROFILE_INFO(state, profileInfo) {
+      state.profileInfo = profileInfo;
     },
   },
 
@@ -85,6 +92,41 @@ const auth = {
       })
         .then((res) => {
           context.commit('SET_CUR_USER', res.data);
+        })
+        .catch((err) => {
+          alert(err);
+        });
+    },
+    fetchProfileDetail(context, userId) {
+      axios({
+        method: 'get',
+        url: accountsUrl.profileDetail(userId),
+        headers: {
+          Authorization: `Token ${context.state.token}`,
+        },
+      })
+        .then((res) => {
+          context.commit('SET_PROFILE_INFO', res.data);
+        })
+        .catch((err) => {
+          alert(err);
+        });
+    },
+    updateProfile(context, profileInfo) {
+      axios({
+        method: 'put',
+        url: accountsUrl.profileUpdate(),
+        data: profileInfo,
+        headers: {
+          Authorization: `Token ${context.state.token}`,
+        },
+      })
+        .then((res) => {
+          context.commit('SET_PROFILE_INFO', res.data);
+          router.push({
+            name: 'profile',
+            params: { userId: context.state.curUser.pk },
+          });
         })
         .catch((err) => {
           alert(err);

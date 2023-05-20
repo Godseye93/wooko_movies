@@ -62,7 +62,7 @@ const routes = [
     component: LoginView,
   },
   {
-    path: '/profile',
+    path: '/profile/:userId',
     name: 'profile',
     component: profileView,
   },
