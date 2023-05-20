@@ -4,7 +4,7 @@
       <h5>
         <!-- TODO 댓글 작성자 프로필 링크 -->
         <a href="#">Mr Eget Nulla</a>
-        <span class="font_14 col_light me-2 ms-2">13 July 2017</span>
+        <span class="font_14 col_light me-2 ms-2">{{ formatCreatedAt }}</span>
         <span v-if="isAuth">
           <button class="button p-1 pt-0 rounded me-2">
             <svg
@@ -57,9 +57,7 @@
         </span>
       </h5>
       <p class="font_14">
-        Hi, this is a comment.<br />
-        To delete a comment, just log in and view the post's comments. There you
-        will have the option to edit or delete them.
+        {{ commentInfo.content }}
       </p>
     </div>
   </div>
@@ -67,6 +65,7 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
+import commentFormatDate from '@/util/commentFormatDate';
 export default {
   name: 'CommentItem',
   props: {
@@ -79,6 +78,9 @@ export default {
     ...mapGetters(['getCurUser']),
     isAuth() {
       return this.getCurUser.pk === this.commentInfo.user_id;
+    },
+    formatCreatedAt() {
+      return commentFormatDate(this.commentInfo.created_at);
     },
   },
   methods: {

@@ -82,6 +82,7 @@ const movie = {
       })
         .then((res) => {
           console.log(res);
+          context.dispatch('fetchArticleDetail', articleId);
         })
         .catch((err) => {
           alert(err);
@@ -115,7 +116,6 @@ const movie = {
       })
         .then((res) => {
           console.log(res);
-          context.commit('SET_ARTICLE_DETAIL', res.data);
           router.push({ name: 'article-detail', params: { articleId } });
         })
         .catch((err) => {
