@@ -122,6 +122,39 @@ const movie = {
           alert(err);
         });
     },
+    delComment(context, { articleId, commentId }) {
+      axios({
+        method: 'delete',
+        url: communityUrl.commentDetail(articleId, commentId),
+        headers: {
+          Authorization: `Token ${context.rootState.auth.token}`,
+        },
+      })
+        .then((res) => {
+          console.log(res);
+          context.dispatch('fetchArticleDetail', articleId);
+        })
+        .catch((err) => {
+          alert(err);
+        });
+    },
+    updateComment(context, { commentInfo, articleId, commentId }) {
+      axios({
+        method: 'put',
+        url: communityUrl.commentDetail(articleId, commentId),
+        data: commentInfo,
+        headers: {
+          Authorization: `Token ${context.rootState.auth.token}`,
+        },
+      })
+        .then((res) => {
+          console.log(res);
+          context.dispatch('fetchArticleDetail', articleId);
+        })
+        .catch((err) => {
+          alert(err);
+        });
+    },
   },
 };
 

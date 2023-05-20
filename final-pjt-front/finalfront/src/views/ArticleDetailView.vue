@@ -108,9 +108,11 @@
         </button>
       </h6>
     </div>
-    <CommentItem />
-    <CommentItem />
-    <CommentItem />
+    <CommentItem
+      v-for="(item, index) in getArticleDetail.comments"
+      :key="index"
+      :commentInfo="item"
+    />
   </div>
 </template>
 
