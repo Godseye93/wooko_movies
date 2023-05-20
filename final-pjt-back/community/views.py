@@ -88,3 +88,24 @@ def comment_delete(request, article_pk, comment_pk):
     comment = get_object_or_404(Comment, pk=comment_pk, article__pk=article_pk)
     comment.delete()
     return Response(status=204)
+
+
+#  게시글 좋아요 등록 및 해제
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def article_like(request, article_pk):
+    article = get_object_or_404(Article, pk=article_pk)
+    user = request.user
+    if article.like_users.filter(pk=user.pk).exists():
+        article.like_users.remove(user)
+    else:
+        article.like_users.add(user)
+
+    serializer = ArticleSerializer(article)
+
+    like_status = {
+        'id': serializer.data.get('id'),
+        'like_count': article.like_users.count(),
+        'like_users': serializer.data.get('like_users'),
+    }
+    return Response(like_status)
