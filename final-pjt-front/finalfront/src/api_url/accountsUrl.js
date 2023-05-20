@@ -1,4 +1,5 @@
 const AUTH_HOST = 'http://127.0.0.1:8000/api/auth/';
+// const USER_HOST = 'http://127.0.0.1:8000/user/';
 
 export default {
   //   // 로그인
@@ -8,7 +9,7 @@ export default {
   // 회원가입
   signup: () => AUTH_HOST + 'signup/',
   //   // 현재 user 정보(Token으로 판별) =>
-  //   currentUserInfo: () => HOST + 'account/' + 'user/',
+  currentUserInfo: () => AUTH_HOST + `user/`,
   //   // 비밀번호 변경
   //   changepassword: () => HOST + 'account/' + 'password/change/',
   //   // 회원탈퇴

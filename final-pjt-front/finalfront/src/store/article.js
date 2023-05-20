@@ -1,5 +1,6 @@
 import axios from 'axios';
 import communityUrl from '@/api_url/communityUrl';
+import router from '@/router';
 
 const movie = {
   state: {
@@ -81,6 +82,22 @@ const movie = {
       })
         .then((res) => {
           console.log(res);
+        })
+        .catch((err) => {
+          alert(err);
+        });
+    },
+    delArticle(context, articleId) {
+      axios({
+        method: 'delete',
+        url: communityUrl.getArticleDetail(articleId),
+        headers: {
+          Authorization: `Token ${context.rootState.auth.token}`,
+        },
+      })
+        .then((res) => {
+          console.log(res);
+          router.push({ name: 'community' });
         })
         .catch((err) => {
           alert(err);
