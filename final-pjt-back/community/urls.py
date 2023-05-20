@@ -15,5 +15,5 @@ urlpatterns = [
     path('<int:article_pk>/comment/', views.comment_update),  # 댓글 수정하기
     path('<int:article_pk>/comment/', views.comment_delete),  # 댓글 삭제하기
 
-    path('<int:review_pk>/like/', views.article_like),  # 게시글 좋아요 / 좋아요 취소
+    path('<int:article_pk>/like/', views.article_like),  # 게시글 좋아요 / 좋아요 취소
 ]
