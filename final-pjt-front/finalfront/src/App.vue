@@ -2,6 +2,7 @@
   <div id="app">
     <NavBar />
     <router-view />
+    <br /><br /><br />
     <FooterComponent />
   </div>
 </template>

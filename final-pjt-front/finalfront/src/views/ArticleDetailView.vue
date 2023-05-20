@@ -7,10 +7,9 @@
     </p>
 
     <div>
-      <span class="me-4">글 작성자 : {{ getProfileInfo.username }}</span>
       <router-link
         class="button rounded"
-        :to="{ name: 'profile', params: { userId: getProfileInfo.id } }"
+        :to="{ name: 'profile', params: { userId: getArticleDetail.user } }"
       >
         <span
           ><svg
@@ -27,7 +26,7 @@
             />
           </svg>
         </span>
-        <span>작성자 프로필</span>
+        <span>작성자 {{ getArticleDetail.username }}님의 프로필</span>
       </router-link>
     </div>
     <h6 class="fw-normal mt-3 col_light d-inline-block me-3">
@@ -159,14 +158,13 @@ export default {
   },
   data() {
     return {
-      isLiked: false,
       commentInfo: {
         content: null,
       },
     };
   },
   computed: {
-    ...mapGetters(['getArticleDetail', 'getCurUser', 'getProfileInfo']),
+    ...mapGetters(['getArticleDetail', 'getCurUser']),
     createdFormatDate() {
       if (!this.getArticleDetail.created_at) return null;
       return formatDate(this.getArticleDetail.created_at);
@@ -179,6 +177,9 @@ export default {
     isAuthor() {
       return this.getCurUser.pk === this.getArticleDetail.user;
     },
+    isLiked() {
+      return this.getArticleDetail.like_users?.includes(this.getCurUser.pk);
+    },
   },
 
   methods: {
@@ -187,14 +188,14 @@ export default {
       'createComment',
       'delArticle',
       'fetchProfileDetail',
+      'fetchToggleLike',
     ]),
     toggleLike() {
-      this.isLiked = !this.isLiked;
+      this.fetchToggleLike(this.getArticleDetail.id);
     },
   },
   created() {
     this.fetchArticleDetail(this.$route.params.articleId);
-    this.fetchProfileDetail(this.getArticleDetail.user);
   },
 };
 </script>

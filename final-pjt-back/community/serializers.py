@@ -6,6 +6,7 @@ from .models import Article, Comment
 
 class CommentSerializer(serializers.ModelSerializer):
     user = serializers.PrimaryKeyRelatedField(read_only=True)
+    username = serializers.CharField(source='user.username', read_only=True)
 
     class Meta:
         model = Comment
@@ -14,6 +15,7 @@ class CommentSerializer(serializers.ModelSerializer):
 
 class ArticleSerializer(serializers.ModelSerializer):
     user = serializers.PrimaryKeyRelatedField(read_only=True)
+    username = serializers.CharField(source='user.username', read_only=True)
     comments = CommentSerializer(many=True, read_only=True)
     like_users = serializers.PrimaryKeyRelatedField(
         many=True, queryset=User.objects.all(), required=False)
