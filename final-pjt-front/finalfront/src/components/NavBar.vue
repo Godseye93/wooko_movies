@@ -109,8 +109,10 @@
                   </li>
                 </ul>
               </li>
-              <li class="nav-item">
-                <router-link class="nav-link" :to="{ name: 'profile' }"
+              <li class="nav-item" v-if="isLogin">
+                <router-link
+                  class="nav-link"
+                  :to="{ name: 'profile', params: { userId: getCurUser.pk } }"
                   >MY PROFILE</router-link
                 >
               </li>
@@ -132,7 +134,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(['getSearchedMovies', 'isLogin']),
+    ...mapGetters(['getSearchedMovies', 'isLogin', 'getCurUser']),
   },
 
   methods: {

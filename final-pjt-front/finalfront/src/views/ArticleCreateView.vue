@@ -53,7 +53,7 @@ export default {
         title: this.title,
         content: this.content,
       });
-      this.$router.push({ name: 'home' });
+      this.$router.push({ name: 'community' });
     },
   },
 };

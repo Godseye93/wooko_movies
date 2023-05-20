@@ -17,8 +17,9 @@
     </div>
     <div class="col-md-8 p-0 me-0">
       <div class="play2r bg_grey p-4">
-        <h3 class="mt-3">xx님의 프로필</h3>
+        <h3 class="mt-3">{{getProfileInfo.username}} 님의 프로필</h3>
         <hr class="line border-0" />
+        <!-- TODO 팔로우 구현시 이부분 수정, 선호장르 수정 -->
         <p class="mt-3">팔로워: 0</p>
         <p class="mt-3">팔로잉: 0</p>
         <p class="mt-3">선호장르 : <ul class="mb-0 mt-1">
@@ -35,70 +36,16 @@
         <div class="play2ri row mt-4">
           <div class="col-md-6">
             <div class="play2ril">
-              <h6 class="fw-normal">
-                Running Time: <span class="pull-right">1 hr 50 min</span>
+              <h6 class="fw-normal mb-3">
+                E-mail : <span class="pull-right">{{getProfileInfo.email || '아직 등록한 이메일이 없습니다.'}}</span>
               </h6>
-              <hr class="hr_1" />
-              <h6 class="fw-normal">
-                Genre: <span class="pull-right">Action, Thriller</span>
+              <h6 class="fw-normal mb-5">
+                성별 : <span class="pull-right">{{getProfileInfo.sex || '아직 성별을 등록하지 않았습니다.'}}</span>
               </h6>
-              <hr class="hr_1" />
-              <h6 class="fw-normal">
-                Director: <span class="pull-right">Eget Nulla</span>
-              </h6>
-              <button class="button border-0" @click="routeProfileUpdatePage">프로필 수정하기</button>
-       
+              <router-link class="button mt-5"  :to="{name:'profile-update'}" v-if="getCurUser.pk===getProfileInfo.id" >프로필 수정하러 가기</router-link>
             </div>
           </div>
-          <div class="col-md-6">
-            <div class="play2rir">
-              <h6 class="fw-normal">Imdb - 9.2</h6>
-              <div class="progress">
-                <div
-                  class="progress-bar"
-                  role="progressbar"
-                  style="width: 92%"
-                  aria-valuenow="25"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
-              <h6 class="fw-normal mt-3">Semper - 7.3</h6>
-              <div class="progress">
-                <div
-                  class="progress-bar"
-                  role="progressbar"
-                  style="width: 73%"
-                  aria-valuenow="25"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
-              <h6 class="fw-normal mt-3">Dapibus - 9.0</h6>
-              <div class="progress">
-                <div
-                  class="progress-bar"
-                  role="progressbar"
-                  style="width: 90%"
-                  aria-valuenow="25"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
-              <h6 class="fw-normal mt-3">Ipsum - 8.3</h6>
-              <div class="progress">
-                <div
-                  class="progress-bar"
-                  role="progressbar"
-                  style="width: 83%"
-                  aria-valuenow="25"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
-              
-            </div>
-          </div>
+          
         </div>
       </div>
     </div>
@@ -106,12 +53,18 @@
 </template>
 
 <script>
+import {mapActions, mapGetters} from 'vuex'
 export default {
   name:'ProfileView',
+  computed:{
+    ...mapGetters(['getProfileInfo', 'getCurUser'])
+  },
   methods:{
-    routeProfileUpdatePage(){
-      this.$router.push({name:'profile-update'})
-    }
+    ...mapActions(['fetchProfileDetail']),
+    
+  },
+  created(){
+    this.fetchProfileDetail(this.getCurUser.pk)
   }
 };
 </script>
