@@ -151,6 +151,24 @@ const auth = {
           alert(err);
         });
     },
+    delUser(context) {
+      axios({
+        method: 'delete',
+        url: accountsUrl.delUser(),
+        headers: {
+          Authorization: `Token ${context.state.token}`,
+        },
+      })
+        .then((res) => {
+          console.log(res);
+          context.commit('SAVE_TOKEN', null);
+          context.commit('SET_CUR_USER', {});
+          router.push({ name: 'home' }); // 홈으로 이동
+        })
+        .catch((err) => {
+          alert(err);
+        });
+    },
   },
 };
 export default auth;

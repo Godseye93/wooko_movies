@@ -21,7 +21,6 @@ export default {
 
   changePasswd: () => AUTH_HOST + `password/change/`,
   //   // 사용자의 싫어요 장르 조회
-  //   personalhatemovie: (userId) => HOST + ACCOUNTS + `${userId}/hate_genre/`,
   //   // 사용자의 싫어요 장르 등록 및 해제
   //   personalhatemovieupdate: (userId, genreId) =>
   //     HOST + ACCOUNTS + `${userId}/hate_genre/${genreId}/`,
