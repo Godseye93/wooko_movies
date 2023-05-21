@@ -55,6 +55,7 @@
         v-model="userInfo.password1"
       />
     </div>
+
     <div class="input-group input-group-merge mt-3">
       <div
         class="input-group-text bg-transparent text-white border-right-0"

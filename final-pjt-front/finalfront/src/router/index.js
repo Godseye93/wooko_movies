@@ -11,6 +11,7 @@ import profileView from '../views/ProfileView.vue';
 import ProfileUpdateView from '../views/ProfileUpdateView.vue';
 import SignupView from '../views/SignupView.vue';
 import ArticleUpdateView from '../views/ArticleUpdateView.vue';
+import ChangePasswdView from '../views/ChangePasswdView.vue';
 
 Vue.use(VueRouter);
 
@@ -70,6 +71,11 @@ const routes = [
     path: '/profile/update',
     name: 'profile-update',
     component: ProfileUpdateView,
+  },
+  {
+    path: '/changepasswd',
+    name: 'change-passwd',
+    component: ChangePasswdView,
   },
 ];
 
