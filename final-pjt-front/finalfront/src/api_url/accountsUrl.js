@@ -18,8 +18,8 @@ export default {
   profileDetail: (userId) => USER_HOST + `${userId}/profile/`,
   //   // 프로필 수정
   profileUpdate: () => USER_HOST + `profile/`,
-  //   // 사용자의 영화 리스트 조회
-  //   personalmovielist: (userId) => HOST + ACCOUNTS + `${userId}/list/`,
+
+  changePasswd: () => AUTH_HOST + `password/change/`,
   //   // 사용자의 싫어요 장르 조회
   //   personalhatemovie: (userId) => HOST + ACCOUNTS + `${userId}/hate_genre/`,
   //   // 사용자의 싫어요 장르 등록 및 해제

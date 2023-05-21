@@ -132,6 +132,25 @@ const auth = {
           alert(err);
         });
     },
+    fetchChangePasswd(context, passwdInfo) {
+      axios({
+        method: 'post',
+        url: accountsUrl.changePasswd(),
+        data: passwdInfo,
+        headers: {
+          Authorization: `Token ${context.state.token}`,
+        },
+      })
+        .then(() => {
+          router.push({
+            name: 'profile',
+            params: { userId: context.state.curUser.pk },
+          });
+        })
+        .catch((err) => {
+          alert(err);
+        });
+    },
   },
 };
 export default auth;
