@@ -138,11 +138,11 @@ const movie = {
           alert(err);
         });
     },
-    updateComment(context, { commentInfo, articleId, commentId }) {
+    updateComment(context, { articleId, commentId, content }) {
       axios({
         method: 'put',
         url: communityUrl.commentDetail(articleId, commentId),
-        data: commentInfo,
+        data: { content },
         headers: {
           Authorization: `Token ${context.rootState.auth.token}`,
         },

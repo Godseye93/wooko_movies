@@ -66,10 +66,9 @@ def article_create(request):
 def comment_update_or_delete(request, article_pk, comment_pk):
 
     # 댓글 수정하기
-    @api_view(['PUT'])
-    @permission_classes([IsAuthenticated])
     def comment_update(request, article_pk, comment_pk):
-        comment = get_object_or_404(Comment, pk=comment_pk, article_pk=article_pk)
+        comment = get_object_or_404(Comment, pk=comment_pk, article_id=article_pk)
+        request.data['article'] = article_pk
         serializer = CommentSerializer(comment, data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -77,10 +76,8 @@ def comment_update_or_delete(request, article_pk, comment_pk):
         return Response(serializer.errors, status=400)
 
     # 댓글 삭제하기
-    @api_view(['DELETE'])
-    @permission_classes([IsAuthenticated])
     def comment_delete(request, article_pk, comment_pk):
-        comment = get_object_or_404(Comment, pk=comment_pk, article_pk=article_pk)
+        comment = get_object_or_404(Comment, pk=comment_pk, article_id=article_pk)
         comment.delete()
         return Response(status=204)
 

@@ -3,7 +3,10 @@
     <div class="blog_1l5ir">
       <h5>
         <!-- TODO 댓글 작성자 프로필 링크 -->
-        <a href="#">Mr Eget Nulla</a>
+        <router-link
+          :to="{ name: 'profile', params: { userId: commentInfo.user } }"
+          >{{ commentInfo.username }}</router-link
+        >
         <span class="font_14 col_light me-2 ms-2">{{ formatCreatedAt }}</span>
         <span v-if="isCommentAuth">
           <button class="button p-1 pt-0 rounded me-2">
@@ -14,13 +17,7 @@
               fill="currentColor"
               class="bi bi-pencil-square"
               viewBox="0 0 16 16"
-              @click="
-                updateComment({
-                  commentInfo,
-                  articleId: commentInfo.article_id,
-                  commentId: commentInfo.id,
-                })
-              "
+              @click="editComment"
             >
               <path
                 d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"
@@ -41,7 +38,7 @@
               viewBox="0 0 16 16"
               @click="
                 delComment({
-                  articleId: commentInfo.article_id,
+                  articleId: commentInfo.article,
                   commentId: commentInfo.id,
                 })
               "
@@ -56,9 +53,18 @@
           </button>
         </span>
       </h5>
-      <p class="font_14">
+      <p class="font_14" v-if="!isEditing">
         {{ commentInfo.content }}
       </p>
+      <div v-else>
+        <input type="text" class="form-control" v-model="editedContent" />
+        <button
+          class="button p-1 pt-0 rounded me-2 mb-2 mt-2"
+          @click="submitUpdateComment"
+        >
+          수정하기
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -68,6 +74,12 @@ import { mapActions, mapGetters } from 'vuex';
 import commentFormatDate from '@/util/commentFormatDate';
 export default {
   name: 'CommentItem',
+  data() {
+    return {
+      isEditing: false,
+      editedContent: '',
+    };
+  },
   props: {
     commentInfo: {
       type: Object,
@@ -85,6 +97,18 @@ export default {
   },
   methods: {
     ...mapActions(['delComment', 'updateComment']),
+    editComment() {
+      this.isEditing = true;
+      this.editedContent = this.commentInfo.content;
+    },
+    submitUpdateComment() {
+      this.isEditing = false;
+      this.updateComment({
+        articleId: this.commentInfo.article,
+        commentId: this.commentInfo.id,
+        content: this.editedContent,
+      });
+    },
   },
 };
 </script>
