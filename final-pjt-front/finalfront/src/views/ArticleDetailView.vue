@@ -35,8 +35,11 @@
       <span class="ms-3">
         Comment : {{ getArticleDetail.comments?.length }}개</span
       >
+      <span class="ms-3">
+        like : {{ getArticleDetail.like_users?.length }}개</span
+      >
     </h6>
-    <span v-if="isLiked">
+    <span v-if="isLiked" class="heart">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="32"
@@ -53,7 +56,7 @@
         />
       </svg>
     </span>
-    <span v-else>
+    <span v-else class="heart">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="32"
@@ -200,4 +203,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.heart {
+  cursor: pointer;
+}
+</style>

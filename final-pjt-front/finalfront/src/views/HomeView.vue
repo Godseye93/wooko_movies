@@ -45,19 +45,10 @@
             >
               <h1 class="font_60">Entertainment Planet</h1>
               <h6 class="mt-3">
-                <span class="col_red me-3">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star-half-o"></i>
-                </span>
                 4.5 (Imdb) Year : 2022
-                <a
-                  class="bg_red p-2 pe-4 ps-4 ms-3 text-white d-inline-block"
-                  href="#"
-                  >go detail</a
-                >
+                <h6 class="mt-4">
+                  <a class="button" href="#"> 자세히 보기</a>
+                </h6>
               </h6>
               <p class="mt-3">
                 Four waves of increasingly deadly alien attacks have left most
@@ -72,12 +63,6 @@
                 <span class="col_red me-1 fw-bold">Genres:</span> Music
               </p>
               <p><span class="col_red me-1 fw-bold">Runtime:</span> 1h 32m</p>
-              <h6 class="mt-4">
-                <a class="button" href="#"
-                  ><i class="fa fa-play-circle align-middle me-1"></i> Watch
-                  Trailer</a
-                >
-              </h6>
             </div>
           </div>
           <div class="carousel-item">
@@ -92,19 +77,10 @@
             >
               <h1 class="font_60">Lorem Semper Nulla</h1>
               <h6 class="mt-3">
-                <span class="col_red me-3">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star-half-o"></i>
-                </span>
                 4.5 (Imdb) Year : 2022
-                <a
-                  class="bg_red p-2 pe-4 ps-4 ms-3 text-white d-inline-block"
-                  href="#"
-                  >go detail</a
-                >
+                <h6 class="mt-4">
+                  <a class="button" href="#"> 자세히 보기</a>
+                </h6>
               </h6>
               <p class="mt-3">
                 Four waves of increasingly deadly alien attacks have left most
@@ -119,12 +95,7 @@
                 <span class="col_red me-1 fw-bold">Genres:</span> Music
               </p>
               <p><span class="col_red me-1 fw-bold">Runtime:</span> 1h 32m</p>
-              <h6 class="mt-4">
-                <a class="button" href="#"
-                  ><i class="fa fa-play-circle align-middle me-1"></i> Watch
-                  Trailer</a
-                >
-              </h6>
+              <h6 class="mt-4"></h6>
             </div>
           </div>
           <div class="carousel-item">
@@ -139,19 +110,10 @@
             >
               <h1 class="font_60">Eget Diam Ipsum</h1>
               <h6 class="mt-3">
-                <span class="col_red me-3">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star-half-o"></i>
-                </span>
                 4.5 (Imdb) Year : 2022
-                <a
-                  class="bg_red p-2 pe-4 ps-4 ms-3 text-white d-inline-block"
-                  href="#"
-                  >go detail</a
-                >
+                <h6 class="mt-4">
+                  <a class="button" href="#"> 자세히 보기</a>
+                </h6>
               </h6>
               <p class="mt-3">
                 Four waves of increasingly deadly alien attacks have left most
@@ -166,12 +128,6 @@
                 <span class="col_red me-1 fw-bold">Genres:</span> Music
               </p>
               <p><span class="col_red me-1 fw-bold">Runtime:</span> 1h 32m</p>
-              <h6 class="mt-4 mb-0">
-                <a class="button" href="#"
-                  ><i class="fa fa-play-circle align-middle me-1"></i> Watch
-                  Trailer</a
-                >
-              </h6>
             </div>
           </div>
         </div>
