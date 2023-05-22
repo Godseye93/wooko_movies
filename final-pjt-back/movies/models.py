@@ -17,3 +17,10 @@ class Movie(models.Model):
         max_length=200, null=True, blank=True)  # 이미지
     genre_ids = models.ManyToManyField(Genre)
     backdrop_path = models.CharField(max_length=200, null=True, blank=True)
+
+
+class WorldCupItem(models.Model):
+    title = models.CharField(max_length=100)
+    poster_path = models.CharField(
+        max_length=200, null=True, blank=True)  # 이미지
+    genre_ids = models.CharField(max_length=100)

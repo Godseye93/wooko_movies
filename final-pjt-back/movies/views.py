@@ -1,3 +1,5 @@
+import random
+
 from django.contrib.auth import get_user_model
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
@@ -5,8 +7,8 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
-from .models import Movie
-from .serializers import MovieSerializer
+from .models import Movie, WorldCupItem
+from .serializers import MovieSerializer, RandomMovieSerializer
 
 
 # 분류된 영화 목록 조회
@@ -45,6 +47,18 @@ def movie_search(request):
     serializer = MovieSerializer(movies, many=True)
     data = {'movies': serializer.data, 'search': search}
     return Response(data)
+
+
+@api_view(['GET'])
+def get_random_movies(request):
+    movies = list(Movie.objects.all())  # 모든 영화 정보를 가져옵니다.
+    random_movies = random.sample(movies, 16)  # 영화 정보에서 랜덤하게 16개를 선택합니다.
+    serializer = RandomMovieSerializer(random_movies, many=True)  # 시리얼라이저를 사용하여 데이터를 직렬화합니다.
+    return Response(serializer.data)
+
+
+def get_random_VS_movies():
+    pass
 
 # def movie_search(request):
 #     movies = Movie.objects.all()
