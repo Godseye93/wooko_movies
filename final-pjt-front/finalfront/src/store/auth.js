@@ -169,6 +169,21 @@ const auth = {
           alert(err);
         });
     },
+    followToggle(context, userId) {
+      axios({
+        method: 'post',
+        url: accountsUrl.followToggle(userId),
+        headers: {
+          Authorization: `Token ${context.state.token}`,
+        },
+      })
+        .then((res) => {
+          context.commit('SET_PROFILE_INFO', res.data);
+        })
+        .catch((err) => {
+          alert(err);
+        });
+    },
   },
 };
 export default auth;

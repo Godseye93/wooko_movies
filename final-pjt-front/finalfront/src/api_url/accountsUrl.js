@@ -20,12 +20,8 @@ export default {
   profileUpdate: () => USER_HOST + `profile/`,
 
   changePasswd: () => AUTH_HOST + `password/change/`,
-  //   // 사용자의 싫어요 장르 조회
-  //   // 사용자의 싫어요 장르 등록 및 해제
-  //   personalhatemovieupdate: (userId, genreId) =>
-  //     HOST + ACCOUNTS + `${userId}/hate_genre/${genreId}/`,
-  //   // 팔로우 등록 및 해제
-  //   personalfollow: (userId) => HOST + ACCOUNTS + `${userId}/follow/`,
+
+  followToggle: (userId) => USER_HOST + `${userId}/follow/`,
   //   // 친구 추천
   //   friendreco: (userId) => HOST + ACCOUNTS + `${userId}/friend/`,
   //   // 좋아요 기반 영화 추천
