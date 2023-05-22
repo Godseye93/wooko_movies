@@ -52,9 +52,17 @@ def user_delete(request):
 @permission_classes([IsAuthenticated])
 def user_profile(request, user_pk=None):
     user = User.objects.get(pk=user_pk) if user_pk else request.user
+
     if request.method == 'GET':
         serializer = UserSerializer(user)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        response_data = serializer.data
+
+        # 팔로우 관련 정보 추가
+        response_data['follower_count'] = user.followings.count()
+        response_data['following_count'] = user.followers.count()
+
+        return Response(response_data, status=status.HTTP_200_OK)
+
     elif request.method == 'PUT':
         serializer = UserSerializer(user, data=request.data, partial=True)
         if serializer.is_valid():
@@ -104,19 +112,19 @@ def follow(request, user_pk):
     return Response(follow_status)
 
 
-# 팔로우 조회
-@api_view(['GET'])
-@permission_classes([IsAuthenticated])
-def follow_list(request, user_pk):
-    follow_user = get_object_or_404(User, pk=user_pk)
-    serializer = FollowSerializer(follow_user)
+# # 팔로우 조회
+# @api_view(['GET'])
+# @permission_classes([IsAuthenticated])
+# def follow_list(request, user_pk):
+#     follow_user = get_object_or_404(User, pk=user_pk)
+#     serializer = FollowSerializer(follow_user)
 
-    follow_status = {
-        # 그 사람을 팔로우 한 사람의 숫자
-        'follower_count': follow_user.followings.count(),
-        # 그 사람을 팔로우 한 사람의 목록
-        'follow_list': serializer.data.get('followings'),
-        # 내가(혹은 해당 pk가) 팔로우 한 사람의 수
-        'following_count': follow_user.followers.count(),
-    }
-    return Response(follow_status)
+#     follow_status = {
+#         # 그 사람을 팔로우 한 사람의 숫자
+#         'follower_count': follow_user.followings.count(),
+#         # 그 사람을 팔로우 한 사람의 목록
+#         'follow_list': serializer.data.get('followings'),
+#         # 내가(혹은 해당 pk가) 팔로우 한 사람의 수
+#         'following_count': follow_user.followers.count(),
+#     }
+#     return Response(follow_status)

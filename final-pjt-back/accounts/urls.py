@@ -14,5 +14,4 @@ urlpatterns = [
     path('<int:user_pk>/profile/', views.user_profile, name='user_profile'),  # 상대방 프로필 조회
     path('profile/', views.user_profile, name='user_profile'),  # 프로필 수정
     path('<int:user_pk>/follow/', views.follow),  # 팔로우 등록 및 해제 + 팔로우 수까지 포함
-    path('<int:user_pk>/follow/list/', views.follow_list),  # 팔로우 조회
 ]

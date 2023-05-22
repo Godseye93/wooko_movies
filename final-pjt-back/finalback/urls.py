@@ -24,5 +24,5 @@ urlpatterns = [
     path('community/', include('community.urls')),
     path('api/auth/', include('dj_rest_auth.urls')),
     path('api/auth/signup/', include('dj_rest_auth.registration.urls')),
-    path('worldcup/', include('worldcup.urls'))
+    # path('worldcup/', include('worldcup.urls'))
 ]
