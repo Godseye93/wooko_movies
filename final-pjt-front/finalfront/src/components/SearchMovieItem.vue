@@ -6,7 +6,10 @@
           <div class="grid">
             <figure class="effect-jazz mb-0">
               <router-link
-                :to="{ name: 'movie-detail', params: { id: movieInfo.id } }"
+                :to="{
+                  name: 'movie-detail',
+                  params: { movieId: movieInfo.id },
+                }"
                 ><img
                   :src="imgBaseUrlMain + movieInfo.poster_path"
                   class="w-100"
@@ -23,28 +26,24 @@
     <div class="col-md-8 col-8 my-auto">
       <div class="popular_2i1r">
         <h5 class="col_red">{{ movieInfo.title }}</h5>
-        <h6>Action, Thriller</h6>
         <h6>
-          Imdb 8.3
-          <span class="ms-2"><i class="fa fa-star col_red me-1"></i></span> Year
-          : 2022 <span class="ms-2">Runtime: 2h 29m</span>
+          평점 : {{ movieInfo.vote_average }},
+          <span class="ms-2">출시일 : </span>{{ movieInfo.release_date }}
         </h6>
         <p>
           {{ movieInfo.overview }}
         </p>
       </div>
       <div class="blog_1r1 p-4 mt-4 ps-0">
-        <h4>genres <span class="col_red">Tags</span></h4>
+        <h4>genre <span class="col_red">Tags</span></h4>
         <hr class="line mb-4 border-0" />
         <ul class="mb-0">
-          <li class="d-inline-block">
-            <a class="d-block">Analyze</a>
-          </li>
-          <li class="d-inline-block">
-            <a class="d-block">Audio</a>
-          </li>
-          <li class="d-inline-block">
-            <a class="d-block">Blog</a>
+          <li
+            class="d-inline-block"
+            v-for="(item, index) in movieInfo.genre_ids"
+            :key="index"
+          >
+            <a class="d-block">{{ item.name }}</a>
           </li>
         </ul>
       </div>
