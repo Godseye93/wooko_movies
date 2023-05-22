@@ -42,7 +42,8 @@ def movie_detail(request, movie_pk):
     return Response(serializer.data)
 
 
-@api_view(['GET'])  # 영화 검색 기능
+# 영화 검색 기능
+@api_view(['GET'])
 def movie_search(request):
     search = request.GET.get('search', '')
     movies = Movie.objects.filter(title__icontains=search)
@@ -51,7 +52,8 @@ def movie_search(request):
     return Response(data)
 
 
-@api_view(['GET'])
+# 랜덤영화 추첨 및 알고리즘 기반 영화 추천
+@api_view(['GET', 'POST'])
 def get_random_movies(request):
     count = request.GET.get('count', 16)  # 요청 매개변수 'count'를 가져오고, 기본값은 16으로 설정합니다.
     movies = list(Movie.objects.all())  # 모든 영화 정보를 가져옵니다.
