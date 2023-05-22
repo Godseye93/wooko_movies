@@ -8,6 +8,8 @@ urlpatterns = [
     path('', views.movie_search, name='search'),  # 영화 검색
     path('recommended/', views.movie_sort),
     path('<int:movie_pk>/', views.movie_detail),  # 단일 영화 조회
+    path('random/', views.get_random_movies, name='get_random_movies'),
+    path('VS/', views.get_random_VS_movies, name='get_random_VS_movies')
 ]
 
 # 메인 페이지 추천영화 목록 (평점순, 최신순, 개봉예정순)
