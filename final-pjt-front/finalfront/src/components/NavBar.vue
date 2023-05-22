@@ -153,6 +153,7 @@ export default {
         name: 'movie-search',
         params: { keyword: this.keyword },
       });
+      this.keyword = '';
     },
   },
 };

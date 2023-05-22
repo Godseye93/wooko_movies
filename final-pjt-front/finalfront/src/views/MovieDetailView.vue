@@ -56,17 +56,15 @@
             </p>
 
             <div class="blog_1r1 p-4 mt-4 ps-0">
-              <h4>Popular <span class="col_red">Tags</span></h4>
+              <h4>genre <span class="col_red">Tags</span></h4>
               <hr class="line mb-4 border-0" />
               <ul class="mb-0">
-                <li class="d-inline-block">
-                  <a class="d-block">Analyze</a>
-                </li>
-                <li class="d-inline-block">
-                  <a class="d-block">Audio</a>
-                </li>
-                <li class="d-inline-block">
-                  <a class="d-block">Blog</a>
+                <li
+                  class="d-inline-block"
+                  v-for="(item, index) in getMovieDetail.genre_ids"
+                  :key="index"
+                >
+                  <a class="d-block">{{ item.name }}</a>
                 </li>
               </ul>
             </div>

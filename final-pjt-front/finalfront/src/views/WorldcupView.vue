@@ -1,7 +1,7 @@
 <template>
   <div v-if="!isDone">
-    <div @click="selectPrev">{{ contestants[0]?.name }}</div>
-    <div @click="selectNext">{{ contestants[1]?.name }}</div>
+    <div @click="selectPrev">{{ getContestants[0]?.title }}</div>
+    <div @click="selectNext">{{ getContestants[1]?.title }}</div>
   </div>
   <div v-else>
     <div>Winner: {{ contestants[0]?.name }}</div>
@@ -9,91 +9,55 @@
 </template>
 
 <script>
+import { mapActions, mapGetters, mapMutations } from 'vuex';
 export default {
   name: 'VersusGameView',
   components: {},
   data() {
     return {
-      contestants: [
-        {
-          name: 'movie1',
-          poster_path:
-            'https://image.tmdb.org/t/p/w500/6KErczPBROQty7QoIsaa6wJYXZi.jpg',
-        },
-        {
-          name: 'movie2',
-          poster_path:
-            'https://image.tmdb.org/t/p/w500/srYya1ZlI97Au4jUYAktDe3avyA.jpg',
-        },
-        {
-          name: 'movie3',
-          poster_path:
-            'https://image.tmdb.org/t/p/w500/8UlWHLMpgZm9bx6QYh0NFoq67TZ.jpg',
-        },
-        {
-          name: 'movie4',
-          poster_path:
-            'https://image.tmdb.org/t/p/w500/9kg73Mg8WJKlB9Y2SAJzeDKAnuB.jpg',
-        },
-        {
-          name: 'movie5',
-          poster_path:
-            'https://image.tmdb.org/t/p/w500/2lBOQK06tltt8SQaswgb8d657Mv',
-        },
-        {
-          name: 'movie6',
-          poster_path:
-            'https://image.tmdb.org/t/p/w500/5NxjLfs7Bi07bfZCRl9CCnUw7AA.jpg',
-        },
-        {
-          name: 'movie7',
-          poster_path:
-            'https://image.tmdb.org/t/p/w500/fX8e94MEWSuTJExndVYxKsmA4Hw.jpg',
-        },
-        {
-          name: 'movie8',
-          poster_path:
-            'https://image.tmdb.org/t/p/w500/y95lQLnuNKdPAzw9F9Ab8kJ80c3.jpg',
-        },
-      ],
-
       winnerList: [],
       isDone: false,
     };
   },
+  computed: {
+    ...mapGetters(['getContestants']),
+  },
 
   methods: {
+    ...mapActions(['getRandContestants']),
+    ...mapMutations(['SET_CONTESTANTS']),
     selectPrev() {
-      this.winnerList.push(this.contestants[0]);
-      this.contestants.splice(0, 2);
+      this.winnerList.push(this.getContestants[0]);
+      this.SET_CONTESTANTS(this.getContestants.slice(2));
 
-      if (this.contestants.length === 0) {
-        this.contestants = [...this.winnerList];
+      if (this.getContestants.length === 0) {
+        this.SET_CONTESTANTS([...this.winnerList]);
         this.winnerList = [];
-        if (this.contestants.length === 1) {
+        if (this.getContestants.length === 1) {
           this.displayWinner();
         }
       }
     },
     selectNext() {
-      this.winnerList.push(this.contestants[1]);
-      this.contestants.splice(0, 2);
+      this.winnerList.push(this.getContestants[1]);
+      this.SET_CONTESTANTS(this.getContestants.slice(2));
 
-      if (this.contestants.length === 0) {
-        this.contestants = [...this.winnerList];
+      if (this.getContestants.length === 0) {
+        this.SET_CONTESTANTS([...this.winnerList]);
         this.winnerList = [];
-        if (this.contestants.length === 1) {
+        if (this.getContestants.length === 1) {
           this.displayWinner();
         }
       }
     },
     displayWinner() {
       console.log('winners', this.winnerList);
+      this.SET_CONTESTANTS([]);
       this.isDone = true;
     },
   },
   created() {
-    // fetchMovieList();
+    this.getRandContestants(8);
   },
 };
 </script>

@@ -17,4 +17,5 @@ export default {
   // searchMovies: () => 'http://127.0.0.1:8000/movies/?search=더',
   // // 추천 영화 조회
   // movie_recommend: (genre_id) => MOVIES_HOST + `${genre_id}/genre/`,
+  randContestants: (count) => MOVIES_HOST + 'random' + `?count=${count}`,
 };

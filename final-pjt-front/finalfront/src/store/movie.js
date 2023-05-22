@@ -8,6 +8,7 @@ const movie = {
     latestMovies: [],
     searchMovies: [],
     movieDetail: {},
+    contestants: [],
   },
   getters: {
     getRecommendedMovies(state) {
@@ -25,6 +26,9 @@ const movie = {
     getSearchedMovies(state) {
       return state.searchMovies;
     },
+    getContestants(state) {
+      return state.contestants;
+    },
   },
   mutations: {
     SET_RECOMMENDED_MOVIES(state, recommendedMovies) {
@@ -41,6 +45,9 @@ const movie = {
     },
     SET_SEARCHED_MOVIES(state, searchMovies) {
       state.searchMovies = searchMovies;
+    },
+    SET_CONTESTANTS(state, contestants) {
+      state.contestants = contestants;
     },
   },
   actions: {
@@ -92,6 +99,18 @@ const movie = {
           commit('SET_SEARCHED_MOVIES', res.data.movies);
         })
 
+        .catch((err) => {
+          alert(err);
+        });
+    },
+    getRandContestants({ commit }, count) {
+      axios({
+        method: 'get',
+        url: movieUrl.randContestants(count),
+      })
+        .then((res) => {
+          commit('SET_CONTESTANTS', res.data);
+        })
         .catch((err) => {
           alert(err);
         });
