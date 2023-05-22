@@ -49,6 +49,26 @@
               </div>
             </div>
           </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            :data-bs-target="`#${slideId}`"
+            data-bs-slide="prev"
+            style="left: -130px"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            :data-bs-target="`#${slideId}`"
+            data-bs-slide="next"
+            style="right: -130px"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
       </div>
     </div>
