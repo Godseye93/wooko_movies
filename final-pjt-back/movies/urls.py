@@ -8,7 +8,8 @@ urlpatterns = [
     path('', views.movie_search, name='search'),  # 영화 검색
     path('recommended/', views.movie_sort),
     path('<int:movie_pk>/', views.movie_detail),  # 단일 영화 조회
-    path('random/', views.get_random_movies, name='get_random_movies'),  # 랜덤영화 추첨 및 영화추천
+    path('random/', views.get_random_movies, name='get_random_movies'),  # 랜덤영화 추첨 및 영화장르추가
+    path('random-by-genre/', views.get_random_movie_by_genre, name='get_random_movie_by_genre')
 ]
 
 # path('VS/', views.get_random_VS_movies, name='get_random_VS_movies')
