@@ -5,29 +5,33 @@ from .models import User
 
 # 팔로우 등록 및 해제 : 팔로우 수까지
 class FollowSerializer(serializers.ModelSerializer):
-    followings = serializers.SerializerMethodField()
-
-    def get_followings(self, obj):
-        followings = obj.followings.all()
-        return UserSerializer(followings, many=True).data
-
     class Meta:
         model = User
-        fields = ('id', 'username', 'followings')
+        fields = ('id', 'username')
 
 
 # 싹다 넣음
 class UserSerializer(serializers.ModelSerializer):
-    follower_count = serializers.SerializerMethodField()
-    followings = serializers.SerializerMethodField()
+    followers_count = serializers.SerializerMethodField()
+    followings_count = serializers.SerializerMethodField()
+    followers_list = FollowSerializer(many=True, read_only=True, source='followings')
+    followings_list = FollowSerializer(many=True, read_only=True, source='followers')
 
-    def get_follower_count(self, obj):
+    def get_followers_count(self, obj):
         return obj.followings.count()
 
-    def get_followings(self, obj):
-        followings = obj.followings.all()
-        return FollowSerializer(followings, many=True).data
+    def get_followings_count(self, obj):
+        return obj.followers.count()
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'email', 'sex', 'profile', 'followings', 'like_genres', 'follower_count')
+        fields = ('id', 'username', 'email', 'sex', 'profile', 'followers_count', 'followings_count', 'followers_list', 'followings_list')
+        # fields = ('id', 'username', 'email', 'sex', 'profile', 'followers_count', 'followings_count', 'followers', 'followings')
+
+
+class ExtendedUserSerializer(UserSerializer):
+    followers = FollowSerializer(many=True, read_only=True)
+    followings = FollowSerializer(many=True, read_only=True)
+
+    class Meta(UserSerializer.Meta):
+        fields = UserSerializer.Meta.fields + ('followers', 'followings')
