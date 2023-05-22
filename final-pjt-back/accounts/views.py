@@ -58,8 +58,9 @@ def user_profile(request, user_pk=None):
         response_data = serializer.data
 
         # 팔로우 관련 정보 추가
-        response_data['follower_count'] = user.followings.count()
-        response_data['following_count'] = user.followers.count()
+        # response_data['followers_count'] = user.followings.count()
+        # response_data['followers_list'] = user.followings.count()
+        # response_data['followings_list'] = user.followings.count()
 
         return Response(response_data, status=status.HTTP_200_OK)
 
