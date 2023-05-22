@@ -21,8 +21,8 @@ from .serializers import FollowSerializer, UserSerializer
 
 
 # 회원탈퇴
-@permission_classes([IsAuthenticated])
 @api_view(['DELETE'])
+@permission_classes([IsAuthenticated])
 def user_delete(request):
     request.user.delete()
     return Response(status=status.HTTP_204_NO_CONTENT)

@@ -3,6 +3,7 @@ import random
 from django.contrib.auth import get_user_model
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
+from rest_framework import status
 from rest_framework.decorators import (api_view, permission_classes,
                                        renderer_classes)
 from rest_framework.permissions import IsAuthenticated
@@ -54,12 +55,51 @@ def movie_search(request):
 
 # 랜덤영화 추첨 및 알고리즘 기반 영화 추천
 @api_view(['GET', 'POST'])
+@permission_classes([IsAuthenticated])
 def get_random_movies(request):
-    count = request.GET.get('count', 16)  # 요청 매개변수 'count'를 가져오고, 기본값은 16으로 설정합니다.
-    movies = list(Movie.objects.all())  # 모든 영화 정보를 가져옵니다.
-    random_movies = random.sample(movies, int(count))  # 영화 정보에서 count 개수만큼 랜덤하게 선택합니다.
-    serializer = RandomMovieSerializer(random_movies, many=True)  # 시리얼라이저를 사용하여 데이터를 직렬화합니다.
-    return Response(serializer.data)
+    if request.method == 'GET':
+        count = request.GET.get('count', 16)  # 요청 매개변수 'count'를 가져오고, 기본값은 16으로 설정
+        movies = list(Movie.objects.all())
+        random_movies = random.sample(movies, int(count))
+        serializer = RandomMovieSerializer(random_movies, many=True)
+        return Response(serializer.data)
+    elif request.method == 'POST':
+        id = request.data.get('id')
+        try:
+            movie = Movie.objects.get(id=id)  # id에 해당하는 영화를 가져옵니다
+            user = request.user
+            user.liked_genres.add(*movie.genre_ids.all())
+            return Response("장르가 성공적으로 추가")
+        except Movie.DoesNotExist:
+            return Response("영화가 없음", status=status.HTTP_404_NOT_FOUND)
+    return Response("잘못된 요청")
+
+
+# 장르기반 영화추천
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_random_movie_by_genre(request):
+    user = request.user
+    liked_genres = user.liked_genres.all()
+
+    # 사용자가 좋아하는 장르가 있는 경우
+    if liked_genres:
+        random_movies = []
+        for _ in range(8):
+            genre = random.choice(liked_genres)  # 좋아하는 장르 중에서 랜덤하게 하나를 선택
+            movies = Movie.objects.filter(genre_ids__id=genre.id)  # 해당 장르를 가지는 영화들을 필터링
+
+            if movies:
+                random_movie = random.choice(movies)  # 해당 장르의 영화 중에서 랜덤하게 하나를 선택
+                random_movies.append(random_movie)
+
+        serializer = MovieSerializer(random_movies, many=True)
+        return Response(serializer.data)
+    else:
+        Response("좋아하는 장르가 없습니다.")
+
+    return Response("검색 결과가 없습니다.")
+
 
 # def get_random_VS_movies():
 #     movies = list(Movie.objects.all())  # 모든 영화 정보를 가져옵니다.

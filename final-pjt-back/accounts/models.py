@@ -18,4 +18,4 @@ class User(AbstractUser):
     # 팔로윙
     followings = models.ManyToManyField('self', symmetrical=False, related_name='followers', blank=True)
     # 좋아하는 장르
-    like_genres = models.ManyToManyField(Genre, related_name='like_users', blank=True)
+    liked_genres = models.ManyToManyField(Genre, related_name='like_users', blank=True)
