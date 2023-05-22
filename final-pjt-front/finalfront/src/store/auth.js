@@ -178,7 +178,8 @@ const auth = {
         },
       })
         .then((res) => {
-          context.commit('SET_PROFILE_INFO', res.data);
+          console.log(res);
+          context.dispatch('fetchProfileDetail', userId);
         })
         .catch((err) => {
           alert(err);

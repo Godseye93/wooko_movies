@@ -19,10 +19,10 @@
       <div class="play2r bg_grey p-4">
         <h3 class="mt-3">{{ getProfileInfo.username }} 님의 프로필</h3>
         <hr class="line border-0" />
-        <p class="mt-3">팔로워: {{ getProfileInfo.followers?.length }}</p>
+        <p class="mt-3">팔로워: {{ getProfileInfo.followers_count }}</p>
         <div
           v-if="getCurUser.pk !== getProfileInfo.id"
-          @click="followToggle(getCurUser.pk)"
+          @click="followToggle(getProfileInfo.id)"
         >
           <button class="border-0 rounded" id="follow-btn" v-if="!isFollowed">
             <svg
@@ -65,7 +65,7 @@
           </button>
         </div>
 
-        <p class="mt-3">팔로잉: {{ getProfileInfo.followings.length }}</p>
+        <p class="mt-3">팔로잉: {{ getProfileInfo.followings_count }}</p>
         <p class="mt-3">선호장르</p>
         <ul class="mb-0 mt-1">
           <li class="d-inline-block">
@@ -144,8 +144,8 @@ export default {
   computed: {
     ...mapGetters(['getProfileInfo', 'getCurUser']),
     isFollowed() {
-      return this.getProfileInfo.followings.some(
-        (following) => following.id === this.getCurUser.pk,
+      return this.getProfileInfo.followers_list?.some(
+        (follower) => follower.id === this.getCurUser.pk,
       );
     },
   },
@@ -154,6 +154,10 @@ export default {
   },
   created() {
     this.fetchProfileDetail(this.$route.params.userId);
+  },
+  beforeRouteUpdate(to, from, next) {
+    this.fetchProfileDetail(to.params.userId);
+    next(); // URL 이동, 라우팅 하기
   },
 };
 </script>

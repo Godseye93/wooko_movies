@@ -100,17 +100,7 @@ def follow(request, user_pk):
         else:
             follow_user.followings.add(user)
 
-        serializer = FollowSerializer(follow_user)
-
-        follow_status = {
-            # 그 사람을 팔로우 한 사람의 숫자
-            'follower_count': follow_user.followings.count(),
-            # 그 사람을 팔로우 한 사람의 목록
-            'follow_list': serializer.data.get('followings'),
-            # 내가(혹은 해당 pk가) 팔로우 한 사람의 수
-            'following_count': follow_user.followers.count(),
-        }
-    return Response(follow_status)
+    return Response(status=status.HTTP_200_OK)
 
 
 # # 팔로우 조회
