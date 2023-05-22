@@ -100,11 +100,17 @@
                   aria-labelledby="navbarDropdown"
                 >
                   <li>
-                    <a class="dropdown-item" href="blog.html">이상형 월드컵</a>
+                    <router-link
+                      class="dropdown-item"
+                      :to="{ name: 'worldcup' }"
+                      >이상형 월드컵</router-link
+                    >
                   </li>
                   <li>
-                    <a class="dropdown-item border-0" href="blog_detail.html"
-                      >VS 게임</a
+                    <router-link
+                      class="dropdown-item border-0"
+                      :to="{ name: 'versus-game' }"
+                      >VS 게임</router-link
                     >
                   </li>
                 </ul>
