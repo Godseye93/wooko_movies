@@ -19,19 +19,18 @@
       <div class="play2r bg_grey p-4">
         <h3 class="mt-3">{{ getProfileInfo.username }} 님의 프로필</h3>
         <hr class="line border-0" />
-        <!-- TODO 팔로우 구현시 이부분 수정, 선호장르 수정 -->
-        <p class="mt-3">팔로워: 0</p>
+        <p class="mt-3">팔로워: {{ getProfileInfo.followers?.length }}</p>
         <div
           v-if="getCurUser.pk !== getProfileInfo.id"
           @click="followToggle(getCurUser.pk)"
         >
-          <button class="button rounded" v-if="!isFollowed">
+          <button class="border-0 rounded" id="follow-btn" v-if="!isFollowed">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
+              width="24"
+              height="24"
               fill="currentColor"
-              class="bi bi-person-fill-add"
+              class="bi bi-person-fill-add me-2"
               viewBox="0 0 16 16"
             >
               <path
@@ -48,10 +47,10 @@
           <button class="button rounded" v-else>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
+              width="24"
+              height="24"
               fill="currentColor"
-              class="bi bi-person-fill-dash"
+              class="bi bi-person-fill-dash me-2"
               viewBox="0 0 16 16"
             >
               <path
@@ -66,7 +65,7 @@
           </button>
         </div>
 
-        <p class="mt-3">팔로잉: 0</p>
+        <p class="mt-3">팔로잉: {{ getProfileInfo.followings.length }}</p>
         <p class="mt-3">선호장르</p>
         <ul class="mb-0 mt-1">
           <li class="d-inline-block">
@@ -109,7 +108,7 @@
               >비밀번호 변경하기</router-link
             >
             <button
-              class="button mt-3 bg-warning rounded col_light"
+              class="button mt-3 bg-warning rounded col_light text-dark"
               v-if="getCurUser.pk === getProfileInfo.id"
               @click="delUser"
             >
@@ -145,7 +144,9 @@ export default {
   computed: {
     ...mapGetters(['getProfileInfo', 'getCurUser']),
     isFollowed() {
-      return this.getProfileInfo.followings?.includes(this.getCurUser.pk);
+      return this.getProfileInfo.followings.some(
+        (following) => following.id === this.getCurUser.pk,
+      );
     },
   },
   methods: {
@@ -168,5 +169,19 @@ ul li a {
 .profile-detail {
   max-width: 100vw;
   margin: 0px;
+}
+
+#follow-btn {
+  --bs-text-opacity: 1;
+  color: rgba(var(--bs-white-rgb), var(--bs-text-opacity));
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-success-rgb), var(--bs-bg-opacity));
+  padding: 10px 20px;
+  display: inline-block;
+}
+#follow-btn:hover {
+  background-color: #fff;
+  color: #28a745;
+  transition: 0.3s;
 }
 </style>
