@@ -9,9 +9,9 @@ urlpatterns = [
     path('recommended/', views.movie_sort),
     path('<int:movie_pk>/', views.movie_detail),  # 단일 영화 조회
     path('random/', views.get_random_movies, name='get_random_movies'),
-    path('VS/', views.get_random_VS_movies, name='get_random_VS_movies')
 ]
 
+# path('VS/', views.get_random_VS_movies, name='get_random_VS_movies')
 # 메인 페이지 추천영화 목록 (평점순, 최신순, 개봉예정순)
 # path('movies', views.movies_main),  # 모든 영화 목록 조회
 # path('<int:movie_pk>/rate/<int:rate_pk>/',

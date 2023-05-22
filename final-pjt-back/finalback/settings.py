@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     "corsheaders",
     'rest_framework.authtoken',
     'dj_rest_auth',
-    'worldcup',
 
     # registration
     'django.contrib.sites',
