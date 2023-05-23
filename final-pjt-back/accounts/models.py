@@ -19,3 +19,8 @@ class User(AbstractUser):
     followings = models.ManyToManyField('self', symmetrical=False, related_name='followers', blank=True)
     # 좋아하는 장르
     liked_genres = models.ManyToManyField(Genre, related_name='like_users', blank=True)
+
+    # 좋아하는 영화배우
+    
+    # 좋아하는 감독
+

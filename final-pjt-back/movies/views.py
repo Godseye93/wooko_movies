@@ -67,14 +67,18 @@ def get_random_movies(request):
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def get_liked_genres(request):
-    id = request.data.get('id')
-    try:
-        movie = Movie.objects.get(id=id)  # id에 해당하는 영화를 가져옵니다
-        user = request.user
-        user.liked_genres.add(*movie.genre_ids.all())
-        return Response("장르가 성공적으로 추가")
-    except Movie.DoesNotExist:
-        return Response("영화가 없음", status=status.HTTP_404_NOT_FOUND)
+    movies = request.data
+    user = request.user
+
+    for movie in movies:
+        movie_id = movie.get('id')
+        try:
+            movie_obj = Movie.objects.get(id=movie_id)  # id에 해당하는 영화를 가져옵니다
+            user.liked_genres.add(*movie_obj.genre_ids.all())
+        except Movie.DoesNotExist:
+            return Response("영화가 없음", status=status.HTTP_404_NOT_FOUND)
+
+    return Response("장르가 성공적으로 추가")
 
 
 # 장르기반 영화추천
