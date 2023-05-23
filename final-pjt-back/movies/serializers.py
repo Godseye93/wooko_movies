@@ -1,11 +1,23 @@
 from rest_framework import serializers
 
-from .models import Genre, Movie, WorldCupItem
+from .models import Actor, Director, Genre, Movie, WorldCupItem
 
 
 class GenreSerializer(serializers.ModelSerializer):
     class Meta:
         model = Genre
+        fields = ['id', 'name']
+
+
+class ActorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Actor
+        fields = ['id', 'name']
+
+
+class DirectorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Director
         fields = ['id', 'name']
 
 

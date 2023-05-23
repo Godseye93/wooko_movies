@@ -3,23 +3,31 @@ import json
 import requests
 
 
-def fetch_movie_data(api_key):
-    # API 엔드포인트와 필요한 매개변수 설정
-    url = f'https://api.themoviedb.org/3/movie/now_playing?page=9&language=ko-KR&api_key={api_key}'
-    response = requests.get(url)
-    # print(response)
-    if response.status_code == 200:
-        movie_data = response.json()
-        return movie_data
-    else:
-        print('Failed to fetch movie data.')
-        return None
+def fetch_movie_data(api_key, total_pages):
+    movie_data = []
+    for page in range(1, total_pages+1):
+        # API 엔드포인트와 필요한 매개변수 설정
+        url = f'https://api.themoviedb.org/3/movie/now_playing?page={page}&language=ko-KR&api_key={api_key}'
+        response = requests.get(url)
+        if response.status_code == 200:
+            page_data = response.json()
+            movie_data.extend(page_data['results'])
+        else:
+            print('Failed to fetch movie data.')
+            return None
+    return movie_data
 
 
 def filter_movie_data(movie_data):
     filtered_data = []
-    for movie in movie_data['results']:
+    for movie in movie_data:
         if movie["overview"] == "":
+            continue
+        if movie["release_date"] == "":
+            continue
+        if movie["poster_path"] == "":
+            continue
+        if movie["genre_ids"] == "":
             continue
 
         filtered_movie = {
@@ -34,7 +42,6 @@ def filter_movie_data(movie_data):
                 "poster_path": movie["poster_path"],
                 "genre_ids": movie["genre_ids"],
                 "backdrop_path": movie["backdrop_path"],
-
             }
         }
         filtered_data.append(filtered_movie)
@@ -47,8 +54,10 @@ def save_movie_data_to_json(movie_data, output_file):
 
 
 # 사용 예시
-api_key = '44f7bac2823c6308d04f29254d02a914'
-movies = fetch_movie_data(api_key)
+api_key = 'd39490e01fe62d2873cc30008341172d'
+total_pages = 86  # 전체 영화가 91page 지만 86 page부터 field 요소 자체가 없는경우가 있어서 오류가남 86이 최대치임
+movies = fetch_movie_data(api_key, total_pages)
 if movies:
     filtered_movies = filter_movie_data(movies)
-    save_movie_data_to_json(filtered_movies, 'movie_data9.json')
+    print(len(filtered_movies))
+    save_movie_data_to_json(filtered_movies, 'movie_data.json')

@@ -15,8 +15,14 @@ urlpatterns = [
     path('get_liked_genres/', views.get_liked_genres, name='get_liked_genres'),  # 좋아하는 장르 추가
 
     # 배우기반 영화 추천
+    path('random_actor/', views.get_random_actors, name='get_random_actors'),  # 랜덤배우 추첨
+    path('random-by-actor/', views.get_random_movie_by_actor, name='get_random_movie_by_actor'),  # 배우기반 영화추첨
+    path('get_liked_actor/', views.get_liked_actors, name='get_liked_actors'),  # 좋아하는 배우 추가
 
     # 감독기반 영화 추천
+    path('random_director/', views.get_random_directors, name='get_random_directors'),  # 랜덤감독 추첨
+    path('random-by-director/', views.get_random_movie_by_director, name='get_random_movie_by_director'),  # 감독기반 영화추첨
+    path('get_liked_director/', views.get_liked_directors, name='get_liked_directors'),  # 좋아하는 감독 추가
 ]
 
 # path('VS/', views.get_random_VS_movies, name='get_random_VS_movies')

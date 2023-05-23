@@ -53,7 +53,7 @@ def movie_search(request):
     return Response(data)
 
 
-# 랜덤영화 추첨 및 알고리즘 기반 영화 추천
+# 랜덤영화 추첨
 @api_view(['GET'])
 def get_random_movies(request):
     count = request.GET.get('count', 16)  # 요청 매개변수 'count'를 가져오고, 기본값은 16으로 설정
@@ -105,6 +105,16 @@ def get_random_movie_by_genre(request):
         Response("좋아하는 장르가 없습니다.")
 
     return Response("검색 결과가 없습니다.")
+
+
+# 랜덤배우 추첨
+@api_view(['GET'])
+def get_random_actors(request):
+    count = request.GET.get('count', 16)  # 요청 매개변수 'count'를 가져오고, 기본값은 16으로 설정
+    movies = list(Movie.objects.all())
+    random_movies = random.sample(movies, int(count))
+    serializer = RandomMovieSerializer(random_movies, many=True)
+    return Response(serializer.data)
 
 
 # def get_random_VS_movies():
