@@ -20,7 +20,24 @@ class User(AbstractUser):
     # 좋아하는 장르
     liked_genres = models.ManyToManyField(Genre, related_name='like_users', blank=True)
 
-    # 좋아하는 영화배우
-    liked_actors = models.ManyToManyField(Actor, related_name='like_actors_users', blank=True)
-    # 좋아하는 감독
-    liked_directors = models.ManyToManyField(Director, related_name='like_directors_users', blank=True)
+
+class UserLikedDirectors(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='liked_directors')
+    director = models.ForeignKey(Director, on_delete=models.CASCADE, related_name='liked_by_users')
+    name = models.CharField(max_length=255, null=True)
+
+    class Meta:
+        db_table = 'accounts_user_liked_directors'
+
+
+class UserLikedActors(models.Model):
+    actor = models.ForeignKey(Actor, on_delete=models.CASCADE)
+    id = models.AutoField(primary_key=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=255, null=True)
+
+    class Meta:
+        db_table = 'accounts_user_liked_actors'
+
+
+

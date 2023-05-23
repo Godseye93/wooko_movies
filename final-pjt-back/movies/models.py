@@ -7,16 +7,6 @@ class Genre(models.Model):
     name = models.CharField(max_length=50)  # 장르 name
 
 
-class Actor(models.Model):
-    id = models.IntegerField(primary_key=True)  # 배우 id
-    name = models.CharField(max_length=50)  # 배우 name
-
-
-class Director(models.Model):
-    id = models.IntegerField(primary_key=True)  # 감독 id
-    name = models.CharField(max_length=50)  # 감독 name
-
-
 class Movie(models.Model):
     title = models.CharField(max_length=100)  # 제목
     release_date = models.DateField(null=True, blank=True)  # 개봉일
@@ -36,13 +26,41 @@ class WorldCupItem(models.Model):
     genre_ids = models.CharField(max_length=100)
 
 
-class WorldCupItemActor(models.Model):
+class ActorWorldCupItem(models.Model):
     name = models.CharField(max_length=100)
     profile_path = models.CharField(
         max_length=200, null=True, blank=True)  # 이미지
 
 
-class WorldCupItemDirector(models.Model):
+class DirectorWorldCupItem(models.Model):
     name = models.CharField(max_length=100)
     profile_path = models.CharField(
         max_length=200, null=True, blank=True)  # 이미지
+
+
+class Director(models.Model):
+    model = models.CharField(max_length=20)
+    name = models.CharField(max_length=255, null=True)
+    profile_path = models.CharField(max_length=255, null=True)
+    title = models.CharField(max_length=255, null=True)
+    release_date = models.DateField(null=True)
+    popularity = models.FloatField(null=True)
+    vote_average = models.FloatField(null=True)
+    overview = models.TextField(null=True)
+    poster_path = models.CharField(max_length=255, null=True)
+    genre_ids = models.JSONField(null=True)
+    backdrop_path = models.CharField(max_length=255, null=True)
+
+
+class Actor(models.Model):
+    model = models.CharField(max_length=20)
+    name = models.CharField(max_length=255, null=True)
+    profile_path = models.CharField(max_length=255, null=True)
+    title = models.CharField(max_length=255, null=True)
+    release_date = models.DateField(null=True)
+    popularity = models.FloatField(null=True)
+    vote_average = models.FloatField(null=True)
+    overview = models.TextField(null=True)
+    poster_path = models.CharField(max_length=255, null=True)
+    genre_ids = models.JSONField(null=True)
+    backdrop_path = models.CharField(max_length=255, null=True)

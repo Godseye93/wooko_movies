@@ -10,8 +10,9 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.renderers import JSONRenderer
 from rest_framework.response import Response
 
-from .models import Movie
-from .serializers import MovieSerializer, RandomMovieSerializer
+from .models import Actor, Director, Movie
+from .serializers import (MovieSerializer, RandomActorSerializer,
+                          RandomDirectorSerializer, RandomMovieSerializer)
 
 
 # 분류된 영화 목록 조회
@@ -111,10 +112,118 @@ def get_random_movie_by_genre(request):
 @api_view(['GET'])
 def get_random_actors(request):
     count = request.GET.get('count', 16)  # 요청 매개변수 'count'를 가져오고, 기본값은 16으로 설정
-    movies = list(Movie.objects.all())
-    random_movies = random.sample(movies, int(count))
-    serializer = RandomMovieSerializer(random_movies, many=True)
+    actors = list(Actor.objects.all())
+    random_actors = random.sample(actors, int(count))
+    serializer = RandomMovieSerializer(random_actors, many=True)
     return Response(serializer.data)
+
+
+# 추천 영화로 '좋아하는 배우' 추가
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def get_liked_actors(request):
+    actors = request.data
+    user = request.user
+
+    for actor in actors:
+        actor_id = actor.get('id')
+        try:
+            actor_obj = Actor.objects.get(id=actor_id)  # id에 해당하는 영화를 가져옵니다
+            user.liked_actors.add(actor_obj)
+        except Actor.DoesNotExist:
+            return Response("영화가 없음", status=status.HTTP_404_NOT_FOUND)
+
+    return Response("배우가 성공적으로 추가")
+
+
+# 배우기반 영화추천
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_random_movie_by_actor(request):
+    user = request.user
+    liked_actors = user.liked_actors.all()
+
+    # 사용자가 좋아하는 배우가 있는 경우
+    if liked_actors:
+        movies = []
+        for actor in liked_actors:
+            actor_movies = Actor.objects.filter(name=actor.name)
+            for movie in actor_movies:
+                movie_data = {
+                    'title': movie.title,
+                    'release_date': movie.release_date,
+                    'popularity': movie.popularity,
+                    'vote_average': movie.vote_average,
+                    'overview': movie.overview,
+                    'poster_path': movie.poster_path,
+                    'genre_ids': movie.genre_ids,
+                    'backdrop_path': movie.backdrop_path,
+                }
+                movies.append(movie_data)
+
+        serializer = RandomActorSerializer(movies, many=True)
+        return Response(serializer.data)
+    else:
+        return Response("좋아하는 배우가 없습니다.")
+
+
+# 랜덤감독 추첨
+@api_view(['GET'])
+def get_random_directors(request):
+    count = request.GET.get('count', 16)  # 요청 매개변수 'count'를 가져오고, 기본값은 16으로 설정
+    directors = list(Director.objects.all())
+    random_directors = random.sample(directors, int(count))
+    serializer = RandomDirectorSerializer(random_directors, many=True)
+    return Response(serializer.data)
+
+
+# 추천 영화로 '좋아하는 감독' 추가
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def get_liked_directors(request):
+    directors = request.data
+    user = request.user
+
+    for director in directors:
+        director_name = director.get('name')
+        try:
+            director_obj = Director.objects.get(name=director_name)  # id에 해당하는 영화를 가져옵니다
+            user.liked_directors.add(director_obj)
+        except Director.DoesNotExist:
+            return Response("영화가 없음", status=status.HTTP_404_NOT_FOUND)
+
+    return Response("감독이 성공적으로 추가")
+
+
+# 감독기반 영화추천
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_random_movie_by_director(request):
+    user = request.user
+    liked_directors = user.liked_directors.all()
+
+    # 사용자가 좋아하는 감독이 있는 경우
+    if liked_directors:
+        movies = []
+        for director in liked_directors:
+            director_movies = Director.objects.filter(name=director.name)
+            for movie in director_movies:
+                movie_data = {
+                    'title': movie.title,
+                    'release_date': movie.release_date,
+                    'popularity': movie.popularity,
+                    'vote_average': movie.vote_average,
+                    'overview': movie.overview,
+                    'poster_path': movie.poster_path,
+                    'genre_ids': movie.genre_ids,
+                    'backdrop_path': movie.backdrop_path,
+                }
+                movies.append(movie_data)
+
+        serializer = RandomDirectorSerializer(movies, many=True)
+        return Response(serializer.data)
+    else:
+        return Response("좋아하는 감독이 없습니다.")
 
 
 # def get_random_VS_movies():

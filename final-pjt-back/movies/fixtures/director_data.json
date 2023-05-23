@@ -1,0 +1,545 @@
+[
+    {
+        "id": 2636,
+        "model": "movies.director",
+        "fields": {
+            "name": "Alfred Hitchcock",
+            "profile_path": "/108fiNM6poRieMg7RIqLJRxdAwG.jpg",
+            "title": "싸이코",
+            "release_date": "1960-06-22",
+            "popularity": 37.761,
+            "vote_average": 8.445,
+            "overview": "마리온 크레인은 그녀의 애인 샘과 결혼하길 원하지만 샘은 빚을 갚을 때까지 기다리라고 말한다. 그래서 그녀는 자신이 다니고 있는 회사 사장이 은행에 입금하라고 맡긴 돈을 들고 도망친다. 도주 첫날 밤 묵게 된 도로변의 낡은 모텔 주인인 노만 베이츠는 그녀에게 친절하게 대해주며 자신은 모텔 바로 뒤쪽 저택에서 몸이 불편한 어머니와 함께 살고 있다고 말한다. 잠자리에 들기 전 마리온이 샤워를 하는 도중, 난데없이 검은 형상이 욕실에 나타나고 마리온은 실종된다. 마리온을 찾기 위해 그녀의 언니 릴라와 샘, 그리고 보험회사 측에서 고용한 탐정 등 세 사람이 추적에 나서는데...",
+            "poster_path": "/vC3P8hH4r3I3fHiRFa1kj6yzeaN.jpg",
+            "genre_ids": [
+                27,
+                18,
+                53
+            ],
+            "backdrop_path": "/uif5fUshJrXyyDzfpzp1DLw3N0S.jpg"
+        }
+    },
+    {
+        "id": 5655,
+        "model": "movies.director",
+        "fields": {
+            "name": "Wes Anderson",
+            "profile_path": "/5z2WroP0CgQ5vI17M0hzi8o5NAn.jpg",
+            "title": "그랜드 부다페스트 호텔",
+            "release_date": "2014-02-26",
+            "popularity": 32.82,
+            "vote_average": 8.055,
+            "overview": "1927년 세계대전이 한창이던 어느 날, 세계 최고 부호 마담 D가 그랜드 부다페스트 호텔에 다녀간 지 얼마 지나지 않아 의문의 살인을 당한다. 그녀는 유언을 통해 가문 대대로 내려오던 명화 사과를 든 소년을 전설적인 호텔 지배인이자 연인 구스타브 앞으로 남긴다.  마담 D의 유산을 노리고 있던 그의 아들 드미트리는 구스타브를 졸지에 유력한 용의자로 지목하게 되고, 구스타브는 충실한 호텔 로비보이 제로와 함께 누명을 벗기기 위한 기상천외한 모험을 시작한다.",
+            "poster_path": "/kDByLWU30umAUyetDnmdptUMVap.jpg",
+            "genre_ids": [
+                35,
+                18
+            ],
+            "backdrop_path": "/xHDynIimfsgj0ZOs0j5ma8v1vmM.jpg"
+        }
+    },
+    {
+        "id": 578,
+        "model": "movies.director",
+        "fields": {
+            "name": "Ridley Scott",
+            "profile_path": "/zABJmN9opmqD4orWl3KSdCaSo7Q.jpg",
+            "title": "마션",
+            "release_date": "2015-09-30",
+            "popularity": 48.229,
+            "vote_average": 7.673,
+            "overview": "NASA 소속의 아레스 3 탐사대는 화성에 도착한 지 6일째 되는 날 거대한 모래 폭풍을 만난다. 팀원 마크 와트니가 실종되고 회오리바람에 우주선이 기울어지자, 팀원들은 마크를 찾는 일을 포기하고 화성을 떠난다.  극적으로 생존한 마크 와트니는 남은 식량과 기발한 재치로 화성에서 살아남을 방법을 찾으며 자신이 살아있음을 알리려 노력한다. 마침내 자신이 살아있다는 사실을 지구에 알리게 된 마크 와트니. NASA는 총력을 기울여 마크 와트니를 구출하기 위해 노력하고, 아레스 3 탐사대 또한 그를 구출하기 위해 그들만의 방법을 찾게 되는데...",
+            "poster_path": "/uH8q40cjMAjrRHyPJMbQwAIJATb.jpg",
+            "genre_ids": [
+                18,
+                12,
+                878
+            ],
+            "backdrop_path": "/3dPhs7hUnQLphDFzdkD407VZDYo.jpg"
+        }
+    },
+    {
+        "id": 525,
+        "model": "movies.director",
+        "fields": {
+            "name": "Christopher Nolan",
+            "profile_path": "/xuAIuYSmsUzKlUMBFGVZaWsY3DZ.jpg",
+            "title": "인셉션",
+            "release_date": "2010-07-15",
+            "popularity": 71.203,
+            "vote_average": 8.363,
+            "overview": "타인의 꿈에 들어가 생각을 훔치는 특수 보안요원 코브. 그를 이용해 라이벌 기업의 정보를 빼내고자 하는 사이토는 코브에게 생각을 훔치는 것이 아닌, 생각을 심는 ‘인셉션’ 작전을 제안한다. 성공 조건으로 국제적인 수배자가 되어있는 코브의 신분을 바꿔주겠다는 거부할 수 없는 제안을 하고, 사랑하는 아이들에게 돌아가기 위해 그 제안을 받아들인다. 최강의 팀을 구성, 표적인 피셔에게 접근해서 ‘인셉션’ 작전을 실행하지만 예기치 못한 사건들과 마주하게 되는데… 꿈 VS 현실! 시간, 규칙, 타이밍 모든 것이 완벽해야만 하는, 단 한 번도 성공한 적 없는 ‘인셉션’ 작전이 시작된다!",
+            "poster_path": "/zTgjeblxSLSvomt6F6UYtpiD4n7.jpg",
+            "genre_ids": [
+                28,
+                878,
+                12
+            ],
+            "backdrop_path": "/8ZTVqvKDQ8emSGUEMjsS4yHAwrp.jpg"
+        }
+    },
+    {
+        "id": 1584770,
+        "model": "movies.director",
+        "fields": {
+            "name": "Adolfo López Campaña",
+            "profile_path": null,
+            "title": "Toy Guns",
+            "release_date": "2016-02-26",
+            "popularity": 0.715,
+            "vote_average": 5.9,
+            "overview": "After losing his job, Leo is also losing his breath at his girlfriend's demands. In his closet, he finds a toy gun, so he looks for his good old friend DJ Canas, and proposes him the business of their lives: to become armed robbers. This is how they begin a journey full of funny adventures where Leo looks for money and DJ Canas seeks the adrenaline.",
+            "poster_path": "/8sFI2nMUNVdoz1qaRhfuxiLCUS8.jpg",
+            "genre_ids": [
+                35
+            ],
+            "backdrop_path": null
+        }
+    },
+    {
+        "id": 138,
+        "model": "movies.director",
+        "fields": {
+            "name": "Quentin Tarantino",
+            "profile_path": "/1gjcpAa99FAOWGnrUvHEXXsRs7o.jpg",
+            "title": "펄프 픽션",
+            "release_date": "1994-09-10",
+            "popularity": 58.142,
+            "vote_average": 8.5,
+            "overview": "펌프킨와 허니 버니가 레스토랑에서 강도 행각을 벌이기 시작한다. 빈센트와 그 동료 쥴스는 두목의 금가방을 찾기 위해 다른 건달이 사는 아파트를 찾아간다. 마르셀러스는 부치에게 돈을 주며 상대 선수에게 져 주라고 하지만 부치는 상대 선수를 때려 눕히고 도망치다, 어릴 때 아버지에게 물려받은 시계를 찾기 위해 아파트로 향한다. 아무런 상관 없이 보이는 이 사건들이 서로 얽히고 섥히면서 예상치 못한 인과관계가 만들어지는데...",
+            "poster_path": "/6lXRHGoEbnnBUKsuqpL9JxD4DzT.jpg",
+            "genre_ids": [
+                53,
+                80
+            ],
+            "backdrop_path": "/suaEOtk1N1sgg2MTM7oZd2cfVp3.jpg"
+        }
+    },
+    {
+        "id": 4073501,
+        "model": "movies.director",
+        "fields": {
+            "name": "Suwaporn Worrasit",
+            "profile_path": null,
+            "title": "Looking From The Terrace",
+            "release_date": "2015-07-09",
+            "popularity": 0.845,
+            "vote_average": 0.0,
+            "overview": "Point of view from Balcony, Some people are doing something.",
+            "poster_path": "/mExLP8tRjwueDlLCVteJyldZupN.jpg",
+            "genre_ids": [
+                99
+            ],
+            "backdrop_path": null
+        }
+    },
+    {
+        "id": 25645,
+        "model": "movies.director",
+        "fields": {
+            "name": "Hirokazu Kore-eda",
+            "profile_path": "/oIDlmHZZj6jgrPy6onX9igENYOi.jpg",
+            "title": "어느 가족",
+            "release_date": "2018-06-02",
+            "popularity": 11.915,
+            "vote_average": 7.863,
+            "overview": "할머니의 연금과 물건을 훔쳐 생활하며 가난하지만 웃음이 끊이지 않는 어느 가족. 우연히 길 위에서 떨고 있는 한 소녀를 발견하고 집으로 데려와 가족처럼 함께 살게 된다. 그런데 뜻밖의 사건으로 가족이 뿔뿔이 흩어지게 되고 각자 품고 있던 비밀과 간절한 바람이 드러나게 되는데…",
+            "poster_path": "/p9TmPe5kntZBaNavEe6j6jxcTo1.jpg",
+            "genre_ids": [
+                18,
+                10751,
+                80,
+                53
+            ],
+            "backdrop_path": "/Z1JeznJExodyj0iUbL1wgkts88.jpg"
+        }
+    },
+    {
+        "id": 1087400,
+        "model": "movies.director",
+        "fields": {
+            "name": "Manuel Ramírez",
+            "profile_path": null,
+            "title": "Scars 2",
+            "release_date": "2007-02-01",
+            "popularity": 8.634,
+            "vote_average": 8.4,
+            "overview": "Diana Golden and Martha Ortiz are the stars of this shocking video in which Juan Carlos; one of the characters learned that being a true macho is imposing your will on others regardless of whether it destroys dignity or feelings. He himself witnessed the mistreatment and outrageous life that his mother suffered as a wife and woman because of his father's machismo. This chain of machismo almost destroyed her life and that of her family. But God has mercy on his life and Juan Carlos finds Jesus and a new life: that of a man transformed into the image of the true man of Christ Jesus.",
+            "poster_path": "/nHSDmbm8wcWWSu5R68iJcWE07Uk.jpg",
+            "genre_ids": [
+                18
+            ],
+            "backdrop_path": "/gJPYkqVIm2xQnZJ9mcjegjr9FBm.jpg"
+        }
+    },
+    {
+        "id": 1032,
+        "model": "movies.director",
+        "fields": {
+            "name": "Martin Scorsese",
+            "profile_path": "/9U9Y5GQuWX3EZy39B8nkk4NY01S.jpg",
+            "title": "셔터 아일랜드",
+            "release_date": "2010-02-14",
+            "popularity": 50.847,
+            "vote_average": 8.198,
+            "overview": "보스턴 셔터아일랜드의 정신병원은 중범죄를 저지른 정신병자를 격리하는 병동으로 탈출 자체가 불가능하다. 하지만 자식 셋을 죽인 혐의를 받고 있는 여인이 이상한 쪽지만을 남긴 채 감쪽같이 사라지는 사건이 발생한다. 연방보안관 테디 다니엘스(레오나르도 디카프리오)는 수사를 위해 동료 척(마크 러팔로)과 함께 셔터아일랜드로 향한다. 테디는 수사를 위해 의사, 간호사, 병원관계자 등을 심문하지만 수사는 전혀 진척되지 않는다. 설상가상 폭풍이 불어 닥쳐 테디와 척은 섬에 고립되게 되고, 그들에게 점점 괴이한 일들이 일어나기 시작하는데...",
+            "poster_path": "/aywZdSOXtwcqqLTl271EUJemi2.jpg",
+            "genre_ids": [
+                18,
+                53,
+                9648
+            ],
+            "backdrop_path": "/2nqsOT2AqPkTW81bWaLRtjgjqVM.jpg"
+        }
+    },
+    {
+        "id": 5602,
+        "model": "movies.director",
+        "fields": {
+            "name": "David Lynch",
+            "profile_path": "/b6TnSpuqeOlbq7aHH9G4inmQ1v9.jpg",
+            "title": "멀홀랜드 드라이브",
+            "release_date": "2001-06-06",
+            "popularity": 25.589,
+            "vote_average": 7.834,
+            "overview": "헐리웃 스타의 꿈을 안고 LA에 온 베티는 멀홀랜드 드라이브에서 일어난 자동차 사고로 이름조차 기억하지 못하는 리타를 만나 그녀가 기억을 되찾을 수 있도록 도와준다. 베티의 적극적인 도움으로 단서를 찾아가던 리타는 한 카페의 여종업원 명찰에서 다이안이라는 이름을 보고 어떤 것을 떠올리게 된다. 베티는 이 이름이 분명 리타와 관계된 사람의 이름일 것이라 말하며 다이안이라는 인물을 찾기 시작한다. 마침내 다이안의 집을 찾아간 두 여인. 그러나 그들은 곧 상상을 초월하는 끔찍한 비밀을 발견하게 되는데...",
+            "poster_path": "/gRS4yRRuhQmg2kBZPPIpzUpljwc.jpg",
+            "genre_ids": [
+                53,
+                18,
+                9648
+            ],
+            "backdrop_path": "/A5n963lCjuVhiCHtBLTxMz1KgCF.jpg"
+        }
+    },
+    {
+        "id": 16863,
+        "model": "movies.director",
+        "fields": {
+            "name": "Todd Haynes",
+            "profile_path": "/h11kdTCA8QOMpihH12Wz2phQkW2.jpg",
+            "title": "캐롤",
+            "release_date": "2015-11-20",
+            "popularity": 17.672,
+            "vote_average": 7.5,
+            "overview": "1950년대 뉴욕, 맨해튼 백화점 점원인 테레즈와 손님으로 찾아온 캐롤은 처음 만난 순간부터 거부할 수 없는 강한 끌림을 느낀다. 하나뿐인 딸을 두고 이혼 소송 중인 캐롤과 헌신적인 남자친구가 있지만 확신이 없던 테레즈, 각자의 상황을 잊을 만큼 통제할 수 없이 서로에게 빠져드는 감정의 혼란 속에서 둘은 확신하게 된다. 인생의 마지막에, 그리고 처음으로 찾아온 진짜 사랑임을…",
+            "poster_path": "/wLZF9GM1tBwHwM6TdZ8zSx7RTTz.jpg",
+            "genre_ids": [
+                10749,
+                18
+            ],
+            "backdrop_path": "/2giW19Qb8Lmyd5XCyVU2avABvhZ.jpg"
+        }
+    },
+    {
+        "id": 5026,
+        "model": "movies.director",
+        "fields": {
+            "name": "Akira Kurosawa",
+            "profile_path": "/eGexa6MZ22T1MZxce1qR3RcAYaS.jpg",
+            "title": "7인의 사무라이",
+            "release_date": "1954-04-26",
+            "popularity": 28.371,
+            "vote_average": 8.461,
+            "overview": "일본의 전국시대. 주민들은 황폐한 땅에서 어렵게 수확한 식량으로 한해 한해를 넘기는 빈촌에 살고 있다. 이 빈촌엔 보리 수확이 끝날 무렵이면 어김없이 산적들이 찾아와 모든 식량을 모조리 약탈해 간다. 싸워도 애원해도 소용이 없었다. 가만히 있을 수만은 없던 촌장의 결단으로 사무라이들을 모집하는데, 이들은 풍부한 전쟁 경험을 가진 시마다 칸베에를 포함한 7명이었다. 시마다의 지휘하에 마을은 방위태세를 갖추고 전투훈련도 시작한다. 이윽고 산적들의 공격이 시작되어 치열한 사투가 벌어진다.",
+            "poster_path": "/6Y8Q5t79ybiDA7XubUTneqZhjA3.jpg",
+            "genre_ids": [
+                28,
+                18
+            ],
+            "backdrop_path": "/qvZ91FwMq6O47VViAr8vZNQz3WI.jpg"
+        }
+    },
+    {
+        "id": 488,
+        "model": "movies.director",
+        "fields": {
+            "name": "Steven Spielberg",
+            "profile_path": "/tZxcg19YQ3e8fJ0pOs7hjlnmmr6.jpg",
+            "title": "쥬라기 공원",
+            "release_date": "1993-06-11",
+            "popularity": 22.291,
+            "vote_average": 7.935,
+            "overview": "코스타리카 서해안의 한 섬에 세워진 테마 파크 쥬라기 공원. 최신 복제 기술로 살아난 공룡들이 활보하는 이곳에 공룡학자를 비롯한 각계의 전문가가 일반 공개에 앞서 정밀 안전 진단을 위한 투어에 나선다. 그러나 최첨단 컴퓨터 시스템으로 철저히 통제되고 있는 공룡들이 예기치 않은 사고로 폭주하게 되고, 여기에 설상가상으로 태풍까지 몰려오면서 일행들의 투어는 순식간에 생존을 위한 사투의 현장으로 뒤바뀌는데...",
+            "poster_path": "/m4T4h20ame5nG7a5iNPCwk0pHEG.jpg",
+            "genre_ids": [
+                12,
+                878
+            ],
+            "backdrop_path": "/1TvNazsE9WvRIxxeZkvL7IVVgzD.jpg"
+        }
+    },
+    {
+        "id": 2710,
+        "model": "movies.director",
+        "fields": {
+            "name": "James Cameron",
+            "profile_path": "/9NAZnTjBQ9WcXAQEzZpKy4vdQto.jpg",
+            "title": "아바타",
+            "release_date": "2009-12-15",
+            "popularity": 181.829,
+            "vote_average": 7.569,
+            "overview": "가까운 미래, 지구는 에너지 고갈 문제를 해결하기 위해 머나먼 행성 판도라에서 대체 자원을 채굴하기 시작한다. 하지만 판도라의 독성을 지닌 대기로 인해 자원 획득에 어려움을 겪게 된 인류는 판도라의 토착민 나비의 외형에 인간의 의식을 주입, 원격 조종이 가능한 새로운 생명체를 탄생시키는 프로그램을 개발한다. 한편 하반신이 마비된 전직 해병대원 제이크 설리는 아바타 프로그램에 참가할 것을 제안받는다. 그 곳에서 자신의 아바타를 통해 자유롭게 걸을 수 있게 된 제이크는 자원 채굴을 막으려는 나비의 무리에 침투하라는 임무를 부여받는데...",
+            "poster_path": "/zygmx5abXeDpr3fWYX4jlXFZ1wh.jpg",
+            "genre_ids": [
+                28,
+                12,
+                14,
+                878
+            ],
+            "backdrop_path": "/chauy3iJaZtrMbTr72rgNmOZwo3.jpg"
+        }
+    },
+    {
+        "id": 510,
+        "model": "movies.director",
+        "fields": {
+            "name": "Tim Burton",
+            "profile_path": "/oWZDgLRr4zgRiJEsOAtgntPd5bI.jpg",
+            "title": "찰리와 초콜릿 공장",
+            "release_date": "2005-07-13",
+            "popularity": 68.32,
+            "vote_average": 7.038,
+            "overview": "전 세계 누구에게나 사랑 받는 윌리 웡카 초콜릿 공장. 매일 엄청난 양의 초콜릿을 생산해 세계 각국으로 운반하고 있지만 그 누구도 공장을 드나 드는 사람을 본 적이 없는 비밀의 공간이다. 공장보다 더 신비로운 수수께끼는 공장장인 윌리 웡카(조니 뎁)라는 인물. 소문에 의하면 웡카는 몇 년 동안 공장 밖으로 나가본 적도 없다고 한다. 어느 날 윌리 웡카가 5개의 웡카 초콜릿에 감춰진 행운의 황금티켓을 찾은 어린이 다섯 명에게 자신의 공장을 공개하고 그 모든 제작과정의 비밀을 보여주겠다는 선언을 한다. 이제 전 세계 어린이들은 황금티켓을 찾기 위한 노력을 시작한다.",
+            "poster_path": "/b3422i6tIf91RttBRfIz70dBSwn.jpg",
+            "genre_ids": [
+                12,
+                35,
+                10751,
+                14
+            ],
+            "backdrop_path": "/bSvUW4JQ6g4QiKvwejcfcPRd4Ke.jpg"
+        }
+    },
+    {
+        "id": 16938,
+        "model": "movies.director",
+        "fields": {
+            "name": "Renny Harlin",
+            "profile_path": "/IhXiDrZBrsLZpB5K5BmzUGkp4G.jpg",
+            "title": "다이 하드 2",
+            "release_date": "1990-07-02",
+            "popularity": 26.537,
+            "vote_average": 6.92,
+            "overview": "존 맥클레인(브루스 윌리스)은 LA에서 날아오는 아내 홀리를 마중하기 위해 공항으로 나간다. 그러나 테러리스트들이 공항을 점거하고, 마약의 대부 에스페란자 장군을 압송해 오는 비행기를 착륙시킨 후 점보기를 준비해 놓을 것을 요구한다. 홀리가 탄 비행기는 착륙하지 못하고 공항을 선회하나 연료가 떨어져 간다. 맥클레인과 특수부대원들은 테러리스트들의 본부인 교회를 습격하나 테러리스트들은 비행기에 오른다. 그러나 맥클레인은 테러리스트들의 총알이 공포탄이었음을 알고 특수 부대와 테러리스트들이 한 통속임을 알아내는데...",
+            "poster_path": "/lDFO7D4MdbhjOwaPwe18QG69Rt0.jpg",
+            "genre_ids": [
+                28,
+                53
+            ],
+            "backdrop_path": "/fgkgab4Rel0nOI3B3scHeNB4Mn6.jpg"
+        }
+    },
+    {
+        "id": 11770,
+        "model": "movies.director",
+        "fields": {
+            "name": "John Carpenter",
+            "profile_path": "/3Qp0mg61u1qSZNJh30BFEUZrIMG.jpg",
+            "title": "괴물",
+            "release_date": "1982-06-25",
+            "popularity": 39.407,
+            "vote_average": 8.039,
+            "overview": "남극의 노르웨이 탐사팀이 이상한 개를 쫓아 미국 기지까지 오게 된다. 거의 발광하다시피 개를 공격하다가 그만 방어하던 미국인들에게 사살된다. 미국인들은 진상을 조사하기 위해 노르웨이 기지로 사람을 보낸다. 그곳은 사람은 하나도 없고 이상하게 일그러진 시체와 잔해들을 발견한다. 시체들을 해부해 봤지만 별 이상이 발견되지는 않았다. 그러던 어느 날 노르웨이 탐사팀의 추격을 받았던 개가 개집에서 끔찍한 괴물로 변하게 되는데...",
+            "poster_path": "/sJfEZgPQpxFn6TVx96Im3GeMYzG.jpg",
+            "genre_ids": [
+                27,
+                9648,
+                878
+            ],
+            "backdrop_path": "/jaO8WurWoUBE55nskqtFqPZFFaO.jpg"
+        }
+    },
+    {
+        "id": 16767,
+        "model": "movies.director",
+        "fields": {
+            "name": "Aki Kaurismäki",
+            "profile_path": "/t0pdsYfLts7p01OBN1P9UHp1Z0l.jpg",
+            "title": "르 아브르",
+            "release_date": "2011-09-08",
+            "popularity": 6.685,
+            "vote_average": 6.983,
+            "overview": "프랑스 서북부의 항구도시 르 아브르. 젊은 시절 자유로운 보헤미안이었던 마르셀 막스는 이제 이곳에 정착하여 구두닦이 일을 하고 있다. 사랑하는 아내 아를레티와 친절한 이웃들에 둘러싸여 소박하지만 행복한 삶을 살고 있는 마르셀. 그러던 어느 날 아프리카에서 온 불법 난민 소년 이드리사를 숨겨주게 되고, 설상가상 아내가 병으로 쓰러진다. 소년을 쫓는 마을 경감 모네의 추적이 시시각각 조여오고 마침내 마르셀은 행동할 때가 왔음을 깨닫는데… 과연 마르셀은 무사히 소년과 아내를 지켜낼 수 있을까.",
+            "poster_path": "/4SlkVKNePZxgrWSXPc4PNZGPs4A.jpg",
+            "genre_ids": [
+                18,
+                35
+            ],
+            "backdrop_path": "/eAtg0bP9vySbT8pGs14yLJU6Jwf.jpg"
+        }
+    },
+    {
+        "id": 4590,
+        "model": "movies.director",
+        "fields": {
+            "name": "Russ Meyer",
+            "profile_path": "/zNVAAdgIk9q3SQadZuQKr6wHlXM.jpg",
+            "title": "더 빨리, 푸시캣! 죽여라! 죽여!",
+            "release_date": "1965-08-06",
+            "popularity": 8.79,
+            "vote_average": 6.4,
+            "overview": "사막의 한적한 도로에서 카레이스를 펼치고 하이힐로 남근을 후려 차는 과격한 이 60년대 언니들은 지금 봐도 매력적이다. 쿠엔틴 타란티노가 <데스프루프>에서 경배를 표한 작품.",
+            "poster_path": "/4mld2L1vWqgqFQmKa7KU4HzLKPi.jpg",
+            "genre_ids": [
+                28,
+                80,
+                35
+            ],
+            "backdrop_path": "/kEYzCALqaU8cMMRPtghjAjcLRQi.jpg"
+        }
+    },
+    {
+        "id": 309,
+        "model": "movies.director",
+        "fields": {
+            "name": "Pedro Almodóvar",
+            "profile_path": "/dKlaXJk3NLcsC1CKMx6xmyW5BZD.jpg",
+            "title": "내가 사는 피부",
+            "release_date": "2011-08-17",
+            "popularity": 21.287,
+            "vote_average": 7.529,
+            "overview": "교통사고로 인한 화상으로 아내가 죽은 후 저명한 성형외과 의사인 로버트 박사는 12년간 그만의 비밀실험실에서 완벽한 인공피부를 만드는 데 집착한다. 로버트 박사의 비밀스런 실험대상인 베라는 박사의 대저택 안에 감금되어 그녀를 보호해주는 바디슈트만을 입은 채 생활하고, 로버트 박사의 오른팔인 하녀 마릴리아가 그녀를 돌본다. 어느 날, 로버트가 집을 비운 사이 자신을 마릴리아의 아들이라고 밝히는 손님이 저택에 찾아오게 되면서 로버트와 베라를 둘러싼 비밀이 하나씩 밝혀지며 걷잡을 수 없는 파란이 시작되는데...",
+            "poster_path": "/jUsqD5NPbT9oLUIVkjhbmOUupEx.jpg",
+            "genre_ids": [
+                18,
+                27,
+                9648,
+                53
+            ],
+            "backdrop_path": "/oPxTkDKK2NcHcAEADATWiXKOkFw.jpg"
+        }
+    },
+    {
+        "id": 82194,
+        "model": "movies.director",
+        "fields": {
+            "name": "Neill Blomkamp",
+            "profile_path": "/yj40QEEfjbRFnlwY0XunocNKdAe.jpg",
+            "title": "디스트릭트 9",
+            "release_date": "2009-08-05",
+            "popularity": 25.598,
+            "vote_average": 7.415,
+            "overview": "남아공 상공에 불시착한 외계인들은 요하네스버그 인근 지역 외계인 수용구역 ‘디스트릭트 9’에 임시 수용된 채 28년 동안 인간의 통제를 받게 된다. 외계인 관리국 MNU는 외계인들로 인해 무법지대로 변해버린 ‘디스트릭트 9’을 강제 철거하기로 결정하고, 프로젝트를 추진하던 중 책임자 비커스가 외계물질에 노출되는 사고를 당한다. 유전자 변이를 일으키면서 외계인으로 변해가는 비커스. 정부는 비커스가 외계 신무기를 가동시킬 수 있는 유일한 인물이라는 것을 알고 비밀리에 그를 추적하기 시작한다. 정부의 감시시스템이 조여오는 가운데, 비커스는 외계인 수용 구역 ‘디스트릭트 9’으로 숨어드는데…",
+            "poster_path": "/gzMNQLELXzlssBUuTrZV3WmqBQO.jpg",
+            "genre_ids": [
+                878
+            ],
+            "backdrop_path": "/4Zi5RbM8RnCzLxBEasXBtEODPk9.jpg"
+        }
+    },
+    {
+        "id": 3556,
+        "model": "movies.director",
+        "fields": {
+            "name": "Roman Polanski",
+            "profile_path": "/5Kks5RMO2az5YOcFJjYXiDt4qH1.jpg",
+            "title": "피아니스트",
+            "release_date": "2002-09-17",
+            "popularity": 39.56,
+            "vote_average": 8.383,
+            "overview": "1939년 폴란드 바르샤바, 유명한 유대계 피아니스트 블라디슬로프 스필만은 한 인기 라디오 프로그램에서 쇼팽의 야상곡을 연주하다 폭격을 당한다. 이후 유태인인 스필만과 가족들은 게토에서 생활하지만, 결국 수용소로 향하는 기차에 몸을 싣게 된다. 가족들을 죽음으로 내보내고 간신히 목숨을 구한 스필만은 허기와 추위, 고독과 공포 속에서 마지막까지 생존해 나간다. 자신을 도와주던 몇몇의 사람마저 떠나고, 자신만의 은신처에서 끈질기게 생존을 유지하는 스필만. 어둠과 추위로 가득한 폐건물 속에서 은신생활 중 스필만은 우연찮게 순찰을 돌던 독일 장교에게 발각되는데...",
+            "poster_path": "/t7L2YDpu635qKT3ehqZxry4yvTX.jpg",
+            "genre_ids": [
+                18,
+                10752
+            ],
+            "backdrop_path": "/dVr11o9or7AS8AMPfwjSpEU83iU.jpg"
+        }
+    },
+    {
+        "id": 78108,
+        "model": "movies.director",
+        "fields": {
+            "name": "Isaac Florentine",
+            "profile_path": "/4PJrg3l105M2GMNazhu2DXZ1Wce.jpg",
+            "title": "언디스퓨티드 3:  리뎀션",
+            "release_date": "2010-05-22",
+            "popularity": 58.555,
+            "vote_average": 7.552,
+            "overview": "러시아 교도소의 격투기 선수가 자신의 지난 패배를 설욕하기 위해 교도소간의 격투대회에 참가하게 된다.",
+            "poster_path": "/g8KB77SPA7SyU8eid6TAEpt9skU.jpg",
+            "genre_ids": [
+                28,
+                53
+            ],
+            "backdrop_path": "/tOfAkOf7TrAPuz4kKG5Fvq1seCd.jpg"
+        }
+    },
+    {
+        "id": 1287732,
+        "model": "movies.director",
+        "fields": {
+            "name": "Feng Xiaogang",
+            "profile_path": "/erM5k0T0GWadQ8C49CnF7P6cgQ3.jpg",
+            "title": "대지진",
+            "release_date": "2010-07-22",
+            "popularity": 8.476,
+            "vote_average": 7.1,
+            "overview": "1976년 7월 28일 중국 당산.  인류 역사상 가장 끔찍했던 23초간의 대지진.  악몽 같은 지진은 한 가족의 운명을 송두리째 바꿔버렸다.\r 소박한 일상이지만 행복한 하루하루를 보내고 있는 일곱살 쌍둥이 ‘팡떵’과 ‘팡다’의 가족. 행복했던 그들에게 어느 날 갑자기 예고되지 않았던 시련이 닥친다. 바로 27만의 목숨을 빼앗아간 지옥 같은 대지진. 폐허가 된 도시, 수많은 생명이 죽음을 맞이한 아비규환의 현장에서 쌍둥이 남매는 극적으로 살아남지만 무너진 건물의 잔해 속에 묻히게 된다. 쌍둥이의 생존사실을 알고 구조대와 함께 아이들을 구하러 온 어머니는 자신의 목숨보다 소중한 쌍둥이 중 한 명만을 구해야 하는 운명의 선택 앞에 놓이게 된다. 가혹한 선택을 해야만 하는 어머니는 결국 아들인 ‘팡다’의 목숨을 선택하게 되고, 딸 ‘팡떵’은 죽음을 맞이해야 하는 채로 잔해 속에 남겨진다. 며칠 후, 죽은 줄로만 알았던 ‘팡떵’은 다른 구조대에 의해 발견되어 지진사망자 보관소에 버려지지만, 죽은 아버지 곁에서 기적적으로 살아나게 된다.  폐허가 된 지진의 잔해 속에서 살아남은 소녀.  한 순간 운명이 바뀌어버린 남겨진 소녀의 운명적인 이야기가 시작된다.",
+            "poster_path": "/pTZvEBlwwi3JVN3OCuFWg9uLzaC.jpg",
+            "genre_ids": [
+                18
+            ],
+            "backdrop_path": "/AcRbkI2vyy7yVa57ObitTFTuYYV.jpg"
+        }
+    },
+    {
+        "id": 240,
+        "model": "movies.director",
+        "fields": {
+            "name": "Stanley Kubrick",
+            "profile_path": "/yFT0VyIelI9aegZrsAwOG5iVP4v.jpg",
+            "title": "샤이닝",
+            "release_date": "1980-05-23",
+            "popularity": 43.406,
+            "vote_average": 8.222,
+            "overview": "소설가인 잭 토랜스는 콜로라도 산맥에 있는 오버룩 호텔의 관리인으로 취직한다. 다음 시즌 준비를 하는 이곳은 겨울 동안 폐쇄되기 때문에 토랜스의 가족들만 호텔에 머물게 된다. 갑자기 몰아친 폭설로 잭과 아내 웬디와 아들과 함께 호텔에 고립되고, 투시와 텔레파시 능력이 있는 잭의 아들 대니는 호텔에 유령이 있으며 유령들이 천천히 아버지를 미치게 하고 있음을 알게 된다. 잭은 과거에 스스로 자신의 아내와 두 딸을 죽인 이곳의 예전 관리인 그레이디의 유령을 만난다. 과거에 있었던 살인사건의 악령에 휘말린 잭은 호텔을 공포의 도가니로 몰아가는데...",
+            "poster_path": "/vzc4lvpjaZrrfxsnqmhURm37gmB.jpg",
+            "genre_ids": [
+                27,
+                53
+            ],
+            "backdrop_path": "/mmd1HnuvAzFc4iuVJcnBrhDNEKr.jpg"
+        }
+    },
+    {
+        "id": 2815319,
+        "model": "movies.director",
+        "fields": {
+            "name": "Delilah Napier",
+            "profile_path": null,
+            "title": "Voyeur",
+            "release_date": "2020-10-15",
+            "popularity": 0.609,
+            "vote_average": 0.0,
+            "overview": "Inspired by true events, two student actresses at Yale delve into dark competition in staging Strindberg's Miss Julie, pushing the envelope of Naturalist authenticity until they lose sight of reality. \"Voyeur\" explores the extremes of self-inflicted student perfectionism at an elite college through the lens of a dark comedy, asking the questions: How far will one go to reach authenticity? Can the theatre ever disappear completely and become life itself?",
+            "poster_path": "/hzIY03TnqMt5IwfROYXG0Sksshf.jpg",
+            "genre_ids": [
+                18,
+                35
+            ],
+            "backdrop_path": "/urVaix3zt0qxuKD5W8g6xQutnYm.jpg"
+        }
+    },
+    {
+        "id": 1,
+        "model": "movies.director",
+        "fields": {
+            "name": "George Lucas",
+            "profile_path": "/WCSZzWdtPmdRxH9LUCVi2JPCSJ.jpg",
+            "title": "스타워즈 에피소드 4: 새로운 희망",
+            "release_date": "1977-05-25",
+            "popularity": 83.926,
+            "vote_average": 8.208,
+            "overview": "공화국이 붕괴하고 제국이 수립된 뒤 20년, 제다이 기사단은 전멸하고 강력한 제국군의 횡포에 은하계는 공포에 휩싸여 있다. 그러던 중 공화국 재건을 노리는 반란군이 제국군의 비밀병기 데스스타 설계도를 훔쳐 달아나고 제국군은 이를 쫓는다. 하지만 결국 제국의 손에 붙잡히게 된 그들은 드로이드 R2-D2에 설계도를 넣어서 R2의 친구 C-3PO와 탈출시키는 데 성공하고, 두 드로이드 콤비는 타투인의 시골 마을에서 숙부와 함께 살고 있던 청년 루크 스카이워커에게 오게 되는데...",
+            "poster_path": "/7XFfURIFCJxN1mfBg0SAjk5yGzg.jpg",
+            "genre_ids": [
+                12,
+                28,
+                878
+            ],
+            "backdrop_path": "/zqkmTXzjkAgXmEWLRsY4UpTWCeo.jpg"
+        }
+    }
+]
