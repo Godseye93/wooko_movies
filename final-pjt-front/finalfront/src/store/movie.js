@@ -115,6 +115,22 @@ const movie = {
           alert(err);
         });
     },
+    sendGameResult(context, result) {
+      axios({
+        method: 'post',
+        url: movieUrl.addLikeGenre(),
+        data: result,
+        headers: {
+          Authorization: `Token ${context.rootState.auth.token}`,
+        },
+      })
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          alert(err);
+        });
+    },
   },
 };
 
