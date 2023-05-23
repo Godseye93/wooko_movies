@@ -9,6 +9,11 @@ Licence: <a href="https://www.templateonweb.com/license">Website Template Licenc
 /* #app {
   min-height: 100vh;
 } */
+#confetti-canvas {
+  z-index: 10;
+  position: absolute;
+  top: 0;
+}
 body {
   font-family: 'Rajdhani', sans-serif;
   color: #ffffff;

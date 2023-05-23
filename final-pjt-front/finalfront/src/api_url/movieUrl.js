@@ -18,4 +18,5 @@ export default {
   // // 추천 영화 조회
   // movie_recommend: (genre_id) => MOVIES_HOST + `${genre_id}/genre/`,
   randContestants: (count) => MOVIES_HOST + 'random' + `?count=${count}`,
+  addLikeGenre: () => MOVIES_HOST + 'get_liked_genres/',
 };
