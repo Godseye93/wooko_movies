@@ -78,13 +78,13 @@
                   >HOME</router-link
                 >
               </li>
-              <li class="nav-item">
+              <li class="nav-item" v-if="isLogin">
                 <router-link class="nav-link" :to="{ name: 'community' }"
                   >COMMUNITY</router-link
                 >
               </li>
 
-              <li class="nav-item dropdown">
+              <li class="nav-item dropdown" v-if="isLogin">
                 <a
                   class="nav-link dropdown-toggle"
                   href="#"
