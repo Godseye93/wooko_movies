@@ -54,25 +54,27 @@ def movie_search(request):
 
 
 # 랜덤영화 추첨 및 알고리즘 기반 영화 추천
-@api_view(['GET', 'POST'])
-@permission_classes([IsAuthenticated])
+@api_view(['GET'])
 def get_random_movies(request):
-    if request.method == 'GET':
-        count = request.GET.get('count', 16)  # 요청 매개변수 'count'를 가져오고, 기본값은 16으로 설정
-        movies = list(Movie.objects.all())
-        random_movies = random.sample(movies, int(count))
-        serializer = RandomMovieSerializer(random_movies, many=True)
-        return Response(serializer.data)
-    elif request.method == 'POST':
-        id = request.data.get('id')
-        try:
-            movie = Movie.objects.get(id=id)  # id에 해당하는 영화를 가져옵니다
-            user = request.user
-            user.liked_genres.add(*movie.genre_ids.all())
-            return Response("장르가 성공적으로 추가")
-        except Movie.DoesNotExist:
-            return Response("영화가 없음", status=status.HTTP_404_NOT_FOUND)
-    return Response("잘못된 요청")
+    count = request.GET.get('count', 16)  # 요청 매개변수 'count'를 가져오고, 기본값은 16으로 설정
+    movies = list(Movie.objects.all())
+    random_movies = random.sample(movies, int(count))
+    serializer = RandomMovieSerializer(random_movies, many=True)
+    return Response(serializer.data)
+
+
+# 추천 영화로 '좋아하는 장르' 추가
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def get_liked_genres(request):
+    id = request.data.get('id')
+    try:
+        movie = Movie.objects.get(id=id)  # id에 해당하는 영화를 가져옵니다
+        user = request.user
+        user.liked_genres.add(*movie.genre_ids.all())
+        return Response("장르가 성공적으로 추가")
+    except Movie.DoesNotExist:
+        return Response("영화가 없음", status=status.HTTP_404_NOT_FOUND)
 
 
 # 장르기반 영화추천
