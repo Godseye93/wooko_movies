@@ -12,7 +12,7 @@ import ProfileUpdateView from '../views/ProfileUpdateView.vue';
 import SignupView from '../views/SignupView.vue';
 import ArticleUpdateView from '../views/ArticleUpdateView.vue';
 import ChangePasswdView from '../views/ChangePasswdView.vue';
-import VersusGameView from '../views/VersusGameView.vue';
+import VersusGameMovieView from '../views/VersusGameMovieView.vue';
 import WorldcupView from '../views/WorldcupView.vue';
 
 Vue.use(VueRouter);
@@ -80,9 +80,9 @@ const routes = [
     component: ChangePasswdView,
   },
   {
-    path: '/versusgame',
-    name: 'versus-game',
-    component: VersusGameView,
+    path: '/versusgame/movie',
+    name: 'versus-game-movie',
+    component: VersusGameMovieView,
   },
   {
     path: '/worldcup',

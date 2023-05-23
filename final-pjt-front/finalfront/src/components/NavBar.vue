@@ -109,8 +109,28 @@
                   <li>
                     <router-link
                       class="dropdown-item border-0"
-                      :to="{ name: 'versus-game' }"
-                      >VS 게임</router-link
+                      :to="{
+                        name: 'versus-game-movie',
+                      }"
+                      >VS 게임(영화 ver)</router-link
+                    >
+                  </li>
+                  <li>
+                    <router-link
+                      class="dropdown-item border-0"
+                      :to="{
+                        name: 'versus-game-movie',
+                      }"
+                      >VS 게임(배우 ver)</router-link
+                    >
+                  </li>
+                  <li>
+                    <router-link
+                      class="dropdown-item border-0"
+                      :to="{
+                        name: 'versus-game-movie',
+                      }"
+                      >VS 게임(감독 ver)</router-link
                     >
                   </li>
                 </ul>

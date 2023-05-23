@@ -31,7 +31,7 @@
 <script>
 import { mapActions, mapGetters, mapMutations } from 'vuex';
 export default {
-  name: 'VersusGameView',
+  name: 'VersusGameMovieView',
   components: {},
   data() {
     return {
