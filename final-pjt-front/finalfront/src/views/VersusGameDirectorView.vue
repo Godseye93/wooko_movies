@@ -2,14 +2,22 @@
   <div class="d-flex justify-content-center align-items-center" v-if="!isDone">
     <div class="d-flex flex-column align-items-center" @click="selectPrev">
       <figure class="effect-jazz">
-        <img :src="imgBaseUrlMain + getContestants[0]?.profile_path" alt="" />
+        <img
+          v-if="getContestants"
+          :src="imgBaseUrlMain + getContestants[0].profile_path"
+          alt=""
+        />
       </figure>
       <h2>{{ getContestants[0]?.name }}</h2>
     </div>
     <h3 class="me-5 ms-5 col_red">VS</h3>
     <div class="d-flex flex-column align-items-center" @click="selectNext">
       <figure class="effect-jazz">
-        <img :src="imgBaseUrlMain + getContestants[1]?.profile_path" alt="" />
+        <img
+          v-if="getContestants"
+          :src="imgBaseUrlMain + getContestants[1].profile_path"
+          alt=""
+        />
       </figure>
       <h2>{{ getContestants[1]?.name }}</h2>
     </div>
@@ -24,7 +32,7 @@
         <h4>{{ item.name }}</h4>
       </figure>
     </div>
-    <p class="text-center mt-5">다음 영화들이 내 취향에 반영됩니다</p>
+    <p class="text-center mt-5">다음 감독들이 내 취향에 반영됩니다</p>
   </div>
 </template>
 
