@@ -78,13 +78,13 @@
                   >HOME</router-link
                 >
               </li>
-              <li class="nav-item">
+              <li class="nav-item" v-if="isLogin">
                 <router-link class="nav-link" :to="{ name: 'community' }"
                   >COMMUNITY</router-link
                 >
               </li>
 
-              <li class="nav-item dropdown">
+              <li class="nav-item dropdown" v-if="isLogin">
                 <a
                   class="nav-link dropdown-toggle"
                   href="#"
@@ -109,8 +109,28 @@
                   <li>
                     <router-link
                       class="dropdown-item border-0"
-                      :to="{ name: 'versus-game' }"
-                      >VS 게임</router-link
+                      :to="{
+                        name: 'versus-game-movie',
+                      }"
+                      >VS 게임(영화 ver)</router-link
+                    >
+                  </li>
+                  <li>
+                    <router-link
+                      class="dropdown-item border-0"
+                      :to="{
+                        name: 'versus-game-movie',
+                      }"
+                      >VS 게임(배우 ver)</router-link
+                    >
+                  </li>
+                  <li>
+                    <router-link
+                      class="dropdown-item border-0"
+                      :to="{
+                        name: 'versus-game-movie',
+                      }"
+                      >VS 게임(감독 ver)</router-link
                     >
                   </li>
                 </ul>

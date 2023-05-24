@@ -49,7 +49,7 @@ export default {
   },
 
   methods: {
-    ...mapActions(['getRandContestants']),
+    ...mapActions(['getRandContestants', 'sendGameResult']),
     ...mapMutations(['SET_CONTESTANTS']),
     selectPrev() {
       this.winnerList.push(this.getContestants[0]);
@@ -60,6 +60,7 @@ export default {
         this.winnerList = [];
         if (this.getContestants.length === 1) {
           this.isDone = true;
+          this.sendGameResult(this.getContestants);
           this.displayWinner();
         }
       }
@@ -73,6 +74,7 @@ export default {
         this.winnerList = [];
         if (this.getContestants.length === 1) {
           this.isDone = true;
+          this.sendGameResult(this.getContestants);
           this.displayWinner();
         }
       }
