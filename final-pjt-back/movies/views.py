@@ -149,7 +149,8 @@ def get_random_movie_by_actor(request):
     # 사용자가 좋아하는 배우가 있는 경우
     if liked_actors:
         movies = []
-        for actor in liked_actors:
+        random_actors = random.sample(list(liked_actors), k=min(len(liked_actors), 8))
+        for actor in random_actors:
             actor_movies = Actor.objects.filter(name=actor.name)
             for movie in actor_movies:
                 movie_data = {
@@ -209,7 +210,8 @@ def get_random_movie_by_director(request):
     # 사용자가 좋아하는 감독이 있는 경우
     if liked_directors:
         movies = []
-        for director in liked_directors:
+        random_directors = random.sample(list(liked_directors), k=min(len(liked_directors), 8))
+        for director in random_directors:
             director_movies = Director.objects.filter(name=director.name)
             for movie in director_movies:
                 movie_data = {
