@@ -6,7 +6,6 @@ import requests
 def fetch_movie_data(api_key, total_pages):
     movie_data = []
     for page in range(1, total_pages+1):
-        # API 엔드포인트와 필요한 매개변수 설정
         url = f'https://api.themoviedb.org/3/trending/person/day?page={page}&language=ko-KR&api_key={api_key}'
         response = requests.get(url)
         if response.status_code == 200:
@@ -30,17 +29,19 @@ def filter_director_data(movie_data):
                         'model': 'movies.director',
                         'fields': {
                             'name': movie.get('name'),
-                            'profile_path': movie.get('profile_path'),
+                            'profile_path': movie.get('profile_path', None),  # None으로 설정
                             'title': known_for.get('title'),
                             'release_date': known_for.get('release_date'),
                             'popularity': known_for.get('popularity'),
                             'vote_average': known_for.get('vote_average'),
-                            'overview': known_for.get('overview'),
+                            'overview': known_for.get('overview', None),
                             'poster_path': known_for.get('poster_path'),
                             'genre_ids': known_for.get('genre_ids'),
                             'backdrop_path': known_for.get('backdrop_path')
                         }
                     }
+                    if None in filtered_movie['fields'].values():
+                        continue
                     filtered_data.append(filtered_movie)
     return filtered_data
 
