@@ -102,6 +102,9 @@ def follow(request, user_pk):
 
     return Response(status=status.HTTP_200_OK)
 
+# 좋아하는 장르 조회
+
+
 
 # # 팔로우 조회
 # @api_view(['GET'])

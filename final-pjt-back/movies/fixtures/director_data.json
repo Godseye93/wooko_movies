@@ -98,24 +98,6 @@
         }
     },
     {
-        "id": 4073501,
-        "model": "movies.director",
-        "fields": {
-            "name": "Suwaporn Worrasit",
-            "profile_path": null,
-            "title": "Looking From The Terrace",
-            "release_date": "2015-07-09",
-            "popularity": 0.6,
-            "vote_average": 0.0,
-            "overview": "Point of view from Balcony, Some people are doing something.",
-            "poster_path": "/9bbbVy5q5sBR3UKgG72kfop5aPu.jpg",
-            "genre_ids": [
-                99
-            ],
-            "backdrop_path": null
-        }
-    },
-    {
         "id": 5602,
         "model": "movies.director",
         "fields": {
@@ -172,24 +154,6 @@
                 9648
             ],
             "backdrop_path": "/2nqsOT2AqPkTW81bWaLRtjgjqVM.jpg"
-        }
-    },
-    {
-        "id": 1584770,
-        "model": "movies.director",
-        "fields": {
-            "name": "Adolfo López Campaña",
-            "profile_path": null,
-            "title": "Toy Guns",
-            "release_date": "2016-02-26",
-            "popularity": 0.963,
-            "vote_average": 5.9,
-            "overview": "After losing his job, Leo is also losing his breath at his girlfriend's demands. In his closet, he finds a toy gun, so he looks for his good old friend DJ Canas, and proposes him the business of their lives: to become armed robbers. This is how they begin a journey full of funny adventures where Leo looks for money and DJ Canas seeks the adrenaline.",
-            "poster_path": "/8sFI2nMUNVdoz1qaRhfuxiLCUS8.jpg",
-            "genre_ids": [
-                35
-            ],
-            "backdrop_path": null
         }
     },
     {
@@ -307,24 +271,6 @@
                 27
             ],
             "backdrop_path": "/ylHdeFztJTQorRtePsLyNt69msB.jpg"
-        }
-    },
-    {
-        "id": 1087400,
-        "model": "movies.director",
-        "fields": {
-            "name": "Manuel Ramírez",
-            "profile_path": null,
-            "title": "Scars 2",
-            "release_date": "2007-02-01",
-            "popularity": 9.197,
-            "vote_average": 8.4,
-            "overview": "Diana Golden and Martha Ortiz are the stars of this shocking video in which Juan Carlos; one of the characters learned that being a true macho is imposing your will on others regardless of whether it destroys dignity or feelings. He himself witnessed the mistreatment and outrageous life that his mother suffered as a wife and woman because of his father's machismo. This chain of machismo almost destroyed her life and that of her family. But God has mercy on his life and Juan Carlos finds Jesus and a new life: that of a man transformed into the image of the true man of Christ Jesus.",
-            "poster_path": "/nHSDmbm8wcWWSu5R68iJcWE07Uk.jpg",
-            "genre_ids": [
-                18
-            ],
-            "backdrop_path": "/gJPYkqVIm2xQnZJ9mcjegjr9FBm.jpg"
         }
     },
     {
@@ -582,25 +528,6 @@
                 14
             ],
             "backdrop_path": "/bSvUW4JQ6g4QiKvwejcfcPRd4Ke.jpg"
-        }
-    },
-    {
-        "id": 16938,
-        "model": "movies.director",
-        "fields": {
-            "name": "Renny Harlin",
-            "profile_path": "/IhXiDrZBrsLZpB5K5BmzUGkp4G.jpg",
-            "title": "다이 하드 2",
-            "release_date": "1990-07-02",
-            "popularity": 29.431,
-            "vote_average": 6.92,
-            "overview": "존 맥클레인(브루스 윌리스)은 LA에서 날아오는 아내 홀리를 마중하기 위해 공항으로 나간다. 그러나 테러리스트들이 공항을 점거하고, 마약의 대부 에스페란자 장군을 압송해 오는 비행기를 착륙시킨 후 점보기를 준비해 놓을 것을 요구한다. 홀리가 탄 비행기는 착륙하지 못하고 공항을 선회하나 연료가 떨어져 간다. 맥클레인과 특수부대원들은 테러리스트들의 본부인 교회를 습격하나 테러리스트들은 비행기에 오른다. 그러나 맥클레인은 테러리스트들의 총알이 공포탄이었음을 알고 특수 부대와 테러리스트들이 한 통속임을 알아내는데...",
-            "poster_path": "/lDFO7D4MdbhjOwaPwe18QG69Rt0.jpg",
-            "genre_ids": [
-                28,
-                53
-            ],
-            "backdrop_path": "/fgkgab4Rel0nOI3B3scHeNB4Mn6.jpg"
         }
     }
 ]

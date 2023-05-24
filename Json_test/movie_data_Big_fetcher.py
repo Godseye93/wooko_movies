@@ -7,7 +7,7 @@ def fetch_movie_data(api_key, total_pages):
     movie_data = []
     for page in range(1, total_pages+1):
         # API 엔드포인트와 필요한 매개변수 설정
-        url = f'https://api.themoviedb.org/3/movie/now_playing?page={page}&language=ko-KR&api_key={api_key}'
+        url = f'https://api.themoviedb.org/3/movie/popular?page={page}&language=ko-KR&api_key={api_key}'
         response = requests.get(url)
         if response.status_code == 200:
             page_data = response.json()
@@ -54,9 +54,9 @@ def save_movie_data_to_json(movie_data, output_file):
 
 
 api_key = 'd39490e01fe62d2873cc30008341172d'
-total_pages = 86  # 전체 영화가 91page 지만 86 page부터 field 요소 자체가 없는경우가 있어서 오류가남 86이 최대치임
+total_pages = 300  # 전체 영화가 91page 지만 86 page부터 field 요소 자체가 없는경우가 있어서 오류가남 86이 최대치임
 movies = fetch_movie_data(api_key, total_pages)
 if movies:
     filtered_movies = filter_movie_data(movies)
     print(len(filtered_movies))
-    save_movie_data_to_json(filtered_movies, 'movie_data1.json')
+    save_movie_data_to_json(filtered_movies, 'movie_data.json')
