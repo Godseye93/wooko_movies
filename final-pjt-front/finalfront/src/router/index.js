@@ -14,6 +14,8 @@ import ArticleUpdateView from '../views/ArticleUpdateView.vue';
 import ChangePasswdView from '../views/ChangePasswdView.vue';
 import VersusGameMovieView from '../views/VersusGameMovieView.vue';
 import WorldcupView from '../views/WorldcupView.vue';
+import VersusGameActorView from '../views/VersusGameActorView.vue';
+import VersusGameDirectorView from '../views/VersusGameDirectorView.vue';
 
 Vue.use(VueRouter);
 
@@ -88,6 +90,16 @@ const routes = [
     path: '/worldcup',
     name: 'worldcup',
     component: WorldcupView,
+  },
+  {
+    path: 'versusgame/actor',
+    name: 'versus-game-actor',
+    component: VersusGameActorView,
+  },
+  {
+    path: 'versusgame/director',
+    name: 'versus-game-director',
+    component: VersusGameDirectorView,
   },
 ];
 

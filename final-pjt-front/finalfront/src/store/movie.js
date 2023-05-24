@@ -1,5 +1,6 @@
 import axios from 'axios';
 import movieUrl from '@/api_url/movieUrl';
+import router from '@/router';
 
 const movie = {
   state: {
@@ -51,14 +52,42 @@ const movie = {
     },
   },
   actions: {
-    getSortedMovies({ commit }, sortMethod) {
+    fetchRecommendedMovies(context, sortMethod) {
+      let url = '';
+      if (sortMethod === 'genre_recommend') {
+        url = movieUrl.genreRecommend();
+      } else if (sortMethod === 'actor_recommend') {
+        url = movieUrl.actorRecommend();
+      } else if (sortMethod === 'director_recommend') {
+        url = movieUrl.directorRecommend();
+      }
+
+      axios({
+        method: 'get',
+        url,
+        headers: {
+          Authorization: `Token ${context.rootState.auth.token}`,
+        },
+      })
+        .then((res) => {
+          if (res.data === '검색 결과가 없습니다.') {
+            context.dispatch('getSortedMovies', 'popularity');
+          }
+          context.commit('SET_RECOMMENDED_MOVIES', res.data);
+        })
+        .catch((err) => {
+          alert(err);
+        });
+    },
+
+    getSortedMovies(context, sortMethod) {
       let url = '';
       if (sortMethod === 'vote_average') {
         url = movieUrl.highRatingMovies();
       } else if (sortMethod === 'release_date') {
         url = movieUrl.latestMovies();
-      } else {
-        url = movieUrl.recommendedMovies();
+      } else if (sortMethod === 'popularity') {
+        url = movieUrl.popularMovies();
       }
       axios({
         method: 'get',
@@ -66,11 +95,11 @@ const movie = {
       })
         .then((res) => {
           if (sortMethod === 'vote_average') {
-            commit('SET_HIGH_RATING_MOVIES', res.data);
+            context.commit('SET_HIGH_RATING_MOVIES', res.data);
           } else if (sortMethod === 'release_date') {
-            commit('SET_LATEST_MOVIES', res.data);
+            context.commit('SET_LATEST_MOVIES', res.data);
           } else {
-            commit('SET_RECOMMENDED_MOVIES', res.data);
+            context.commit('SET_RECOMMENDED_MOVIES', res.data);
           }
         })
         .catch((err) => {
@@ -116,9 +145,19 @@ const movie = {
         });
     },
     sendGameResult(context, result) {
+      let url = '';
+      if (router.currentRoute.name === 'versus-game-movie') {
+        url = movieUrl.addLikeGenre();
+      }
+      if (router.currentRoute.name === 'versus-game-director') {
+        url = movieUrl.addLikeDirector();
+      }
+      if (router.currentRoute.name === 'versus-game-actor') {
+        url = movieUrl.addLikeActor();
+      }
       axios({
         method: 'post',
-        url: movieUrl.addLikeGenre(),
+        url,
         data: result,
         headers: {
           Authorization: `Token ${context.rootState.auth.token}`,
@@ -126,6 +165,30 @@ const movie = {
       })
         .then((res) => {
           console.log(res);
+        })
+        .catch((err) => {
+          alert(err);
+        });
+    },
+    getRandDirectors({ commit }, count) {
+      axios({
+        method: 'get',
+        url: movieUrl.randDirectors(count),
+      })
+        .then((res) => {
+          commit('SET_CONTESTANTS', res.data);
+        })
+        .catch((err) => {
+          alert(err);
+        });
+    },
+    getRandActors({ commit }, count) {
+      axios({
+        method: 'get',
+        url: movieUrl.randActors(count),
+      })
+        .then((res) => {
+          commit('SET_CONTESTANTS', res.data);
         })
         .catch((err) => {
           alert(err);

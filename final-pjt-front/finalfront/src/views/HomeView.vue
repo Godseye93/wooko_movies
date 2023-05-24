@@ -26,6 +26,22 @@
             임의의 영화가 추천 됩니다</span
           >
         </p>
+        <button
+          class="button rounded fs-6 me-3"
+          @click="fetchRecommendedMovies('genre_recommend')"
+        >
+          장르별 추천</button
+        ><button
+          class="button rounded fs-6 me-3"
+          @click="fetchRecommendedMovies('actor_recommend')"
+        >
+          배우별 추천</button
+        ><button
+          class="button rounded fs-6"
+          @click="fetchRecommendedMovies('director_recommend')"
+        >
+          감독별 추천
+        </button>
       </h4>
       <div
         id="carouselExampleCaptions"
@@ -55,10 +71,10 @@
             aria-label="Slide 3"
           ></button>
         </div>
-        <div class="carousel-inner">
+        <div class="carousel-inner mt-3">
           <div class="carousel-item active">
             <img
-              src="../assets/logo.png"
+              :src="baseImgUrl + getRecommendedMovies[0]?.backdrop_path"
               class="d-block w-100 center-img"
               alt="..."
             />
@@ -66,31 +82,46 @@
               class="carousel-caption d-md-block"
               style="text-align: left; padding: 150px 150px; bottom: 0; left: 0"
             >
-              <h1 class="font_60">Entertainment Planet</h1>
+              <h1 class="font_60">{{ getRecommendedMovies[0]?.title }}</h1>
               <h6 class="mt-3">
-                4.5 (Imdb) Year : 2022
+                츨시일 : {{ getRecommendedMovies[0]?.release_date }}
                 <h6 class="mt-4">
-                  <a class="button" href="#"> 자세히 보기</a>
+                  <router-link
+                    class="button"
+                    :to="{
+                      name: 'movie-detail',
+                      params: { movieId: getRecommendedMovies[0]?.id },
+                    }"
+                  >
+                    자세히 보기</router-link
+                  >
                 </h6>
               </h6>
-              <p class="mt-3">
-                Four waves of increasingly deadly alien attacks have left most
-                of Earth in ruin. Cassie is on the run, desperately trying to
-                save her younger brother.
+              <p class="mt-3 overview-text-home">
+                {{ getRecommendedMovies[0]?.overview }}
               </p>
               <p class="mb-2">
-                <span class="col_red me-1 fw-bold">Starring:</span> Eget Nulla
-                Semper Porta Dapibus Diam Ipsum
+                <span class="col_red me-1 fw-bold">인기도:</span>
+                {{ getRecommendedMovies[0]?.popularity }}
               </p>
               <p class="mb-2">
-                <span class="col_red me-1 fw-bold">Genres:</span> Music
+                <span class="col_red me-1 fw-bold">평점:</span>
+                {{ getRecommendedMovies[0]?.vote_average }}
               </p>
-              <p><span class="col_red me-1 fw-bold">Runtime:</span> 1h 32m</p>
+              <p class="mb-2">
+                <span class="col_red me-1 fw-bold">Genres:</span>
+                <span
+                  v-for="(item, index) in getRecommendedMovies[0]?.genre_ids"
+                  :key="index"
+                  >{{ item.name }},
+                </span>
+              </p>
             </div>
           </div>
+
           <div class="carousel-item">
             <img
-              src="../assets/logo.png"
+              :src="baseImgUrl + getRecommendedMovies[1]?.backdrop_path"
               class="d-block w-100 center-img"
               alt="..."
             />
@@ -98,59 +129,87 @@
               class="carousel-caption d-md-block"
               style="text-align: left; padding: 150px 150px; bottom: 0; left: 0"
             >
-              <h1 class="font_60">Lorem Semper Nulla</h1>
+              <h1 class="font_60">{{ getRecommendedMovies[1]?.title }}</h1>
               <h6 class="mt-3">
-                4.5 (Imdb) Year : 2022
+                츨시일 : {{ getRecommendedMovies[1]?.release_date }}
                 <h6 class="mt-4">
-                  <a class="button" href="#"> 자세히 보기</a>
+                  <router-link
+                    class="button"
+                    :to="{
+                      name: 'movie-detail',
+                      params: { movieId: getRecommendedMovies[1]?.id },
+                    }"
+                  >
+                    자세히 보기</router-link
+                  >
                 </h6>
               </h6>
-              <p class="mt-3">
-                Four waves of increasingly deadly alien attacks have left most
-                of Earth in ruin. Cassie is on the run, desperately trying to
-                save her younger brother.
+              <p class="mt-3 overview-text-home">
+                {{ getRecommendedMovies[1]?.overview }}
               </p>
               <p class="mb-2">
-                <span class="col_red me-1 fw-bold">Starring:</span> Eget Nulla
-                Semper Porta Dapibus Diam Ipsum
+                <span class="col_red me-1 fw-bold">인기도:</span>
+                {{ getRecommendedMovies[1]?.popularity }}
               </p>
               <p class="mb-2">
-                <span class="col_red me-1 fw-bold">Genres:</span> Music
+                <span class="col_red me-1 fw-bold">평점:</span>
+                {{ getRecommendedMovies[1]?.vote_average }}
               </p>
-              <p><span class="col_red me-1 fw-bold">Runtime:</span> 1h 32m</p>
-              <h6 class="mt-4"></h6>
+              <p class="mb-2">
+                <span class="col_red me-1 fw-bold">Genres:</span>
+                <span
+                  v-for="(item, index) in getRecommendedMovies[1]?.genre_ids"
+                  :key="index"
+                  >{{ item.name }},
+                </span>
+              </p>
             </div>
           </div>
+
           <div class="carousel-item">
             <img
-              src="../assets/logo.png"
+              :src="baseImgUrl + getRecommendedMovies[2]?.backdrop_path"
               class="d-block w-100 center-img"
               alt="..."
             />
             <div
-              class="carousel-caption d-md-block position-"
+              class="carousel-caption d-md-block"
               style="text-align: left; padding: 150px 150px; bottom: 0; left: 0"
             >
-              <h1 class="font_60">Eget Diam Ipsum</h1>
+              <h1 class="font_60">{{ getRecommendedMovies[2]?.title }}</h1>
               <h6 class="mt-3">
-                4.5 (Imdb) Year : 2022
+                츨시일 : {{ getRecommendedMovies[2]?.release_date }}
                 <h6 class="mt-4">
-                  <a class="button" href="#"> 자세히 보기</a>
+                  <router-link
+                    class="button"
+                    :to="{
+                      name: 'movie-detail',
+                      params: { movieId: getRecommendedMovies[2]?.id },
+                    }"
+                  >
+                    자세히 보기</router-link
+                  >
                 </h6>
               </h6>
-              <p class="mt-3">
-                Four waves of increasingly deadly alien attacks have left most
-                of Earth in ruin. Cassie is on the run, desperately trying to
-                save her younger brother.
+              <p class="mt-3 overview-text-home">
+                {{ getRecommendedMovies[2]?.overview }}
               </p>
               <p class="mb-2">
-                <span class="col_red me-1 fw-bold">Starring:</span> Eget Nulla
-                Semper Porta Dapibus Diam Ipsum
+                <span class="col_red me-1 fw-bold">인기도:</span>
+                {{ getRecommendedMovies[2]?.popularity }}
               </p>
               <p class="mb-2">
-                <span class="col_red me-1 fw-bold">Genres:</span> Music
+                <span class="col_red me-1 fw-bold">평점:</span>
+                {{ getRecommendedMovies[2]?.vote_average }}
               </p>
-              <p><span class="col_red me-1 fw-bold">Runtime:</span> 1h 32m</p>
+              <p class="mb-2">
+                <span class="col_red me-1 fw-bold">Genres:</span>
+                <span
+                  v-for="(item, index) in getRecommendedMovies[2]?.genre_ids"
+                  :key="index"
+                  >{{ item.name }},
+                </span>
+              </p>
             </div>
           </div>
         </div>
@@ -195,14 +254,26 @@ import { mapGetters, mapActions } from 'vuex';
 export default {
   name: 'HomeView',
   components: { MovieListVue },
+  data() {
+    return {
+      baseImgUrl: 'https://image.tmdb.org/t/p/w500/',
+    };
+  },
 
   computed: {
-    ...mapGetters(['getHighRatingMovies', 'getLatestMovies']),
+    ...mapGetters([
+      'getHighRatingMovies',
+      'getLatestMovies',
+      'getRecommendedMovies',
+      'isLogin',
+    ]),
   },
   methods: {
-    ...mapActions(['getSortedMovies']),
+    ...mapActions(['getSortedMovies', 'fetchRecommendedMovies']),
   },
   created() {
+    if (this.isLogin) this.fetchRecommendedMovies('genre_recommend');
+    else this.getSortedMovies('popularity');
     this.getSortedMovies('vote_average');
     this.getSortedMovies('release_date');
   },
@@ -219,6 +290,14 @@ Author URI: https://www.templateonweb.com/
 Licence: <a href="https://www.templateonweb.com/license">Website Template Licence</a>
 */
 /*********************center_home****************/
+.overview-text-home {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 8; /* Number of lines to display */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .center-img {
   max-width: 1600px;
   max-height: 800px;
