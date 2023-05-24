@@ -1,5 +1,6 @@
 import random
 
+from accounts.models import UserLikedActors, UserLikedDirectors
 from django.contrib.auth import get_user_model
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
@@ -10,8 +11,10 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.renderers import JSONRenderer
 from rest_framework.response import Response
 
-from .models import Movie
-from .serializers import MovieSerializer, RandomMovieSerializer
+from .models import Actor, Director, Movie
+from .serializers import (MovieActorSerializer, MovieDirectorSerializer,
+                          MovieSerializer, RandomActorSerializer,
+                          RandomDirectorSerializer, RandomMovieSerializer)
 
 
 # 분류된 영화 목록 조회
@@ -53,7 +56,7 @@ def movie_search(request):
     return Response(data)
 
 
-# 랜덤영화 추첨 및 알고리즘 기반 영화 추천
+# 랜덤영화 추첨
 @api_view(['GET'])
 def get_random_movies(request):
     count = request.GET.get('count', 16)  # 요청 매개변수 'count'를 가져오고, 기본값은 16으로 설정
@@ -105,6 +108,126 @@ def get_random_movie_by_genre(request):
         Response("좋아하는 장르가 없습니다.")
 
     return Response("검색 결과가 없습니다.")
+
+
+# 랜덤배우 추첨
+@api_view(['GET'])
+def get_random_actors(request):
+    count = request.GET.get('count', 16)  # 요청 매개변수 'count'를 가져오고, 기본값은 16으로 설정
+    actors = list(Actor.objects.all())
+    random_actors = random.sample(actors, int(count))
+    serializer = RandomActorSerializer(random_actors, many=True)
+    return Response(serializer.data)
+
+
+# 추천 영화로 '좋아하는 배우' 추가
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def get_liked_actors(request):
+    actors = request.data
+    user = request.user
+
+    for actor in actors:
+        actor_name = actor.get('name')
+        try:
+            actor_obj = Actor.objects.get(name=actor_name)
+            liked_actor = UserLikedActors.objects.create(user=user, actor=actor_obj, name=actor_name)
+            user.liked_actors.add(liked_actor)
+        except Actor.DoesNotExist:
+            return Response("배우가 없음", status=status.HTTP_404_NOT_FOUND)
+
+    return Response("배우가 성공적으로 추가")
+
+
+# 배우기반 영화추천
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_random_movie_by_actor(request):
+    user = request.user
+    liked_actors = user.liked_actors.all()
+
+    # 사용자가 좋아하는 배우가 있는 경우
+    if liked_actors:
+        movies = []
+        for actor in liked_actors:
+            actor_movies = Actor.objects.filter(name=actor.name)
+            for movie in actor_movies:
+                movie_data = {
+                    'title': movie.title,
+                    'release_date': movie.release_date,
+                    'popularity': movie.popularity,
+                    'vote_average': movie.vote_average,
+                    'overview': movie.overview,
+                    'poster_path': movie.poster_path,
+                    'genre_ids': movie.genre_ids,
+                    'backdrop_path': movie.backdrop_path,
+                }
+                movies.append(movie_data)
+
+        serializer = MovieActorSerializer(movies, many=True)
+        return Response(serializer.data)
+    else:
+        return Response("좋아하는 배우가 없습니다.")
+
+
+# 랜덤감독 추첨
+@api_view(['GET'])
+def get_random_directors(request):
+    count = request.GET.get('count', 16)  # 요청 매개변수 'count'를 가져오고, 기본값은 16으로 설정
+    directors = list(Director.objects.all())
+    random_directors = random.sample(directors, int(count))
+    serializer = RandomDirectorSerializer(random_directors, many=True)
+    return Response(serializer.data)
+
+
+# 추천 영화로 '좋아하는 감독' 추가
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def get_liked_directors(request):
+    directors = request.data
+    user = request.user
+
+    for director in directors:
+        director_name = director.get('name')
+        try:
+            director_obj = Director.objects.get(name=director_name)
+            liked_director = UserLikedDirectors.objects.create(user=user, director=director_obj, name=director_name)
+            user.liked_directors.add(liked_director)
+        except Director.DoesNotExist:
+            return Response("감독이 없음", status=status.HTTP_404_NOT_FOUND)
+
+    return Response("감독이 성공적으로 추가")
+
+
+# 감독기반 영화추천
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_random_movie_by_director(request):
+    user = request.user
+    liked_directors = user.liked_directors.all()
+
+    # 사용자가 좋아하는 감독이 있는 경우
+    if liked_directors:
+        movies = []
+        for director in liked_directors:
+            director_movies = Director.objects.filter(name=director.name)
+            for movie in director_movies:
+                movie_data = {
+                    'title': movie.title,
+                    'release_date': movie.release_date,
+                    'popularity': movie.popularity,
+                    'vote_average': movie.vote_average,
+                    'overview': movie.overview,
+                    'poster_path': movie.poster_path,
+                    'genre_ids': movie.genre_ids,
+                    'backdrop_path': movie.backdrop_path,
+                }
+                movies.append(movie_data)
+
+        serializer = MovieDirectorSerializer(movies, many=True)
+        return Response(serializer.data)
+    else:
+        return Response("좋아하는 감독이 없습니다.")
 
 
 # def get_random_VS_movies():

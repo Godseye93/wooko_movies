@@ -24,3 +24,43 @@ class WorldCupItem(models.Model):
     poster_path = models.CharField(
         max_length=200, null=True, blank=True)  # 이미지
     genre_ids = models.CharField(max_length=100)
+
+
+class ActorWorldCupItem(models.Model):
+    name = models.CharField(max_length=100)
+    profile_path = models.CharField(
+        max_length=200, null=True, blank=True)  # 이미지
+
+
+class DirectorWorldCupItem(models.Model):
+    name = models.CharField(max_length=100)
+    profile_path = models.CharField(
+        max_length=200, null=True, blank=True)  # 이미지
+
+
+class Director(models.Model):
+    model = models.CharField(max_length=20)
+    name = models.CharField(max_length=255, null=True)
+    profile_path = models.CharField(max_length=255, null=True)
+    title = models.CharField(max_length=255, null=True)
+    release_date = models.DateField(null=True)
+    popularity = models.FloatField(null=True)
+    vote_average = models.FloatField(null=True)
+    overview = models.TextField(null=True)
+    poster_path = models.CharField(max_length=255, null=True)
+    genre_ids = models.ManyToManyField(Genre)
+    backdrop_path = models.CharField(max_length=255, null=True)
+
+
+class Actor(models.Model):
+    model = models.CharField(max_length=20)
+    name = models.CharField(max_length=255, null=True)
+    profile_path = models.CharField(max_length=255, null=True)
+    title = models.CharField(max_length=255, null=True)
+    release_date = models.DateField(null=True)
+    popularity = models.FloatField(null=True)
+    vote_average = models.FloatField(null=True)
+    overview = models.TextField(null=True)
+    poster_path = models.CharField(max_length=255, null=True)
+    genre_ids = models.ManyToManyField(Genre)
+    backdrop_path = models.CharField(max_length=255, null=True)

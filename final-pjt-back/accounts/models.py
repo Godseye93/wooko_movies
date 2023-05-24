@@ -1,6 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-from movies.models import Genre
+from movies.models import Actor, Director, Genre
 
 
 class User(AbstractUser):
@@ -20,7 +20,23 @@ class User(AbstractUser):
     # 좋아하는 장르
     liked_genres = models.ManyToManyField(Genre, related_name='like_users', blank=True)
 
-    # 좋아하는 영화배우
-    
-    # 좋아하는 감독
+
+class UserLikedDirectors(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='liked_directors')
+    director = models.ForeignKey(Director, on_delete=models.CASCADE, related_name='liked_by_users')
+    name = models.CharField(max_length=255, null=True)
+
+    class Meta:
+        db_table = 'accounts_user_liked_directors'
+
+
+class UserLikedActors(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='liked_actors')
+    actor = models.ForeignKey(Actor, on_delete=models.CASCADE, related_name='liked_by_users')
+    name = models.CharField(max_length=255, null=True)
+
+    class Meta:
+        db_table = 'accounts_user_liked_actors'
+
+
 
