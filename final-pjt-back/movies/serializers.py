@@ -39,7 +39,7 @@ class MovieActorSerializer(serializers.ModelSerializer):
 class RandomActorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Actor
-        fields = ['id', 'name', 'poster_path']
+        fields = ['id', 'name', 'profile_path']
 
 
 class RandomDirectorSerializer(serializers.ModelSerializer):
