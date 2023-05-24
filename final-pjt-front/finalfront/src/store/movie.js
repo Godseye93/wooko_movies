@@ -155,6 +155,9 @@ const movie = {
       if (router.currentRoute.name === 'versus-game-actor') {
         url = movieUrl.addLikeActor();
       }
+      if (router.currentRoute.name === 'worldcup') {
+        url = movieUrl.addLikeGenre();
+      }
       axios({
         method: 'post',
         url,

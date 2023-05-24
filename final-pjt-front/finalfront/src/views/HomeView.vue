@@ -74,7 +74,8 @@
         <div class="carousel-inner mt-3">
           <div class="carousel-item active">
             <img
-              :src="baseImgUrl + getRecommendedMovies[0]?.backdrop_path"
+              v-if="getRecommendedMovies"
+              :src="baseImgUrl + getRecommendedMovies[0].backdrop_path"
               class="d-block w-100 center-img"
               alt="..."
             />
@@ -121,7 +122,8 @@
 
           <div class="carousel-item">
             <img
-              :src="baseImgUrl + getRecommendedMovies[1]?.backdrop_path"
+              v-if="getRecommendedMovies"
+              :src="baseImgUrl + getRecommendedMovies[1].backdrop_path"
               class="d-block w-100 center-img"
               alt="..."
             />
@@ -168,7 +170,8 @@
 
           <div class="carousel-item">
             <img
-              :src="baseImgUrl + getRecommendedMovies[2]?.backdrop_path"
+              v-if="getRecommendedMovies"
+              :src="baseImgUrl + getRecommendedMovies[2].backdrop_path"
               class="d-block w-100 center-img"
               alt="..."
             />

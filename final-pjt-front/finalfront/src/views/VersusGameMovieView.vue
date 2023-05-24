@@ -2,14 +2,22 @@
   <div class="d-flex justify-content-center align-items-center" v-if="!isDone">
     <div class="d-flex flex-column align-items-center" @click="selectPrev">
       <figure class="effect-jazz">
-        <img :src="imgBaseUrlMain + getContestants[0]?.poster_path" alt="" />
+        <img
+          v-if="getContestants"
+          :src="imgBaseUrlMain + getContestants[0].poster_path"
+          alt=""
+        />
       </figure>
       <h2>{{ getContestants[0]?.title }}</h2>
     </div>
     <h3 class="me-5 ms-5 col_red">VS</h3>
     <div class="d-flex flex-column align-items-center" @click="selectNext">
       <figure class="effect-jazz">
-        <img :src="imgBaseUrlMain + getContestants[1]?.poster_path" alt="" />
+        <img
+          v-if="getContestants"
+          :src="imgBaseUrlMain + getContestants[1].poster_path"
+          alt=""
+        />
       </figure>
       <h2>{{ getContestants[1]?.title }}</h2>
     </div>
