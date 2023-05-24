@@ -17,12 +17,13 @@ export default {
   // searchMovies: () => 'http://127.0.0.1:8000/movies/?search=더',
   // // 추천 영화 조회
   // movie_recommend: (genre_id) => MOVIES_HOST + `${genre_id}/genre/`,
-  randContestants: (count) => MOVIES_HOST + 'random' + `?count=${count}`,
+  randContestants: (count) => MOVIES_HOST + 'random/' + `?count=${count}`,
   addLikeGenre: () => MOVIES_HOST + 'get_liked_genres/',
   addLikeActor: () => MOVIES_HOST + 'get_liked_actor/',
   addLikeDirector: () => MOVIES_HOST + 'get_liked_director/',
-  randDirectors: (count) => MOVIES_HOST + 'random_director' + `?count=${count}`,
-  randActors: (count) => MOVIES_HOST + 'random_actor' + `?count=${count}`,
+  randDirectors: (count) =>
+    MOVIES_HOST + 'random_director/' + `?count=${count}`,
+  randActors: (count) => MOVIES_HOST + 'random_actor/' + `?count=${count}`,
 
   // 장르기반 영화추천
   genreRecommend: () => MOVIES_HOST + 'random-by-genre/',
