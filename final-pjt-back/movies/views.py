@@ -1,5 +1,6 @@
 import random
 
+from accounts.models import UserLikedActors, UserLikedDirectors
 from django.contrib.auth import get_user_model
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
@@ -11,7 +12,8 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework.response import Response
 
 from .models import Actor, Director, Movie
-from .serializers import (MovieSerializer, RandomActorSerializer,
+from .serializers import (MovieActorSerializer, MovieDirectorSerializer,
+                          MovieSerializer, RandomActorSerializer,
                           RandomDirectorSerializer, RandomMovieSerializer)
 
 
@@ -114,7 +116,7 @@ def get_random_actors(request):
     count = request.GET.get('count', 16)  # 요청 매개변수 'count'를 가져오고, 기본값은 16으로 설정
     actors = list(Actor.objects.all())
     random_actors = random.sample(actors, int(count))
-    serializer = RandomMovieSerializer(random_actors, many=True)
+    serializer = RandomActorSerializer(random_actors, many=True)
     return Response(serializer.data)
 
 
@@ -126,12 +128,13 @@ def get_liked_actors(request):
     user = request.user
 
     for actor in actors:
-        actor_id = actor.get('id')
+        actor_name = actor.get('name')
         try:
-            actor_obj = Actor.objects.get(id=actor_id)  # id에 해당하는 영화를 가져옵니다
-            user.liked_actors.add(actor_obj)
+            actor_obj = Actor.objects.get(name=actor_name)
+            liked_actor = UserLikedActors.objects.create(user=user, actor=actor_obj, name=actor_name)
+            user.liked_actors.add(liked_actor)
         except Actor.DoesNotExist:
-            return Response("영화가 없음", status=status.HTTP_404_NOT_FOUND)
+            return Response("배우가 없음", status=status.HTTP_404_NOT_FOUND)
 
     return Response("배우가 성공적으로 추가")
 
@@ -161,7 +164,7 @@ def get_random_movie_by_actor(request):
                 }
                 movies.append(movie_data)
 
-        serializer = RandomActorSerializer(movies, many=True)
+        serializer = MovieActorSerializer(movies, many=True)
         return Response(serializer.data)
     else:
         return Response("좋아하는 배우가 없습니다.")
@@ -187,10 +190,11 @@ def get_liked_directors(request):
     for director in directors:
         director_name = director.get('name')
         try:
-            director_obj = Director.objects.get(name=director_name)  # id에 해당하는 영화를 가져옵니다
-            user.liked_directors.add(director_obj)
+            director_obj = Director.objects.get(name=director_name)
+            liked_director = UserLikedDirectors.objects.create(user=user, director=director_obj, name=director_name)
+            user.liked_directors.add(liked_director)
         except Director.DoesNotExist:
-            return Response("영화가 없음", status=status.HTTP_404_NOT_FOUND)
+            return Response("감독이 없음", status=status.HTTP_404_NOT_FOUND)
 
     return Response("감독이 성공적으로 추가")
 
@@ -220,7 +224,7 @@ def get_random_movie_by_director(request):
                 }
                 movies.append(movie_data)
 
-        serializer = RandomDirectorSerializer(movies, many=True)
+        serializer = MovieDirectorSerializer(movies, many=True)
         return Response(serializer.data)
     else:
         return Response("좋아하는 감독이 없습니다.")

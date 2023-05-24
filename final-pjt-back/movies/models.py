@@ -48,7 +48,7 @@ class Director(models.Model):
     vote_average = models.FloatField(null=True)
     overview = models.TextField(null=True)
     poster_path = models.CharField(max_length=255, null=True)
-    genre_ids = models.JSONField(null=True)
+    genre_ids = models.ManyToManyField(Genre)
     backdrop_path = models.CharField(max_length=255, null=True)
 
 
@@ -62,5 +62,5 @@ class Actor(models.Model):
     vote_average = models.FloatField(null=True)
     overview = models.TextField(null=True)
     poster_path = models.CharField(max_length=255, null=True)
-    genre_ids = models.JSONField(null=True)
+    genre_ids = models.ManyToManyField(Genre)
     backdrop_path = models.CharField(max_length=255, null=True)

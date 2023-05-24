@@ -31,9 +31,8 @@ class UserLikedDirectors(models.Model):
 
 
 class UserLikedActors(models.Model):
-    actor = models.ForeignKey(Actor, on_delete=models.CASCADE)
-    id = models.AutoField(primary_key=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='liked_actors')
+    actor = models.ForeignKey(Actor, on_delete=models.CASCADE, related_name='liked_by_users')
     name = models.CharField(max_length=255, null=True)
 
     class Meta:
