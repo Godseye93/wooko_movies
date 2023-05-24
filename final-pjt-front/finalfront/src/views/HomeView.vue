@@ -81,7 +81,7 @@
             />
             <div
               class="carousel-caption d-md-block"
-              style="text-align: left; padding: 150px 150px; bottom: 0; left: 0"
+              style="text-align: left; padding: 220px; bottom: 0; left: 0"
             >
               <h1 class="font_60">{{ getRecommendedMovies[0]?.title }}</h1>
               <h6 class="mt-3">
@@ -129,7 +129,7 @@
             />
             <div
               class="carousel-caption d-md-block"
-              style="text-align: left; padding: 150px 150px; bottom: 0; left: 0"
+              style="text-align: left; padding: 220px; bottom: 0; left: 0"
             >
               <h1 class="font_60">{{ getRecommendedMovies[1]?.title }}</h1>
               <h6 class="mt-3">
@@ -177,7 +177,7 @@
             />
             <div
               class="carousel-caption d-md-block"
-              style="text-align: left; padding: 150px 150px; bottom: 0; left: 0"
+              style="text-align: left; padding: 220px; bottom: 0; left: 0"
             >
               <h1 class="font_60">{{ getRecommendedMovies[2]?.title }}</h1>
               <h6 class="mt-3">
@@ -293,6 +293,9 @@ Author URI: https://www.templateonweb.com/
 Licence: <a href="https://www.templateonweb.com/license">Website Template Licence</a>
 */
 /*********************center_home****************/
+.carousel-item {
+  margin-left: 40px;
+}
 .overview-text-home {
   display: -webkit-box;
   -webkit-box-orient: vertical;

@@ -68,14 +68,12 @@
         <p class="mt-3">팔로잉: {{ getProfileInfo.followings_count }}</p>
         <p class="mt-3">선호장르</p>
         <ul class="mb-0 mt-1">
-          <li class="d-inline-block">
-            <a class="d-block">Analyze</a>
-          </li>
-          <li class="d-inline-block">
-            <a class="d-block">Audio</a>
-          </li>
-          <li class="d-inline-block">
-            <a class="d-block">Blog</a>
+          <li
+            class="d-inline-block"
+            v-for="(item, index) in getProfileInfo.liked_genres"
+            :key="index"
+          >
+            <a class="d-block">{{ item.name }}</a>
           </li>
         </ul>
 
