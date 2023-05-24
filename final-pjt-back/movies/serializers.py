@@ -53,4 +53,4 @@ class RandomMovieSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = WorldCupItem
-        fields = ['id', 'name', 'profile_path']
+        fields = ['id', 'title', 'poster_path', 'genre_ids']

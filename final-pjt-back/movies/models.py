@@ -20,6 +20,7 @@ class Movie(models.Model):
 
 
 class WorldCupItem(models.Model):
+    name = models.CharField(max_length=100)
     title = models.CharField(max_length=100)
     poster_path = models.CharField(
         max_length=200, null=True, blank=True)  # 이미지
