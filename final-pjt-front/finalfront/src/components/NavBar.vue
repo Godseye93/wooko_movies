@@ -119,7 +119,7 @@
                     <router-link
                       class="dropdown-item border-0"
                       :to="{
-                        name: 'versus-game-movie',
+                        name: 'versus-game-actor',
                       }"
                       >VS 게임(배우 ver)</router-link
                     >
@@ -128,7 +128,7 @@
                     <router-link
                       class="dropdown-item border-0"
                       :to="{
-                        name: 'versus-game-movie',
+                        name: 'versus-game-director',
                       }"
                       >VS 게임(감독 ver)</router-link
                     >

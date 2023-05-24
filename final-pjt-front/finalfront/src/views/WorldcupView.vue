@@ -1,20 +1,25 @@
 <template>
-  <div class="d-flex justify-content-center align-items-center" v-if="!isDone">
-    <div class="d-flex flex-column align-items-center" @click="selectPrev">
-      <figure class="effect-jazz">
-        <img :src="imgBaseUrlMain + getContestants[0]?.poster_path" alt="" />
-      </figure>
-      <h2>{{ getContestants[0]?.title }}</h2>
-    </div>
-    <h3 class="me-5 ms-5 col_red">VS</h3>
-    <div class="d-flex flex-column align-items-center" @click="selectNext">
-      <figure class="effect-jazz">
-        <img :src="imgBaseUrlMain + getContestants[1]?.poster_path" alt="" />
-      </figure>
-      <h2>{{ getContestants[1]?.title }}</h2>
+  <div v-if="!isDone">
+    <h1 v-if="round === 2" class="text-center">결승</h1>
+    <h1 v-else class="text-center">{{ round }} 강</h1>
+    <div class="d-flex justify-content-center align-items-center">
+      <div class="d-flex flex-column align-items-center" @click="selectPrev">
+        <figure class="effect-jazz">
+          <img :src="imgBaseUrlMain + getContestants[0]?.poster_path" alt="" />
+        </figure>
+        <h2>{{ getContestants[0]?.title }}</h2>
+      </div>
+      <h3 class="me-5 ms-5 col_red">VS</h3>
+      <div class="d-flex flex-column align-items-center" @click="selectNext">
+        <figure class="effect-jazz">
+          <img :src="imgBaseUrlMain + getContestants[1]?.poster_path" alt="" />
+        </figure>
+        <h2>{{ getContestants[1]?.title }}</h2>
+      </div>
     </div>
   </div>
   <div v-else>
+    <h1 class="text-center">우승</h1>
     <div class="text-center">
       <figure>
         <img
@@ -42,6 +47,7 @@ export default {
       winnerList: [],
       isDone: false,
       imgBaseUrlMain: 'https://image.tmdb.org/t/p/w500/',
+      round: 8,
     };
   },
   computed: {
@@ -58,6 +64,7 @@ export default {
       if (this.getContestants.length === 0) {
         this.SET_CONTESTANTS([...this.winnerList]);
         this.winnerList = [];
+        this.round /= 2;
         if (this.getContestants.length === 1) {
           this.isDone = true;
           this.sendGameResult(this.getContestants);
@@ -72,6 +79,7 @@ export default {
       if (this.getContestants.length === 0) {
         this.SET_CONTESTANTS([...this.winnerList]);
         this.winnerList = [];
+        this.round /= 2;
         if (this.getContestants.length === 1) {
           this.isDone = true;
           this.sendGameResult(this.getContestants);
