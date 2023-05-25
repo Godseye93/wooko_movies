@@ -26,22 +26,24 @@
             임의의 영화가 추천 됩니다</span
           >
         </p>
-        <button
-          class="button rounded fs-6 me-3"
-          @click="fetchRecommendedMovies('genre_recommend')"
-        >
-          장르별 추천</button
-        ><button
-          class="button rounded fs-6 me-3"
-          @click="fetchRecommendedMovies('actor_recommend')"
-        >
-          배우별 추천</button
-        ><button
-          class="button rounded fs-6"
-          @click="fetchRecommendedMovies('director_recommend')"
-        >
-          감독별 추천
-        </button>
+        <div v-if="isLogin">
+          <button
+            class="button rounded fs-6 me-3"
+            @click="fetchRecommendedMovies('genre_recommend')"
+          >
+            장르별 추천</button
+          ><button
+            class="button rounded fs-6 me-3"
+            @click="fetchRecommendedMovies('actor_recommend')"
+          >
+            배우별 추천</button
+          ><button
+            class="button rounded fs-6"
+            @click="fetchRecommendedMovies('director_recommend')"
+          >
+            감독별 추천
+          </button>
+        </div>
       </h4>
       <div
         id="carouselExampleCaptions"
@@ -248,6 +250,12 @@
       class="mb-5"
     />
     <MovieListVue
+      category="오늘의 추천"
+      :movieInfoList="getMainRandomMovies"
+      slideId="carouselExampleCaptions8"
+      class="mb-5"
+    />
+    <MovieListVue
       category="코미디 추천"
       :movieInfoList="getComedyMovies"
       slideId="carouselExampleCaptions4"
@@ -297,6 +305,7 @@ export default {
       'getAdventureMovies',
       'getFantasyMovies',
       'getThrillerMovies',
+      'getMainRandomMovies',
     ]),
   },
   methods: {
@@ -304,6 +313,7 @@ export default {
       'getSortedMovies',
       'fetchRecommendedMovies',
       'getMoviesByGenres',
+      'fetchMainRandomMovies',
     ]),
   },
   created() {
@@ -315,6 +325,7 @@ export default {
     this.getMoviesByGenres(12);
     this.getMoviesByGenres(14);
     this.getMoviesByGenres(53);
+    this.fetchMainRandomMovies();
   },
 };
 </script>

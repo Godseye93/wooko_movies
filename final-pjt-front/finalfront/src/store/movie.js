@@ -237,10 +237,10 @@ const movie = {
           alert(err);
         });
     },
-    getMainRandomMovies(context) {
+    fetchMainRandomMovies(context) {
       axios({
         method: 'get',
-        url: movieUrl.mainRandomMovies(8),
+        url: movieUrl.mainRandomMovies(),
       })
         .then((res) => {
           context.commit('SET_MAIN_RANDOM_MOVIES', res.data);
