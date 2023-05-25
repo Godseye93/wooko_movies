@@ -35,6 +35,8 @@ def filter_movie_data(movie_data):
             continue
         if movie["genre_ids"] == "":
             continue
+        if movie["vote_count"] < 200:
+            continue
 
         filtered_movie = {
             "id": movie["id"],
