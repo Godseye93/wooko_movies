@@ -53,7 +53,7 @@ def save_movie_data_to_json(movie_data, output_file):
         json.dump(movie_data, file, indent=4, ensure_ascii=False)
 
 
-api_key = 'd39490e01fe62d2873cc30008341172d'
+api_key = 'c040cb7bd8b6353830e761a9f2364116'
 total_pages = 86  # 전체 영화가 91page 지만 86 page부터 field 요소 자체가 없는경우가 있어서 오류가남 86이 최대치임
 movies = fetch_movie_data(api_key, total_pages)
 if movies:
