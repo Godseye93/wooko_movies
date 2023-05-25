@@ -31,4 +31,6 @@ export default {
   actorRecommend: () => MOVIES_HOST + 'random-by-actor/',
   // 감독기반 영화추천
   directorRecommend: () => MOVIES_HOST + 'random-by-director/',
+  getMoviesByGenres: (genreId) =>
+    MOVIES_HOST + `recommended/?sort_by=vote_average&genre_id=${genreId}`,
 };

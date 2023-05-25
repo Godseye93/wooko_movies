@@ -10,6 +10,11 @@ const movie = {
     searchMovies: [],
     movieDetail: {},
     contestants: [],
+    mainRandomMovies: [],
+    comedyMovies: [],
+    adventureMovies: [],
+    fantasyMovies: [],
+    thrillerMovies: [],
   },
   getters: {
     getRecommendedMovies(state) {
@@ -30,6 +35,21 @@ const movie = {
     getContestants(state) {
       return state.contestants;
     },
+    getMainRandomMovies(state) {
+      return state.mainRandomMovies;
+    },
+    getComedyMovies(state) {
+      return state.comedyMovies;
+    },
+    getAdventureMovies(state) {
+      return state.adventureMovies;
+    },
+    getFantasyMovies(state) {
+      return state.fantasyMovies;
+    },
+    getThrillerMovies(state) {
+      return state.thrillerMovies;
+    },
   },
   mutations: {
     SET_RECOMMENDED_MOVIES(state, recommendedMovies) {
@@ -49,6 +69,21 @@ const movie = {
     },
     SET_CONTESTANTS(state, contestants) {
       state.contestants = contestants;
+    },
+    SET_MAIN_RANDOM_MOVIES(state, mainRandomMovies) {
+      state.mainRandomMovies = mainRandomMovies;
+    },
+    SET_COMEDY_MOVIES(state, comedyMovies) {
+      state.comedyMovies = comedyMovies;
+    },
+    SET_ADVENTURE_MOVIES(state, adventureMovies) {
+      state.adventureMovies = adventureMovies;
+    },
+    SET_FANTASY_MOVIES(state, fantasyMovies) {
+      state.fantasyMovies = fantasyMovies;
+    },
+    SET_THRILLER_MOVIES(state, thrillerMovies) {
+      state.thrillerMovies = thrillerMovies;
     },
   },
   actions: {
@@ -197,6 +232,38 @@ const movie = {
       })
         .then((res) => {
           commit('SET_CONTESTANTS', res.data);
+        })
+        .catch((err) => {
+          alert(err);
+        });
+    },
+    getMainRandomMovies(context) {
+      axios({
+        method: 'get',
+        url: movieUrl.mainRandomMovies(8),
+      })
+        .then((res) => {
+          context.commit('SET_MAIN_RANDOM_MOVIES', res.data);
+        })
+        .catch((err) => {
+          alert(err);
+        });
+    },
+    getMoviesByGenres(context, genreId) {
+      axios({
+        method: 'get',
+        url: movieUrl.getMoviesByGenres(genreId),
+      })
+        .then((res) => {
+          if (genreId === 35) {
+            context.commit('SET_COMEDY_MOVIES', res.data);
+          } else if (genreId === 12) {
+            context.commit('SET_ADVENTURE_MOVIES', res.data);
+          } else if (genreId === 14) {
+            context.commit('SET_FANTASY_MOVIES', res.data);
+          } else if (genreId === 53) {
+            context.commit('SET_THRILLER_MOVIES', res.data);
+          }
         })
         .catch((err) => {
           alert(err);

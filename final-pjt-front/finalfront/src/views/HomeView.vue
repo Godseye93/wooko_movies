@@ -247,6 +247,30 @@
       slideId="carouselExampleCaptions3"
       class="mb-5"
     />
+    <MovieListVue
+      category="코미디 추천"
+      :movieInfoList="getComedyMovies"
+      slideId="carouselExampleCaptions4"
+      class="mb-5"
+    />
+    <MovieListVue
+      category="모험 추천"
+      :movieInfoList="getAdventureMovies"
+      slideId="carouselExampleCaptions5"
+      class="mb-5"
+    />
+    <MovieListVue
+      category="판타지 추천"
+      :movieInfoList="getFantasyMovies"
+      slideId="carouselExampleCaptions6"
+      class="mb-5"
+    />
+    <MovieListVue
+      category="스릴러 추천"
+      :movieInfoList="getThrillerMovies"
+      slideId="carouselExampleCaptions7"
+      class="mb-5"
+    />
   </div>
 </template>
 <script>
@@ -269,16 +293,28 @@ export default {
       'getLatestMovies',
       'getRecommendedMovies',
       'isLogin',
+      'getComedyMovies',
+      'getAdventureMovies',
+      'getFantasyMovies',
+      'getThrillerMovies',
     ]),
   },
   methods: {
-    ...mapActions(['getSortedMovies', 'fetchRecommendedMovies']),
+    ...mapActions([
+      'getSortedMovies',
+      'fetchRecommendedMovies',
+      'getMoviesByGenres',
+    ]),
   },
   created() {
     if (this.isLogin) this.fetchRecommendedMovies('genre_recommend');
     else this.getSortedMovies('popularity');
     this.getSortedMovies('vote_average');
     this.getSortedMovies('release_date');
+    this.getMoviesByGenres(35);
+    this.getMoviesByGenres(12);
+    this.getMoviesByGenres(14);
+    this.getMoviesByGenres(53);
   },
 };
 </script>
