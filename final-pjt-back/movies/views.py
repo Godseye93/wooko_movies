@@ -237,6 +237,15 @@ def get_random_movie_by_director(request):
         return Response("좋아하는 감독이 없습니다.")
 
 
+# 랜덤하게 8개 영화 보내기
+@api_view(['GET'])
+def get_main_random_movies(request):
+    movies = Movie.objects.all()
+    random_movies = random.sample(list(movies), min(len(movies), 8))  # 랜덤으로 8개 선택
+    serializer = MovieSerializer(random_movies, many=True)
+    return Response(serializer.data)
+
+
 # def get_random_VS_movies():
 #     movies = list(Movie.objects.all())  # 모든 영화 정보를 가져옵니다.
 #     random_movies = random.sample(movies, 8)  # 영화 정보에서 랜덤하게 16개를 선택합니다.
