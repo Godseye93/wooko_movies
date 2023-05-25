@@ -91,10 +91,12 @@
                 <h6 class="mt-4">
                   <router-link
                     class="button"
-                    :to="{
-                      name: 'movie-detail',
-                      params: { movieId: getRecommendedMovies[0]?.id },
-                    }"
+                    :to="
+                      getRecommendedMovies[0].hasOwnProperty('id') && {
+                        name: 'movie-detail',
+                        params: { movieId: getRecommendedMovies[0]?.id },
+                      }
+                    "
                   >
                     자세히 보기</router-link
                   >
@@ -139,10 +141,12 @@
                 <h6 class="mt-4">
                   <router-link
                     class="button"
-                    :to="{
-                      name: 'movie-detail',
-                      params: { movieId: getRecommendedMovies[1]?.id },
-                    }"
+                    :to="
+                      getRecommendedMovies[1].hasOwnProperty('id') && {
+                        name: 'movie-detail',
+                        params: { movieId: getRecommendedMovies[1]?.id },
+                      }
+                    "
                   >
                     자세히 보기</router-link
                   >
@@ -187,10 +191,12 @@
                 <h6 class="mt-4">
                   <router-link
                     class="button"
-                    :to="{
-                      name: 'movie-detail',
-                      params: { movieId: getRecommendedMovies[2]?.id },
-                    }"
+                    :to="
+                      getRecommendedMovies[2].hasOwnProperty('id') && {
+                        name: 'movie-detail',
+                        params: { movieId: getRecommendedMovies[2]?.id },
+                      }
+                    "
                   >
                     자세히 보기</router-link
                   >
