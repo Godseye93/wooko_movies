@@ -45,7 +45,7 @@
 
 ## 📝ERD(entity relationship diagram)
 
-![movie](https://github.com/Jeongseulho/wooko_movies/assets/110578739/97dc76f8-343a-48e0-afe0-9a05bf266c84)
+![movie (1)](https://github.com/Jeongseulho/wooko_movies/assets/110578739/5e3ae43c-1318-454c-993a-6179951fc786)
 
 ## 📝API 명세서
 
@@ -56,3 +56,8 @@
 - https://ovenapp.io/view/G2zTx0SYO1wp5OyWLGokk1e75XoqwpYX/tytSZ
 
 # 📖 배운점 및 후기
+
+- Vue의 상태관리에대하여 더 공부할 수 있었습니다
+- Database의 관계에대하여 더 공부할 수 있었습니다
+- 프론트엔드와 백엔드의 협업에대하여 더 공부할 수 있었습니다
+- 설계의 중요성을 더 깨닫게 되었습니다
