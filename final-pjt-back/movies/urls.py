@@ -23,6 +23,9 @@ urlpatterns = [
     path('random_director/', views.get_random_directors, name='get_random_directors'),  # 랜덤감독 추첨
     path('random-by-director/', views.get_random_movie_by_director, name='get_random_movie_by_director'),  # 감독기반 영화추첨
     path('get_liked_director/', views.get_liked_directors, name='get_liked_directors'),  # 좋아하는 감독 추가
+
+    # 랜덤으로 영화 추천
+    path('mainrandom/', views.get_main_random_movies, name='get_main_random_movies')  # 랜덤영화 8개 추가
 ]
 
 # path('VS/', views.get_random_VS_movies, name='get_random_VS_movies')
