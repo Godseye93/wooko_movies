@@ -293,9 +293,7 @@ Author URI: https://www.templateonweb.com/
 Licence: <a href="https://www.templateonweb.com/license">Website Template Licence</a>
 */
 /*********************center_home****************/
-.center-img {
-  margin: 0;
-}
+
 .overview-text-home {
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -307,6 +305,7 @@ Licence: <a href="https://www.templateonweb.com/license">Website Template Licenc
 .center-img {
   max-width: 1600px;
   max-height: 800px;
+  margin: 0 auto;
 }
 .carousel-item {
   position: relative;
