@@ -21,8 +21,11 @@ from .serializers import (MovieActorSerializer, MovieDirectorSerializer,
 @api_view(['GET'])
 def movie_sort(request):
     sort_by = request.GET.get('sort_by')  # 정렬 기준 파라미터 받기
+    genre_id = request.GET.get('genre_id')
     movies = Movie.objects.all()
 
+    if genre_id:
+        movies = movies.filter(genre_ids=genre_id)
     # if sort_by == 'popularity':
     #     movies = movies.order_by('-popularity')
     if sort_by == 'vote_average':
