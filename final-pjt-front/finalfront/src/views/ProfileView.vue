@@ -6,7 +6,7 @@
           <figure class="effect-jazz mb-0">
             <a href="#"
               ><img
-                src="../assets/logo.png"
+                src="../assets/istockphoto-1130884625-612x612.jpg"
                 height="515"
                 class="w-100"
                 alt="abc"
