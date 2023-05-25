@@ -87,7 +87,7 @@ const routes = [
     component: VersusGameMovieView,
   },
   {
-    path: '/worldcup',
+    path: '/worldcup/:round',
     name: 'worldcup',
     component: WorldcupView,
   },

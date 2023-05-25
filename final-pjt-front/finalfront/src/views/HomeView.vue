@@ -74,7 +74,7 @@
         <div class="carousel-inner mt-3">
           <div class="carousel-item active">
             <img
-              v-if="getRecommendedMovies"
+              v-if="getRecommendedMovies[0]"
               :src="baseImgUrl + getRecommendedMovies[0].backdrop_path"
               class="d-block w-100 center-img"
               alt="..."
@@ -122,7 +122,7 @@
 
           <div class="carousel-item">
             <img
-              v-if="getRecommendedMovies"
+              v-if="getRecommendedMovies[1]"
               :src="baseImgUrl + getRecommendedMovies[1].backdrop_path"
               class="d-block w-100 center-img"
               alt="..."
@@ -170,7 +170,7 @@
 
           <div class="carousel-item">
             <img
-              v-if="getRecommendedMovies"
+              v-if="getRecommendedMovies[2]"
               :src="baseImgUrl + getRecommendedMovies[2].backdrop_path"
               class="d-block w-100 center-img"
               alt="..."
@@ -293,8 +293,8 @@ Author URI: https://www.templateonweb.com/
 Licence: <a href="https://www.templateonweb.com/license">Website Template Licence</a>
 */
 /*********************center_home****************/
-.carousel-item {
-  margin-left: 40px;
+.center-img {
+  margin: 0;
 }
 .overview-text-home {
   display: -webkit-box;

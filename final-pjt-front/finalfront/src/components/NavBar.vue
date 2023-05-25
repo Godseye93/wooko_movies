@@ -102,8 +102,22 @@
                   <li>
                     <router-link
                       class="dropdown-item"
-                      :to="{ name: 'worldcup' }"
-                      >이상형 월드컵</router-link
+                      :to="{ name: 'worldcup', params: { round: 8 } }"
+                      >이상형 월드컵(8강)</router-link
+                    >
+                  </li>
+                  <li>
+                    <router-link
+                      class="dropdown-item"
+                      :to="{ name: 'worldcup', params: { round: 16 } }"
+                      >이상형 월드컵(16강)</router-link
+                    >
+                  </li>
+                  <li>
+                    <router-link
+                      class="dropdown-item"
+                      :to="{ name: 'worldcup', params: { round: 32 } }"
+                      >이상형 월드컵(32강)</router-link
                     >
                   </li>
                   <li>

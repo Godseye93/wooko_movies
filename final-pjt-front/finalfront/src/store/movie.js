@@ -70,8 +70,13 @@ const movie = {
         },
       })
         .then((res) => {
-          if (res.data === '검색 결과가 없습니다.') {
+          if (
+            res.data === '검색 결과가 없습니다.' ||
+            res.data === '좋아하는 배우가 없습니다.' ||
+            res.data === '좋아하는 감독이 없습니다.'
+          ) {
             context.dispatch('getSortedMovies', 'popularity');
+            return;
           }
           context.commit('SET_RECOMMENDED_MOVIES', res.data);
         })
@@ -173,13 +178,13 @@ const movie = {
           alert(err);
         });
     },
-    getRandDirectors({ commit }, count) {
+    getRandDirectors(context, count) {
       axios({
         method: 'get',
         url: movieUrl.randDirectors(count),
       })
         .then((res) => {
-          commit('SET_CONTESTANTS', res.data);
+          context.commit('SET_CONTESTANTS', res.data);
         })
         .catch((err) => {
           alert(err);

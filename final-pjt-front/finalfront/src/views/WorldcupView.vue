@@ -6,7 +6,7 @@
       <div class="d-flex flex-column align-items-center" @click="selectPrev">
         <figure class="effect-jazz">
           <img
-            v-if="getContestants"
+            v-if="getContestants[0]"
             :src="imgBaseUrlMain + getContestants[0].poster_path"
             alt=""
           />
@@ -17,7 +17,7 @@
       <div class="d-flex flex-column align-items-center" @click="selectNext">
         <figure class="effect-jazz">
           <img
-            v-if="getContestants"
+            v-if="getContestants[1]"
             :src="imgBaseUrlMain + getContestants[1].poster_path"
             alt=""
           />
@@ -31,7 +31,7 @@
     <div class="text-center">
       <figure>
         <img
-          v-if="getContestants"
+          v-if="getContestants[0]"
           :src="
             'https://image.tmdb.org/t/p/w300/' + getContestants[0].poster_path
           "
@@ -56,7 +56,7 @@ export default {
       winnerList: [],
       isDone: false,
       imgBaseUrlMain: 'https://image.tmdb.org/t/p/w500/',
-      round: 8,
+      round: this.$route.params.round,
     };
   },
   computed: {
@@ -107,7 +107,14 @@ export default {
     },
   },
   created() {
-    this.getRandContestants(8);
+    this.getRandContestants(this.$route.params.round);
+  },
+  beforeRouteUpdate(to, from, next) {
+    this.getRandContestants(to.params.round);
+    this.winnerList = [];
+    this.round = to.params.round;
+    this.isDone = false;
+    next(); // URL 이동, 라우팅 하기
   },
 };
 </script>
