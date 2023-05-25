@@ -3,7 +3,7 @@
     <div class="d-flex flex-column align-items-center" @click="selectPrev">
       <figure class="effect-jazz">
         <img
-          v-if="getContestants"
+          v-if="getContestants[0]"
           :src="imgBaseUrlMain + getContestants[0].poster_path"
           alt=""
         />
@@ -14,7 +14,7 @@
     <div class="d-flex flex-column align-items-center" @click="selectNext">
       <figure class="effect-jazz">
         <img
-          v-if="getContestants"
+          v-if="getContestants[1]"
           :src="imgBaseUrlMain + getContestants[1].poster_path"
           alt=""
         />
